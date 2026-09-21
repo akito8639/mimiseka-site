@@ -159,3 +159,11 @@ footer p { max-width: 40em; margin: 6px auto 0; }
   .tayori-item { grid-template-columns: 1fr; gap: 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ブランド（ロゴ・アイコン）— レギュレーション: 影や効果を足さない・比率を変えない・余白は高さの 1/4 以上 */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.topbar .home { display: inline-flex; align-items: center; padding: 8px 0; }
+.topbar .home img { height: 26px; width: auto; display: block; }
+.cover .logo { display: block; width: min(220px, 56vw); height: auto; margin: 0 auto; }
+.cover .appicon { display: block; width: 84px; height: 84px; border-radius: 20px; margin: 0 auto 18px; }
+.app .icon { display: block; width: 56px; height: 56px; border-radius: 14px; margin-bottom: 14px; }
