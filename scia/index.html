@@ -6,8 +6,8 @@
 <title>ミミセカ シア — 写真と話す、書かない日記</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../site.css?v=20260922e">
-<script src="../site.js?v=20260922e" defer></script>
+<link rel="stylesheet" href="../site.css?v=20260922d">
+<script src="../site.js?v=20260922d" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
 <link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -39,17 +39,6 @@
 
 <div class="frame">
   <main id="main">
-  <section class="process" aria-labelledby="h-process">
-    <h2 class="sec-head" id="h-process">撮ってから、思い出になるまで</h2>
-    <p class="sec-note">撮った瞬間は、まだ途中です。</p>
-    <ol>
-      <li><b>撮る<small>まだ、途中</small></b><p>写真は「見たもの」の記録。撮っただけでは、思い出にはなりません。</p></li>
-      <li><b>話す<small>3 分</small></b><p>一日の終わりに、今日の一枚と話す。シアは答えを出さず、あなたの言葉を返して、ひとつだけ訊きます。</p></li>
-      <li><b>日記になる<small>自分の言葉のまま</small></b><p>話したことが、あなたの言葉づかいのまま日記になります。翌日読み返すと、話している最中には気づかなかったことが、見えてきます。</p></li>
-      <li><b>思い出になる<small>語った写真は、残る</small></b><p>話した写真は、ただ撮った写真とは、ちがう残り方をします。物語にして聴く、本にして贈る——その先は、お好みで。</p></li>
-    </ol>
-  </section>
-
   <section aria-labelledby="h-talk">
     <h2 class="sec-head" id="h-talk">書かなくていい。<br>話すだけで、日記になります</h2>
     <p class="sec-note">撮った写真に、シアがやさしく問いかけます。答えているうちに、忘れかけていた記憶がほどけていきます。</p>
@@ -94,6 +83,7 @@
 
   <section class="start" aria-labelledby="h-start">
     <h2 class="sec-head" id="h-start">はじめかた</h2>
+    <p class="steps">撮る　→　<em>話す</em>　→　日記になる　→　物語になる　→　聴く</p>
     <a class="btn btn-primary" href="https://apps.apple.com/jp/app/id6760955583">App Store で無料ではじめる</a>
     <p class="fine">
       無料で始められます。じっくり使うなら、月 300 円から。<br>
@@ -152,7 +142,7 @@
   const lb = document.getElementById('listenBtn');
   lb.hidden = false;
   const page = 'ミミセカ シア。写真と話す、書かない日記。一日の終わりに、今日の一枚とすこし話す。それだけで、その日はあなたの物語になります。' +
-    '撮った瞬間は、まだ途中です。一日の終わりに今日の一枚と話すと、あなたの言葉づかいのまま日記になり、話した写真は、ただ撮った写真とはちがう残り方をします。日記は11の文体で物語になり、本棚に並び、声で聴けます。' +
+    '撮った写真にシアが問いかけ、答えた言葉がそのまま日記になります。日記は11の文体で物語になり、本棚に並び、声で聴けます。' +
     'QRコードやリンクにすれば、アプリのない家族もブラウザで朗読を聴けます。説明は写真そのものに埋め込まれ、目の見えない人にも同じ思い出が届きます。' +
     '無料で始められます。自分の物語が、はじまる。';
   lb.addEventListener('click', () => window.mimisekaSpeak(page, lb, '♪ このページを聴く', '■ 読み上げをとめる'));
