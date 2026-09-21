@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>目を閉じても、使えます — ミミセカ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+  .frame { max-width: 720px; }
+  section { padding: 52px 0; border-top: 1px solid var(--hair); }
+  section:first-of-type { border-top: none; }
+  h2 { font-family: var(--serif); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.12em; margin-bottom: 12px; text-wrap: balance; line-height: 1.8; }
+  h2 .shu { color: var(--shu); }
+  p { color: var(--ink-2); font-size: 0.92rem; max-width: 38em; }
+  p + p { margin-top: 10px; }
+  p b { color: var(--ink); font-weight: 700; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 22px 0 18px; }
+  .steps { grid-template-columns: 1fr; }
+  .step { background: var(--ground-raised); border: 1px solid var(--hair); border-radius: 18px; padding: 20px 20px 16px; }
+  .step .n { font-family: var(--serif); font-size: 0.8rem; letter-spacing: 0.3em; color: var(--shu); }
+  .step h3 { font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.06em; margin: 4px 0 6px; color: var(--ink); }
+  .step p { font-size: 0.84rem; }
+  .photos-app { background: var(--ground-raised); border: 1px solid var(--hair); border-radius: 18px; padding: 20px 24px; margin: 6px 0 18px; }
+  .photos-app h3 { font-family: var(--serif); font-weight: 700; font-size: 1rem; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 8px; }
+  .photos-app p { font-size: 0.88rem; }
+  .signals { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+  .signal { display: grid; grid-template-columns: 9.5em 1fr; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--hair); }
+  .signal:last-child { border-bottom: none; }
+  .signal .when { font-family: var(--serif); font-weight: 700; font-size: 0.92rem; color: var(--ink); }
+  .signal .how { font-size: 0.86rem; color: var(--ink-2); }
+  .signal .how b { color: var(--ink); }
+  .signal { grid-template-columns: 1fr; gap: 2px; }
+  .timer { background: var(--ground-raised); border: 1px solid var(--hair); border-radius: 18px; padding: 20px 24px; margin-top: 18px; }
+  .timer h3 { font-family: var(--serif); font-weight: 700; font-size: 1rem; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 6px; }
+  .timer p { font-size: 0.88rem; }
+  .readers { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+  .reader { display: grid; grid-template-columns: 11em 1fr; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--hair); }
+  .reader:last-child { border-bottom: none; }
+  .reader .who { font-family: var(--serif); font-weight: 700; font-size: 0.95rem; color: var(--ink); }
+  .reader .how { font-size: 0.86rem; color: var(--ink-2); }
+  .reader { grid-template-columns: 1fr; gap: 2px; }
+  .list { list-style: none; margin-top: 16px; }
+  .list li { display: grid; grid-template-columns: 1.6em 1fr; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--hair); font-size: 0.9rem; color: var(--ink-2); align-items: baseline; }
+  .list li:last-child { border-bottom: none; }
+  .list li b { color: var(--ink); font-weight: 700; }
+  .list .mark { font-family: var(--serif); color: var(--ok); }
+  .list .mark.pending { color: var(--ink-3); }
+  .honest { margin-top: 14px; font-size: 0.82rem; color: var(--ink-3); }
+  .lupe { background: var(--ground-raised); border: 1px solid var(--hair); border-radius: 18px; padding: 22px 24px; margin-top: 18px; }
+  .lupe h3 { font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 6px; }
+  .lupe p { font-size: 0.86rem; }
+  .lupe .soon { display: inline-block; font-family: var(--sans); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.16em; color: var(--shu); border: 1px solid var(--shu); border-radius: 999px; padding: 0 10px; margin-left: 10px; vertical-align: 2px; }
+  @media (max-width: 720px) { .steps { grid-template-columns: 1fr; } .reader, .signal { grid-template-columns: 1fr; gap: 2px; } }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へとばす</a>
+<nav class="topbar" aria-label="ページの位置"><a href="index.html">← ミミセカ</a><a href="scia/index.html">シア</a></nav>
+
+<header class="cover">
+  <div class="kicker">アクセシビリティ</div>
+  <h1>目を閉じても、<span class="shu">使えます</span>。</h1>
+  <p class="one">ミミセカは、目の見えない人と見えにくい人が「写真を楽しむ」ために生まれました。特別なモードはありません——ふつうに使うことが、そのままそうなっています。<br>ここに書いてあるのは、いまはシアのこと。ルペは公開のときに書き足します。</p>
+  <button type="button" class="btn btn-ghost" id="listenBtn" hidden>♪ このページを聴く</button>
+</header>
+
+<div class="frame">
+<main id="main">
+
+  <section aria-labelledby="h-capture">
+    <h2 id="h-capture">撮って、保存する。<br>それだけで、写真に言葉がつきます</h2>
+    <p>むずかしいことは要りません。シャッターを押すと、その瞬間から写真の説明が作られ、すぐに声で流れます。説明は写真そのものに書き込まれるので、写真アプリの中でも、送った先でも、言葉が消えません。</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n">一</div>
+        <h3>撮る</h3>
+        <p>カメラを向けて、シャッター。画面のボタンでも、iPhone の音量ボタンでも。VoiceOver がボタンを読み上げ、圏外でも撮影は止まりません。</p>
+      </div>
+      <div class="step">
+        <div class="n">二</div>
+        <h3>聴く</h3>
+        <p>何が写っているかを、事実だけで短く説明します。「白いマグカップと、窓からの光」——そのまま聴けます。</p>
+      </div>
+      <div class="step">
+        <div class="n">三</div>
+        <h3>保存する・送る</h3>
+        <p>説明は代替テキスト（ALT）として写真に埋め込まれ、写真アプリに保存されます。X に投稿すれば ALT が自動で添えられ、家族に送れば相手の VoiceOver が読みます。</p>
+      </div>
+    </div>
+    <div class="photos-app">
+      <h3>ミミセカを閉じたあとも、写真アプリの中で</h3>
+      <p>埋め込まれた説明は、iPhone 標準の<b>写真アプリの「キャプション」</b>になります。写真を選ぶと VoiceOver がその説明を読み上げるので、どの写真かが、開かなくてもわかります。</p>
+      <p>そして、写真アプリの検索に「縁側」や「湯呑み」と入れれば、その写真が見つかります。<b>撮った日を思い出せなくても、言葉で探せる</b>——見えない人にとって、写真の山から一枚を探し出す方法が、これで初めて手に入ります。</p>
+    </div>
+    <p>物語を作ることも、話すことも、あとから好きなときに。<b>撮って、保存するだけ</b>でも、ミミセカはちゃんと役に立ちます。</p>
+  </section>
+
+  <section aria-labelledby="h-signals">
+    <h2 id="h-signals">撮るときの合図は、声と、指で</h2>
+    <p>ファインダーを見なくても、いま何が起きたかがわかるように。撮影の画面では、合図を<b>声</b>と<b>指先の振動</b>で返します。音を出しにくい場所でも、画面が見えなくても、手の中で伝わります。</p>
+    <div class="timer">
+      <h3>声で数えるタイマー</h3>
+      <p>タイマー撮影は「5秒後に撮影します」と告げてから、「3、2、1」を<b>声で数えます</b>。自分も写りたいとき、画面の数字が見えなくても、いつシャッターが切れるかがわかります。指先にも一秒ごとにひと拍、最後の一拍だけすこし強く——目を閉じたまま、自分の写真が撮れます。</p>
+    </div>
+    <div class="signals" aria-label="指先の合図の一覧">
+      <div class="signal"><div class="when">設定をかけた・外した</div><div class="how">フラッシュ、タイマー、録音、ポートレート、色合い、ハイコントラスト、位置情報——<b>かかったら二拍、外れたら一拍</b>。いまどちらの状態かが、見なくてもわかります。</div></div>
+      <div class="signal"><div class="when">シャッター・ピントの固定</div><div class="how">押した瞬間に「始まる」のひと押し。長押しでピントと明るさを固定したときも、同じ拍で応えます。</div></div>
+      <div class="signal"><div class="when">ズーム・明るさ・ぼかし</div><div class="how">指でなぞるスライダーは、<b>端まで来ると壁</b>に当たったように止まり、ズームは 1 倍でかすかに引っかかります。目盛りを見ずに戻せます。</div></div>
+      <div class="signal"><div class="when">場所がわかった</div><div class="how">撮影地の名前がわかった瞬間、小さくひと拍。何もわからなかったときは鳴らしません——「無い」を「見つけた」と同じ手ざわりで返さないために。</div></div>
+      <div class="signal"><div class="when">保存・撮り直し</div><div class="how">撮った直後の確認では、保存は「始まる」の拍、撮り直しは「止める」の硬い拍。説明ができあがると、完了の合図が一度だけ届きます。</div></div>
+    </div>
+    <p>合図はすべて<b>意味ごとに決めた語彙</b>で、画面が変わっても同じ意味には同じ拍を使います。指が覚えられるように。</p>
+  </section>
+
+  <section aria-labelledby="h-vo">
+    <h2 id="h-vo">VoiceOver で、はじめから最後まで</h2>
+    <p>撮影、写真との対話、物語を書く、本棚をめくる、QRコードで贈る——すべての操作が、画面を見ずに完結します。読み上げの順番、説明、操作のヒントは、画面ごとに設計してあります。</p>
+    <p>iPhone の VoiceOver をオンにするだけ。ミミセカに「視覚障害者向けモード」はありません。見える人と見えない人が、同じ画面で、同じことをできるように作っています。</p>
+  </section>
+
+  <section aria-labelledby="h-readers">
+    <h2 id="h-readers">読み手に合わせて、語り方を変えます</h2>
+    <p>ひとくちに「見えない・見えにくい」と言っても、届く言葉は人によって違います。はじめの1分の質問で、語り方があなたに合います。</p>
+    <div class="readers">
+      <div class="reader"><div class="who">人生の途中で、視力を失った方</div><div class="how">色や光の記憶を呼び起こす言葉で語ります。「夕焼けのオレンジ」が通じる読み手です。</div></div>
+      <div class="reader"><div class="who">生まれたときから、見えない方</div><div class="how">視覚の言葉に頼らず、音・手ざわり・温度など、目以外の感覚に訳して語ります。</div></div>
+      <div class="reader"><div class="who">弱視・ロービジョンの方</div><div class="how">見えている部分を手がかりに、見えにくい部分をそっと補って語ります。</div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-honest">
+    <h2 id="h-honest">嘘をつかない説明のために</h2>
+    <p>目で確かめられない読み手にとって、説明の正確さは信頼のすべてです。ミミセカは AI が書いた文章をそのまま出しません。<b>「写っている事実だけを語っているか」</b>を検証する工程を通してから届けます。</p>
+    <p>写真に写っていない音や匂いを勝手に語らない。物や人の気持ちを断定しない。見えない人に届く言葉は、見える人にとっても正確な言葉です。</p>
+  </section>
+
+  <section aria-labelledby="h-more">
+    <h2 id="h-more">目のほかにも</h2>
+    <ul class="list">
+      <li><span class="mark">●</span><span><b>文字の大きさ</b> — iPhone の設定に連動して大きくなります。拡大しても操作が画面の外にこぼれないように組んでいます。</span></li>
+      <li><span class="mark">●</span><span><b>コントラストとダーク表示</b> — ハイコントラスト表示に対応。色だけで意味を伝える場所はありません。</span></li>
+      <li><span class="mark">●</span><span><b>朗読の手ざわり</b> — 朗読に合わせて端末がそっと震え、文の切れ目や声の起伏が指に伝わります。耳と肌の二重化。強さは選べ、いつでも切れます。</span></li>
+      <li><span class="mark">●</span><span><b>朗読中も本文が見える</b> — 音声だけに頼りません。聴きながら読めます。</span></li>
+      <li><span class="mark">●</span><span><b>背景再生・ロック画面</b> — 画面を消しても朗読は続き、ロック画面から操作できます。</span></li>
+      <li><span class="mark">●</span><span><b>受け取る側に、アプリは不要</b> — QRコードやリンクの朗読ページも、スクリーンリーダーで読める作りです。</span></li>
+      <li><span class="mark pending">○</span><span><b>動きを減らす</b> — iOS の「視差効果を減らす」への対応は、まだ画面ごとに確認中です。正直に、未対応と申告しています。</span></li>
+    </ul>
+    <p class="honest">App Store の「アクセシビリティ」欄には、実際に確認できたものだけを申告しています。確認していないものを「対応」と書くことは、このアプリの最初の約束に反するからです。</p>
+  </section>
+
+  <section aria-labelledby="h-lupe">
+    <h2 id="h-lupe">いま、目の前を知りたいときは（今後のリリース予定）</h2>
+    <div class="lupe">
+      <h3>ミミセカ ルペ <span class="pill">近日公開</span></h3>
+      <p>姉妹アプリ「ルペ」を準備しています。カメラをかざすだけで、目の前の文字や様子をその場で声にするアプリです。時刻表、値札、郵便物、薬の説明書——文字は正確に読み上げ、長押しで一文字ずつのスペルアウトに。画面は「黄色は触れる場所、白は読む場所」と、色覚・ロービジョンの見え方から配色しています。</p>
+      <p>シアが「残す」ためのアプリなら、ルペは「いま知る」ためのアプリ。公開の時期は、このページでお知らせします。</p>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<section class="creed" aria-label="むすび">
+  <p class="creed-line">写真を見て楽しむ体験を、<br>見える人だけのものにしない。<br>——もともと、<em>そこから始まった</em>プロジェクトです。</p>
+  <a class="back" href="index.html">← ミミセカのトップへ</a>　<a class="back" href="scia/index.html">シアのページへ →</a>
+</section>
+
+
+<script>
+(() => {
+  'use strict';
+  if (!('speechSynthesis' in window)) return;
+  const btn = document.getElementById('listenBtn');
+  btn.hidden = false;
+  let speaking = false;
+  const text = () =>
+    'ミミセカのアクセシビリティ。目を閉じても、使えます。' +
+    '撮って、保存する。それだけで、写真に言葉がつきます。シャッターを押すと説明が作られ、すぐに声で流れ、写真そのものに代替テキストとして書き込まれます。' +
+    '埋め込まれた説明は、iPhone 標準の写真アプリのキャプションになります。写真を選ぶと VoiceOver が読み上げ、写真アプリの検索に言葉を入れれば、その写真が見つかります。' +
+    '撮るときの合図は、声と指先の振動で返します。タイマー撮影は3、2、1を声で数え、設定をかけたら二拍、外したら一拍。目を閉じたまま、自分の写真が撮れます。' +
+    'VoiceOver で、撮影から対話、執筆、本棚、公開まで、すべての操作が画面を見ずに完結します。特別なモードはありません。' +
+    '読み手に合わせて語り方を変え、写っている事実だけを語っているかを検証してから届けます。' +
+    '文字の大きさ、コントラスト、朗読の手ざわり、背景再生にも対応。動きを減らす設定への対応は確認中で、正直に未対応と申告しています。' +
+    '写真を見て楽しむ体験を、見える人だけのものにしない。そこから始まったプロジェクトです。';
+  btn.addEventListener('click', () => {
+    if (speaking) { speechSynthesis.cancel(); speaking = false; btn.textContent = '♪ このページを聴く'; return; }
+    const u = new SpeechSynthesisUtterance(text());
+    u.lang = 'ja-JP'; u.rate = 0.95;
+    u.onend = u.onerror = () => { speaking = false; btn.textContent = '♪ このページを聴く'; };
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+    speaking = true; btn.textContent = '■ 読み上げをとめる';
+  });
+})();
+</script>
+<footer>
+  <div class="links">
+    <a href="index.html">ミミセカ</a>
+    <a href="scia/index.html">シア</a>
+    <a href="lupe/index.html">ルペ</a>
+    <a href="news.html">便り</a>
+    <a href="accessibility.html">アクセシビリティ</a>
+    <a href="contact.html">お問い合わせ</a>
+    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+  </div>
+  <p>ミミセカの仕組みの一部は、特許出願中です。</p>
+</footer>
+</body>
+</html>

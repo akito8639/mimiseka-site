@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>お問い合わせ — ミミセカ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+  .frame { max-width: 640px; }
+  main { padding: 40px 0 56px; }
+  .lead { text-align: center; margin: 0 auto 30px; max-width: 32em; }
+  form { display: grid; gap: 18px; }
+  .field { display: grid; gap: 6px; }
+  label { font-family: var(--serif); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.06em; color: var(--ink); }
+  label .opt { font-family: var(--sans); font-weight: 400; font-size: 0.74rem; color: var(--ink-3); margin-left: 8px; letter-spacing: 0.1em; }
+  .hint { font-size: 0.78rem; color: var(--ink-3); }
+  input[type=text], input[type=email], select, textarea {
+    width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
+    background: var(--ground-raised); border: 1px solid var(--hair); border-radius: 14px;
+    padding: 12px 16px; line-height: 1.7;
+  }
+  select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink-3) 50%), linear-gradient(135deg, var(--ink-3) 50%, transparent 50%); background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 40px; }
+  textarea { min-height: 11em; resize: vertical; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--shu); outline-offset: 2px; border-color: var(--shu); }
+  .field.invalid input, .field.invalid textarea, .field.invalid select { border-color: var(--shu); }
+  .err { font-size: 0.8rem; color: var(--shu); display: none; }
+  .field.invalid .err { display: block; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .turnstile { margin-top: 4px; }
+  .actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 6px; }
+  .btn-submit { font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.12em; font-weight: 700; border-radius: 999px; padding: 11px 30px; cursor: pointer; background: var(--ink); color: var(--ground); border: 1px solid transparent; }
+  .btn-submit:hover { background: var(--shu); }
+  .btn-submit[disabled] { opacity: 0.55; cursor: default; }
+  .privacy { font-size: 0.78rem; color: var(--ink-3); }
+  .status { margin-top: 22px; padding: 18px 22px; border-radius: 16px; border: 1px solid var(--hair); background: var(--ground-raised); font-size: 0.9rem; color: var(--ink-2); display: none; }
+  .status.show { display: block; }
+  .status b { color: var(--ink); }
+  .done { text-align: center; padding: 30px 0 10px; display: none; }
+  .done.show { display: block; }
+  .done .big { font-family: var(--serif); font-weight: 700; font-size: 1.3rem; letter-spacing: 0.16em; color: var(--ink); }
+  .done p { margin-top: 12px; font-size: 0.9rem; color: var(--ink-2); }
+  .alt { margin-top: 36px; text-align: center; font-size: 0.82rem; color: var(--ink-3); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へとばす</a>
+<nav class="topbar" aria-label="ページの位置"><a href="index.html">← ミミセカ</a></nav>
+
+<header class="cover short">
+  <div class="kicker">お問い合わせ</div>
+  <h1 class="mid">おたよりを、どうぞ</h1>
+  <p class="one">使ってみての感想、うまくいかないこと、取材や協働のご相談。<br>どんなことでも、ここから届きます。</p>
+</header>
+
+<div class="frame">
+<main id="main">
+  <form id="contactForm" novalidate>
+    <div class="field">
+      <label for="name">お名前<span class="opt">任意</span></label>
+      <input type="text" id="name" name="name" autocomplete="name" placeholder="ニックネームでも">
+    </div>
+    <div class="field" id="f-email">
+      <label for="email">メールアドレス</label>
+      <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-hint email-err" placeholder="you@example.com" inputmode="email">
+      <span class="hint" id="email-hint">お返事はこのアドレスに届きます。</span>
+      <span class="err" id="email-err" role="alert">メールアドレスの形をご確認ください。</span>
+    </div>
+    <div class="field">
+      <label for="topic">用件</label>
+      <select id="topic" name="topic">
+        <option value="アプリの使いかた・不具合">アプリの使いかた・不具合</option>
+        <option value="アクセシビリティのこと">アクセシビリティのこと</option>
+        <option value="取材・協働・イベント">取材・協働・イベント</option>
+        <option value="感想・ご提案">感想・ご提案</option>
+        <option value="そのほか">そのほか</option>
+      </select>
+    </div>
+    <div class="field" id="f-message">
+      <label for="message">内容</label>
+      <textarea id="message" name="message" required aria-describedby="message-hint message-err" placeholder="お困りごとは、どの画面で何をしたときかを書いていただけると助かります。"></textarea>
+      <span class="hint" id="message-hint">写真や本文は送らないでください——お返事に必要なことだけで大丈夫です。</span>
+      <span class="err" id="message-err" role="alert">内容をご記入ください。</span>
+    </div>
+    <div class="hp" aria-hidden="true">
+      <label for="website">このらんは空のままにしてください</label>
+      <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
+    </div>
+    <div id="turnstile" class="turnstile" hidden></div>
+    <div class="actions">
+      <button type="submit" class="btn-submit" id="submitBtn">送る</button>
+      <span class="privacy">いただいた内容は、お返事のためだけに使います。</span>
+    </div>
+  </form>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+  <div class="done" id="done" tabindex="-1">
+    <p class="big">届きました。</p>
+    <p>ありがとうございます。数日のうちに、メールでお返事します。</p>
+  </div>
+  <p class="alt">フォームがうまく使えないときは、<a href="mailto:support@mimiseka.jp">support@mimiseka.jp</a> へ直接どうぞ。</p>
+</main>
+</div>
+
+<footer>
+  <div class="links">
+    <a href="index.html">ミミセカ</a>
+    <a href="scia/index.html">シア</a>
+    <a href="lupe/index.html">ルペ</a>
+    <a href="news.html">便り</a>
+    <a href="accessibility.html">アクセシビリティ</a>
+    <a href="contact.html">お問い合わせ</a>
+    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+  </div>
+  <p>ミミセカの仕組みの一部は、特許出願中です。</p>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  // 送信先と Turnstile のサイトキー。実サイトでは
+  //   ENDPOINT = 'https://s.mimiseka.jp/contact'   （published_story Lambda・POST /contact）
+  //   TURNSTILE_SITE_KEY = '0x4AAAAAAA…'           （Cloudflare ダッシュボードで発行・公開してよい鍵）
+  // どちらかが空なら、内容を入れたメール作成画面をひらく（バックエンド無しでも動く）。
+  const ENDPOINT = '';
+  const TURNSTILE_SITE_KEY = '';
+  const FALLBACK_MAIL = 'support@mimiseka.jp';
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('status');
+  const done = document.getElementById('done');
+  const btn = document.getElementById('submitBtn');
+  const fEmail = document.getElementById('f-email'), fMsg = document.getElementById('f-message');
+  const email = document.getElementById('email'), message = document.getElementById('message');
+  const tsBox = document.getElementById('turnstile');
+  const live = !!(ENDPOINT && TURNSTILE_SITE_KEY);
+
+  const setStatus = (html) => { status.innerHTML = html; status.classList.toggle('show', !!html); };
+  const validate = () => {
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    fEmail.classList.toggle('invalid', !emailOk); email.setAttribute('aria-invalid', String(!emailOk));
+    const msgOk = message.value.trim().length > 0 && message.value.trim().length <= 4000;
+    fMsg.classList.toggle('invalid', !msgOk); message.setAttribute('aria-invalid', String(!msgOk));
+    if (!emailOk) { email.focus(); return false; }
+    if (!msgOk) { message.focus(); return false; }
+    return true;
+  };
+
+  // Turnstile は本番だけ読み込む（見えない検証。疑わしいときだけ小さなチェックが出る）
+  let tsWidget = null;
+  if (live) {
+    tsBox.hidden = false;
+    const sc = document.createElement('script');
+    sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    sc.async = true; sc.defer = true;
+    sc.onload = () => {
+      tsWidget = window.turnstile.render(tsBox, { sitekey: TURNSTILE_SITE_KEY, language: 'ja', appearance: 'interaction-only' });
+    };
+    document.head.appendChild(sc);
+  }
+
+  const ERRORS = {
+    turnstile_failed: '確認に失敗しました。ページを読み直して、もう一度お試しください。',
+    too_many_requests: '短い時間に送信が続いています。しばらく置いてから、もう一度お願いします。',
+    message_too_long: '内容は 4000 字までにしてください。',
+    invalid_email: 'メールアドレスの形をご確認ください。',
+    contact_unavailable: 'いまフォームを受け付けられません。',
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setStatus('');
+    if (!validate()) return;
+    if (form.elements._gotcha.value) return; // 機械の投稿
+    const data = new FormData(form);
+
+    if (!live) {
+      const subject = `[ミミセカ] ${data.get('topic')}`;
+      const body = `${data.get('message')}\n\n—\nお名前: ${data.get('name') || '（未記入）'}\nメール: ${data.get('email')}`;
+      location.href = `mailto:${FALLBACK_MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus('メールの作成画面をひらきました。<b>そのまま送信</b>してください。ひらかない場合は、下のアドレスへ直接お送りください。');
+      return;
+    }
+
+    const token = window.turnstile && tsWidget !== null ? window.turnstile.getResponse(tsWidget) : '';
+    if (!token) { setStatus('確認がまだ終わっていません。数秒待って、もう一度「送る」を押してください。'); return; }
+
+    btn.disabled = true; btn.textContent = '送っています…';
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'accept': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'), email: data.get('email'), topic: data.get('topic'),
+          message: data.get('message'), _gotcha: data.get('_gotcha'), 'cf-turnstile-response': token,
+        }),
+      });
+      if (!res.ok) {
+        let code = '';
+        try { code = (await res.json()).error?.code || ''; } catch (_) { /* 本文なし */ }
+        throw new Error(code || String(res.status));
+      }
+      form.hidden = true; status.classList.remove('show');
+      done.classList.add('show'); done.focus();
+    } catch (err) {
+      const msg = ERRORS[err.message] || '送れませんでした。時間をおいてもう一度お試しください。';
+      setStatus(`${msg} うまくいかないときは <a href="mailto:${FALLBACK_MAIL}">${FALLBACK_MAIL}</a> へ直接どうぞ。`);
+      btn.disabled = false; btn.textContent = '送る';
+      if (window.turnstile && tsWidget !== null) window.turnstile.reset(tsWidget);
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>便り — ミミセカ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+  main { padding: 36px 0 56px; }
+  .kind.app { border-style: dashed; }
+  .year { font-family: var(--serif); font-size: 0.85rem; letter-spacing: 0.3em; color: var(--ink-3); margin: 34px 0 6px; }
+  .year:first-child { margin-top: 0; }
+  article { padding: 20px 0; border-bottom: 1px solid var(--hair); }
+  article:last-child { border-bottom: none; }
+  .meta { display: flex; gap: 12px; align-items: baseline; font-size: 0.74rem; letter-spacing: 0.1em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .kind { display: inline-block; border: 1px solid var(--hair); border-radius: 999px; padding: 0 10px; color: var(--ink-2); letter-spacing: 0.14em; font-size: 0.68rem; }
+  .kind.event { border-color: var(--shu); color: var(--shu); }
+  h2 { font-family: var(--serif); font-weight: 700; font-size: 1.08rem; letter-spacing: 0.06em; margin: 6px 0 6px; line-height: 1.8; }
+  h2 a { color: var(--ink); text-decoration: none; }
+  h2 a:hover { color: var(--shu); }
+  p.body { font-size: 0.9rem; color: var(--ink-2); max-width: 38em; }
+  p.more { margin-top: 6px; font-size: 0.84rem; }
+  .empty { color: var(--ink-3); font-size: 0.9rem; }
+  .back { display: inline-block; margin-top: 36px; font-size: 0.86rem; }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へとばす</a>
+<nav class="topbar" aria-label="ページの位置"><a href="index.html">← ミミセカ</a></nav>
+
+<header class="cover">
+  <div class="kicker">お知らせ</div>
+  <h1>便り</h1>
+  <p class="one">イベント、公開のお知らせ、アプリの更新。ミミセカからの小さな知らせを、新しい順に。</p>
+</header>
+
+<div class="frame narrow">
+<main id="main" aria-label="便りの一覧"></main>
+<a class="back" href="index.html">← ミミセカのトップへもどる</a>
+</div>
+
+
+<script src="tayori.js"></script>
+<script>
+(() => {
+  'use strict';
+  const main = document.getElementById('main');
+  const items = (window.TAYORI || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+  if (!items.length) { main.innerHTML = '<p class="empty">まだ便りはありません。</p>'; return; }
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmt = (d) => { const [y, m, day] = d.split('-'); return `${y}.${m}.${day}`; };
+  let year = '', html = '';
+  for (const it of items) {
+    const y = it.date.slice(0, 4);
+    if (y !== year) { year = y; html += `<div class="year">${y}</div>`; }
+    const kindCls = it.kind === 'イベント' ? 'kind event' : 'kind';
+    html += `<article id="${esc(it.date)}">
+      <div class="meta"><time datetime="${esc(it.date)}">${fmt(it.date)}</time><span class="${kindCls}">${esc(it.kind)}</span>${it.app ? `<span class="kind app">${esc(it.app)}</span>` : ''}</div>
+      <h2><a href="#${esc(it.date)}">${esc(it.title)}</a></h2>
+      <p class="body">${esc(it.body)}</p>
+      ${it.link ? `<p class="more"><a href="${esc(it.link)}">くわしく →</a></p>` : ''}
+    </article>`;
+  }
+  main.innerHTML = html;
+})();
+</script>
+<footer>
+  <div class="links">
+    <a href="index.html">ミミセカ</a>
+    <a href="scia/index.html">シア</a>
+    <a href="lupe/index.html">ルペ</a>
+    <a href="news.html">便り</a>
+    <a href="accessibility.html">アクセシビリティ</a>
+    <a href="contact.html">お問い合わせ</a>
+    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+  </div>
+  <p>ミミセカの仕組みの一部は、特許出願中です。</p>
+</footer>
+</body>
+</html>
