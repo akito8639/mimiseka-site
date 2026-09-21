@@ -7,7 +7,7 @@ window.TAYORI = [
     date: "2026-09-20",
     kind: "お知らせ",
     app: "シア",
-    title: "App Store のアクセシビリティ情報を掲載しました",
+    title: "App Store に、アクセシビリティ情報を掲載しました",
     body: "VoiceOver、文字の拡大、コントラスト、字幕など、実際に確認できた項目だけを申告しています。確認中の項目は正直に未対応としています。",
     link: null
   },
