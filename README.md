@@ -24,3 +24,12 @@ photo/              写真
 ## 公開
 
 `CNAME` = `mimiseka.jp`。DNS は Cloudflare（グレー雲 = DNS only）。
+
+## CSS / JS を変えたら版を上げる
+
+Cloudflare 経由のあいだは `site.css` / `tayori.js` が 4 時間キャッシュされる（`cache-control: max-age=14400`）。
+中身を変えたら、全 HTML の `?v=YYYYMMDDx` を新しい値に揃える:
+
+```bash
+V=20260922a; for f in $(find . -name '*.html' -not -path './.git/*'); do sed -i '' -E "s#(site\.css|tayori\.js)(\?v=[0-9a-z]+)?\"#\1?v=$V\"#g" "$f"; done
+```
