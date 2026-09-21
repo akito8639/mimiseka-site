@@ -19,7 +19,9 @@
   --hair: rgba(243,237,227,0.15); --shu: #E07B5F; --shu-soft: rgba(224,123,95,0.14); --ok: #8FBF9A;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 2.0; -webkit-font-smoothing: antialiased; }
+/* 行の折り返しは句読点で（keep-all）。句読点のない長い語だけは幅で折る（anywhere）ので、はみ出しはしない */
+body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 2.0; -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: anywhere; hanging-punctuation: allow-end; }
+.np { white-space: nowrap; }  /* site.js が付ける「文字＋句読点」の組。句読点だけが行頭に落ちない */
 ::selection { background: var(--shu-soft); }
 a { color: var(--shu); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--shu); outline-offset: 3px; }
@@ -157,6 +159,11 @@ footer p { max-width: 40em; margin: 6px auto 0; }
   .listen .photo { min-height: 260px; }
   .apps, .two, .grid { grid-template-columns: 1fr; }
   .tayori-item { grid-template-columns: 1fr; gap: 0; }
+  /* 問いと結びは frame の余白だけにして、「SNSで写真は何分見ましたか。」が一行に収まる幅を確保する（句点だけが次の行に落ちないように） */
+  .question, .creed { padding-left: 0; padding-right: 0; }
+}
+@media (max-width: 400px) {
+  .q-line, .creed-line { font-size: 1.1rem; letter-spacing: 0.06em; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
