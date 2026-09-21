@@ -164,6 +164,6 @@ footer p { max-width: 40em; margin: 6px auto 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .topbar .home { display: inline-flex; align-items: center; padding: 8px 0; }
 .topbar .home img { height: 26px; width: auto; display: block; }
-.cover .logo { display: block; width: min(280px, 64vw); height: auto; margin: 0 auto 6px; }
+.cover .logo { display: block; width: min(190px, 50vw); height: auto; margin: 0 auto 6px; }
 .cover .appicon { display: block; width: 84px; height: 84px; border-radius: 20px; margin: 0 auto 18px; }
 .app .icon { display: block; width: 56px; height: 56px; border-radius: 14px; margin-bottom: 14px; }
