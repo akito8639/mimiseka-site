@@ -153,6 +153,7 @@ footer .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6p
 footer .links a { color: var(--ink-2); text-decoration: none; }
 footer .links a:hover { color: var(--shu); }
 footer p { max-width: 40em; margin: 6px auto 0; }
+footer .copyright { margin-top: 18px; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-3); }
 
 @media (max-width: 720px) {
   section { padding: 52px 0; }
