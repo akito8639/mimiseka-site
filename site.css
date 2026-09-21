@@ -68,6 +68,7 @@ h2.left { text-align: left; text-indent: 0; font-size: 1.25rem; letter-spacing: 
 .question { text-align: center; padding: 72px 24px 24px; }
 .q-line { font-family: var(--serif); font-weight: 700; font-size: clamp(1.15rem, 3vw, 1.6rem); letter-spacing: 0.14em; color: var(--ink); text-wrap: balance; line-height: 2.2; }
 .q-line em { font-style: normal; color: var(--shu); }
+.question.q2 { padding-top: 8px; }  /* 「一枚聴いてみる」の直後に置く二つ目の問い（写らないもの）。上の間は前の節が持つ */
 .q-note { margin-top: 20px; font-size: 0.9rem; color: var(--ink-2); letter-spacing: 0.04em; }
 .q-note b { color: var(--ink); font-weight: 700; }
 

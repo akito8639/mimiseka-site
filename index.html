@@ -6,8 +6,8 @@
 <title>ミミセカ — 聴く写真、書かない日記</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="site.css?v=20260922d">
-<script src="site.js?v=20260922d" defer></script>
+<link rel="stylesheet" href="site.css?v=20260922f">
+<script src="site.js?v=20260922f" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="brand/favicon.png">
 <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -66,6 +66,11 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="question q2" aria-label="もうひとつの問い">
+    <p class="q-line">あなたが最後に撮った一枚。<br>そのとき何を思っていたか。<br>——いま、<em>言えますか</em>。</p>
+    <p class="q-note">写真は残る。思ったことは、話さなければ残らない。</p>
   </section>
 
   <section aria-labelledby="h-apps">
@@ -142,7 +147,7 @@
   };
 })();
 </script>
-<script src="tayori.js?v=20260922d"></script>
+<script src="tayori.js?v=20260922f"></script>
 <script>
 (() => {
   'use strict';
@@ -167,6 +172,7 @@
   lb.hidden = false;
   const page = 'ミミセカ。聴く写真、書かない日記。昨日、SNSで写真は何分見ましたか。では、自分の写真は。' +
     '写真に声がつき、話すと日記になる。見える人にも見えない人にも、同じ思い出が届くように。' +
+    'あなたが最後に撮った一枚。そのとき何を思っていたか。いま、言えますか。写真は残る。思ったことは、話さなければ残らない。' +
     'アプリは二つ。残すためのシアと、いま知るためのルペ。ルペは近日公開です。' +
     '写真を見て楽しむ体験を、見える人だけのものにしない。そこから始まったプロジェクトです。自分の物語が、はじまる。';
   lb.addEventListener('click', () => window.mimisekaSpeak(page, lb, '♪ このページを聴く', '■ 読み上げをとめる'));
