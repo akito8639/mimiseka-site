@@ -12,6 +12,14 @@ window.TAYORI = [
     link: null
   },
   {
+    date: "2026-09-13",
+    kind: "お知らせ",
+    app: null,
+    title: "クラウドファンディングを終えました",
+    body: "7 月から 9 月まで、CAMPFIRE で挑戦しました。目標には遠く及びませんでしたが、支えてくださった方々、言葉をくださった方々に、ありがとうございます。ここで得た経験を糧に、つくり続けます。",
+    link: "https://camp-fire.jp/projects/956373/view"
+  },
+  {
     date: "2026-07-01",
     kind: "イベント",
     app: null,
