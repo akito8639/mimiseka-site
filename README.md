@@ -33,3 +33,15 @@ Cloudflare 経由のあいだは `site.css` / `site.js` / `tayori.js` が 4 時�
 ```bash
 V=20260922a; for f in $(find . -name '*.html' -not -path './.git/*'); do sed -i '' -E "s#(site\.css|site\.js|tayori\.js)(\?v=[0-9a-z]+)?\"#\1?v=$V\"#g" "$f"; done
 ```
+
+## 公開の流れ（draft → main）
+
+- 直しは **`draft` ブランチ**で。push すると https://mimiseka.jp/preview/ に載る（本番はそのまま・検索には載せない）
+- 確認できたら `draft` を `main` にマージ → https://mimiseka.jp/ が更新される
+- 仕組みは `.github/workflows/pages.yml`（main を根に、draft を `/preview/` に置いた 1 つのサイトを組み直す）
+
+```bash
+git switch draft && git merge --ff-only main   # 作業前に main を取り込む
+# …直して push…
+git switch main && git merge --ff-only draft && git push   # 公開
+```

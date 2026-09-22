@@ -1,0 +1,62 @@
+# 公開の流れ:
+#   draft ブランチに push → https://mimiseka.jp/preview/ に載る（検索には載せない・本番はそのまま）
+#   確認できたら draft を main にマージ → https://mimiseka.jp/ が更新される
+# どちらの push でも 1 つのサイト（main を根に、draft を /preview/ に）を組み直して配信する。
+name: Deploy site (main → /, draft → /preview/)
+
+on:
+  push:
+    branches: [main, draft]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main (本番)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+      - name: Checkout draft (プレビュー)
+        uses: actions/checkout@v4
+        continue-on-error: true   # draft がまだ無いときは本番だけ組む
+        with:
+          ref: draft
+          path: draft
+      - name: Assemble
+        run: |
+          mkdir -p _site
+          rsync -a --exclude .git --exclude .github main/ _site/
+          if [ -f draft/index.html ]; then
+            mkdir -p _site/preview
+            rsync -a --exclude .git --exclude .github --exclude CNAME draft/ _site/preview/
+            # プレビューは検索に載せない
+            find _site/preview -name '*.html' -exec sed -i 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' {} +
+            printf 'User-agent: *\nDisallow: /preview/\n' > _site/robots.txt
+          fi
+          echo "== root"; ls _site | head -30
+          echo "== preview"; ls _site/preview 2>/dev/null | head -30 || echo "(none)"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
