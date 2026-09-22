@@ -1,8 +1,9 @@
 # 公開の流れ:
-#   draft ブランチに push → https://mimiseka.jp/preview/ に載る（検索には載せない・本番はそのまま）
-#   確認できたら draft を main にマージ → https://mimiseka.jp/ が更新される
-# どちらの push でも 1 つのサイト（main を根に、draft を /preview/ に）を組み直して配信する。
-name: Deploy site (main → /, draft → /preview/)
+#   draft ブランチに push → 本番と同じドメインの、推測できない下層パス（Actions の secret PREVIEW_PATH）に載る。
+#   本番はそのまま。プレビューの頁には noindex を入れる。
+#   確認できたら draft を main にマージ → https://mimiseka.jp/ が更新される。
+# どちらの push でも 1 つのサイト（main を根に、draft を下層に）を組み直して配信する。
+name: Deploy site
 
 on:
   push:
@@ -34,18 +35,21 @@ jobs:
           ref: draft
           path: draft
       - name: Assemble
+        env:
+          PREVIEW_PATH: ${{ secrets.PREVIEW_PATH }}
         run: |
           mkdir -p _site
           rsync -a --exclude .git --exclude .github main/ _site/
-          if [ -f draft/index.html ]; then
-            mkdir -p _site/preview
-            rsync -a --exclude .git --exclude .github --exclude CNAME draft/ _site/preview/
-            # プレビューは検索に載せない
-            find _site/preview -name '*.html' -exec sed -i 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' {} +
-            printf 'User-agent: *\nDisallow: /preview/\n' > _site/robots.txt
+          if [ -f draft/index.html ] && [ -n "$PREVIEW_PATH" ]; then
+            mkdir -p "_site/$PREVIEW_PATH"
+            rsync -a --exclude .git --exclude .github --exclude CNAME draft/ "_site/$PREVIEW_PATH/"
+            # プレビューは検索に載せない（robots.txt にパスを書くと居場所が知れるので、頁側の noindex だけ）
+            find "_site/$PREVIEW_PATH" -name '*.html' -exec sed -i 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' {} +
+            echo "preview: assembled"
+          else
+            echo "preview: skipped"
           fi
-          echo "== root"; ls _site | head -30
-          echo "== preview"; ls _site/preview 2>/dev/null | head -30 || echo "(none)"
+          echo "== root"; ls _site | grep -v "^$PREVIEW_PATH$" | head -30
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

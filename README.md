@@ -36,9 +36,9 @@ V=20260922a; for f in $(find . -name '*.html' -not -path './.git/*'); do sed -i 
 
 ## 公開の流れ（draft → main）
 
-- 直しは **`draft` ブランチ**で。push すると https://mimiseka.jp/preview/ に載る（本番はそのまま・検索には載せない）
+- 直しは **`draft` ブランチ**で。push すると、本番と同じドメインの非公開の下層パスにプレビューが載る（パスは Actions の secret `PREVIEW_PATH`・検索には載せない・本番はそのまま）
 - 確認できたら `draft` を `main` にマージ → https://mimiseka.jp/ が更新される
-- 仕組みは `.github/workflows/pages.yml`（main を根に、draft を `/preview/` に置いた 1 つのサイトを組み直す）
+- 仕組みは `.github/workflows/pages.yml`
 
 ```bash
 git switch draft && git merge --ff-only main   # 作業前に main を取り込む

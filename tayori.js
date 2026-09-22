@@ -12,6 +12,14 @@ window.TAYORI = [
     link: null
   },
   {
+    date: "2026-09-19",
+    kind: "お知らせ",
+    app: "シア",
+    title: "「ミミセカ シア」を App Store で公開しました",
+    body: "写真と話す、書かない日記。撮った一枚とすこし話すだけで、日記になり、物語になり、声で聴けます。無料ではじめられます。",
+    link: "https://apps.apple.com/jp/app/id6760955583"
+  },
+  {
     date: "2026-09-13",
     kind: "お知らせ",
     app: null,
