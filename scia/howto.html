@@ -34,6 +34,11 @@
   .prose .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
   .note-line { max-width: 34em; margin: 16px auto 0; font-size: 0.8rem; color: var(--ink-3); }
   .more-center { text-align: center; margin-top: 26px; font-size: 0.86rem; }
+  /* 画面の写し（スクリーンショット）。枠は髪線だけ・影は足さない */
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; max-width: 34em; margin: 26px auto 0; }
+  .shot { margin: 0; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 20px; border: 1px solid var(--hair); background: var(--ground-inset); }
+  .shot figcaption { margin-top: 8px; font-size: 0.76rem; color: var(--ink-3); text-align: center; letter-spacing: 0.04em; }
 </style>
 </head>
 <body>
@@ -106,6 +111,16 @@
         <h3>聴く写真にして渡す</h3>
         <p>QR コードやリンクにすれば、相手はアプリを入れずにブラウザで朗読を聴けます。紙に印刷した写真にも添えられます。</p>
       </div>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <img src="../shot/bookshelf-calendar.jpg" alt="カレンダーの画面。2026 年 8 月の日付に、その日の章を示す小さな点が並んでいる。下には 8 月 28 日の 2 章——会議室、エントランス｜QWS について——が、写真つきで続いている。" width="780" height="1691" loading="lazy">
+        <figcaption>カレンダーから、あの日へ</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../shot/bookshelf-map.jpg" alt="地図の画面。東京の地図に、写真のピンがいくつか立っている。下には「東京都渋谷区 19 章」として、会議室、エントランス｜QWS について、施設内ギャラリースペースの休憩場所などが、写真つきで並んでいる。" width="780" height="1691" loading="lazy">
+        <figcaption>地図から、あの場所へ</figcaption>
+      </figure>
     </div>
     <p class="more-center"><a href="../accessibility.html">目を閉じても、使えます — アクセシビリティへの配慮 →</a></p>
   </section>
