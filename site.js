@@ -9,6 +9,9 @@
   'use strict';
   const CLOSE = { find: /([^、。！？」』）\s])([、。！？」』）]+)/g, test: /[^、。！？」』）\s][、。！？」』）]/ };
   const OPEN  = { find: /([「『（【]+)([^、。！？」』）「『（【\s])/g,   test: /[「『（【][^、。！？」』）「『（【\s]/ };
+  // 欧文・数字の並び（iPhone / LINE / QR / 3〜5）は途中で割らせず、直後の 1 文字（助詞など）も連れていく。
+  // これがないと「LIN / E」で割れ、「iPhone」だけが行末に取り残される。
+  const LATIN = { find: /([A-Za-z0-9][A-Za-z0-9.+\-]*)([^、。！？」』）「『（【\sA-Za-z0-9]?)/g, test: /[A-Za-z0-9]/ };
   const SKIP = new Set(['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'SELECT', 'CODE', 'PRE']);
 
   const applyOne = (root, rule) => {
@@ -35,7 +38,23 @@
     }
   };
 
-  const apply = (root) => { applyOne(root, CLOSE); applyOne(root, OPEN); };
+  // 和文と欧文のあいだの半角スペースは、見た目を保ったまま折り返さない空白（NBSP）に替える。
+  // ふつうの空白は折り返しの機会になるので、「iPhone」だけが行末に取り残されてしまう。
+  const nbsp = (root) => {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => (n.parentNode && !SKIP.has(n.parentNode.nodeName) && n.data.includes(' '))
+        ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (const n of nodes) {
+      n.data = n.data
+        .replace(/([A-Za-z0-9.+%\-]) ([^\s\x00-\x7F])/g, '$1\u00A0$2')
+        .replace(/([^\s\x00-\x7F]) ([A-Za-z0-9])/g, '$1\u00A0$2');
+    }
+  };
+
+  const apply = (root) => { nbsp(root); applyOne(root, CLOSE); applyOne(root, OPEN); applyOne(root, LATIN); };
   window.mimisekaKinsoku = apply;
   apply(document.body);
 })();
