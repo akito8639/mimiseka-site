@@ -6,8 +6,8 @@
 <title>使い方 — ミミセカ シア</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../site.css?v=20260927c">
-<script src="../site.js?v=20260927c" defer></script>
+<link rel="stylesheet" href="../site.css?v=20260927d">
+<script src="../site.js?v=20260927d" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
 <link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -41,8 +41,13 @@
   .shot img { display: block; width: 100%; height: auto; border-radius: 20px; border: 1px solid var(--hair); background: var(--ground-inset); }
   .shot figcaption { margin-top: 8px; font-size: 0.76rem; color: var(--ink-3); text-align: center; letter-spacing: 0.04em; }
   /* ステップの挿絵。線は髪線と本文色、朱は 1 つだけ。文字は入れない（翻訳不要）*/
-  .step-art { margin: 2px 0 12px; }
-  .step-art svg { display: block; width: 100%; max-width: 260px; height: auto; }
+  .step-art { margin: 2px 0 14px; }
+  .step-art svg { display: block; width: 100%; max-width: 300px; height: auto; }
+  .step-art svg .ph { fill: var(--ground-raised); stroke: var(--ink-3); stroke-width: 1.5; }
+  .step-art svg .sc { fill: var(--ground-inset); stroke: var(--hair); stroke-width: 1; }
+  .step-art svg .bar { fill: var(--ink-3); opacity: 0.35; }
+  .step-art svg .barh { fill: var(--hair); }
+  .step-art svg .isl { fill: var(--ink-3); opacity: 0.55; }
   .step-art svg .ln { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .step-art svg .hr { fill: none; stroke: var(--hair); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .step-art svg .ac { fill: none; stroke: var(--shu); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -67,48 +72,20 @@
     <p class="sec-note">ここまでが、ミミセカの背骨です。慣れれば、一日 3 分ほど。</p>
     <ol class="steps-list">
       <li>
-        <div class="step-art"><svg viewBox="0 0 260 96" role="img" aria-hidden="true" focusable="false">
-  <rect class="pf" x="6" y="16" width="42" height="64" rx="8"/>
-  <circle class="ln" cx="27" cy="42" r="10"/><circle class="acf" cx="27" cy="42" r="3"/>
-  <path class="hr" d="M17 64h20"/>
-  <path class="ac" d="M58 48h18m0 0-5-5m5 5-5 5"/>
-  <rect class="pf" x="86" y="26" width="54" height="42" rx="6"/>
-  <path class="hr" d="M92 58l11-11 8 8 7-7 16 16"/><circle class="hr" cx="127" cy="38" r="4"/>
-  <path class="ln" d="M148 40c4 5 4 13 0 18M155 34c7 8 7 22 0 30"/>
-  <path class="ac" d="M170 48h18m0 0-5-5m5 5-5 5"/>
-  <rect class="pf" x="212" y="16" width="40" height="44" rx="5"/>
-  <rect class="pf" x="206" y="24" width="40" height="44" rx="5"/>
-  <rect class="pf" x="200" y="32" width="44" height="48" rx="5"/>
-  <path class="hr" d="M206 70l9-9 7 7 5-5 11 11"/>
-  <path class="ac" d="M232 32v14l-5-4-5 4V32"/>
-</svg></div>
+        <div class="step-art"><svg viewBox="0 0 300 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(6,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="7" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="20" width="88" height="92" rx="6"/><path class="hr" d="M12 107l26-41 16 18 11-13 30 33"/><circle class="hr" cx="80" cy="32" r="4"/><rect class="hr" x="12" y="138" width="26" height="13" rx="6.5" fill="none"/><rect class="hr" x="66" y="138" width="26" height="13" rx="6.5" fill="none"/><circle class="ln" cx="52" cy="144" r="13"/><rect class="sc" x="14" y="160" width="76" height="12" rx="6"/><rect class="bar" x="22" y="164" width="14" height="4" rx="2.0"/><rect class="bar" x="45" y="164" width="14" height="4" rx="2.0"/><rect class="bar" x="68" y="164" width="14" height="4" rx="2.0"/></g><path class="ac" d="M128 100h20m0 0-5-5m5 5-5 5"/><g transform="translate(190,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="7" width="26" height="5" rx="2.5"/><rect class="ac" x="28" y="16" width="48" height="14" rx="7.0" fill="none"/><rect class="barh" x="40" y="21" width="24" height="4" rx="2.0"/><rect class="sc" x="8" y="36" width="88" height="66" rx="6"/><path class="hr" d="M12 97l26-30 16 13 11-9 30 24"/><circle class="hr" cx="80" cy="48" r="4"/><rect class="bar" x="12" y="110" width="80" height="4" rx="2.0"/><rect class="bar" x="12" y="120" width="70" height="4" rx="2.0"/><rect class="bar" x="12" y="130" width="52" height="4" rx="2.0"/><rect class="sc" x="12" y="144" width="80" height="16" rx="8.0"/><circle class="ac" cx="23" cy="152.0" r="6"/><path class="acf" d="M21 149.0l5 3-5 3z"/><rect class="bar" x="36" y="150.0" width="44" height="4" rx="2.0"/></g></svg></div>
         <b>撮影から、思い出に保存</b>
         <p>画面中央の丸いボタンを押します。iPhone の音量ボタンでも撮れるので、画面を見なくてもかまいません。右下の場所の名前を押すと、その場所を写真に残すかどうかを切り替えられます。</p>
         <p>数秒待つと、写っているものの説明が声で読み上げられます。撮った写真は、説明がついたままカメラロールの「ミミセカ」アルバムへ自動で保存され、写真アプリでも読み上げられます。</p>
         <p>この一枚をアプリに残すときは、画面上部の<span class="key">思い出保存</span>を押します。LINE・X・ほかのアプリへは、下のボタンからそのまま送れます。</p>
       </li>
       <li>
-        <div class="step-art"><svg viewBox="0 0 260 96" role="img" aria-hidden="true" focusable="false">
-  <rect class="pf" x="6" y="22" width="56" height="42" rx="6"/>
-  <path class="hr" d="M12 54l12-12 9 9 7-7 16 16"/><circle class="hr" cx="48" cy="34" r="4"/>
-  <path class="ln" d="M84 18h78a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8H100l-10 10V50h-6a8 8 0 0 1-8-8V26a8 8 0 0 1 8-8z"/>
-  <path class="hr" d="M94 30h56M94 38h38"/>
-  <path class="ac" d="M126 62h120a8 8 0 0 1 8 8v12a8 8 0 0 1-8 8H140l-8 8v-8h-6a8 8 0 0 1-8-8V70a8 8 0 0 1 8-8z"/>
-  <path class="ac" d="M138 74h44" opacity="0.55"/>
-</svg></div>
+        <div class="step-art"><svg viewBox="0 0 300 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(6,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="7" width="26" height="5" rx="2.5"/><rect class="ac" x="62" y="16" width="32" height="13" rx="6.5" fill="none"/><rect class="barh" x="70" y="21" width="16" height="3" rx="1.5"/><rect class="sc" x="8" y="34" width="88" height="50" rx="6"/><path class="hr" d="M12 79l26-22 16 10 11-7 30 18"/><circle class="hr" cx="80" cy="46" r="4"/><rect class="bar" x="12" y="90" width="40" height="3" rx="1.5"/><rect class="ac" x="10" y="98" width="27" height="13" rx="6.5" fill="none"/><rect class="barh" x="17" y="103" width="13" height="3" rx="1.5"/><rect class="hr" x="39" y="98" width="27" height="13" rx="6.5" fill="none"/><rect class="bar" x="46" y="103" width="13" height="3" rx="1.5"/><rect class="hr" x="68" y="98" width="26" height="13" rx="6.5" fill="none"/><rect class="bar" x="75" y="103" width="12" height="3" rx="1.5"/><rect class="bar" x="12" y="118" width="80" height="4" rx="2.0"/><rect class="bar" x="12" y="128" width="72" height="4" rx="2.0"/><rect class="bar" x="12" y="138" width="58" height="4" rx="2.0"/><rect class="sc" x="12" y="152" width="80" height="16" rx="8.0"/><circle class="ac" cx="23" cy="160.0" r="6"/><path class="acf" d="M21 157.0l5 3-5 3z"/><rect class="bar" x="36" y="158.0" width="44" height="4" rx="2.0"/></g><path class="ac" d="M128 100h20m0 0-5-5m5 5-5 5"/><g transform="translate(190,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="7" width="26" height="5" rx="2.5"/><rect class="hr" x="62" y="16" width="32" height="13" rx="6.5" fill="none"/><rect class="bar" x="70" y="21" width="16" height="3" rx="1.5"/><rect class="sc" x="30" y="34" width="44" height="34" rx="6"/><path class="hr" d="M34 63l13-15 8 7 5-5 15 12"/><circle class="hr" cx="58" cy="46" r="4"/><rect class="sc" x="10" y="76" width="60" height="22" rx="8"/><rect class="bar" x="17" y="82" width="44" height="3" rx="1.5"/><rect class="bar" x="17" y="89" width="30" height="3" rx="1.5"/><rect class="ac" x="34" y="104" width="60" height="22" rx="8" fill="none"/><rect class="bar" x="41" y="110" width="44" height="3" rx="1.5"/><rect class="bar" x="41" y="117" width="26" height="3" rx="1.5"/><rect class="sc" x="10" y="132" width="52" height="18" rx="8"/><rect class="bar" x="17" y="138" width="38" height="3" rx="1.5"/><rect class="sc" x="10" y="156" width="84" height="14" rx="7"/><circle class="hr" cx="86" cy="163" r="5"/></g></svg></div>
         <b>思い出から、対話</b>
         <p><span class="key">思い出</span>をひらいて、話したい写真をひとつ選びます。写真の画面で<span class="key">対話</span>を押すと、シアが問いかけます。</p>
         <p>答えを考えなくて大丈夫です。シアは助言も解決もせず、あなたの言葉をそのまま受けとめて、ひとつだけ訊きます。3〜5 回答えるうちに、忘れかけていたことがほどけてきます。</p>
       </li>
       <li>
-        <div class="step-art"><svg viewBox="0 0 260 96" role="img" aria-hidden="true" focusable="false">
-  <path class="ln" d="M6 16h58a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H24l-9 9V46H6a8 8 0 0 1-8-8" transform="translate(8,0)"/>
-  <path class="ac" d="M22 58h56a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H36l-8 8v-8h-6a8 8 0 0 1-8-8V66a8 8 0 0 1 8-8z"/>
-  <path class="ac" d="M112 49h20m0 0-5-5m5 5-5 5"/>
-  <rect class="pf" x="150" y="12" width="96" height="72" rx="6"/>
-  <path class="acf" d="M160 24h22v2h-22z"/>
-  <path class="hr" d="M160 38h76M160 48h76M160 58h76M160 68h48"/>
-</svg></div>
+        <div class="step-art"><svg viewBox="0 0 300 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(6,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="7" width="26" height="5" rx="2.5"/><rect class="hr" x="62" y="16" width="32" height="13" rx="6.5" fill="none"/><rect class="bar" x="70" y="21" width="16" height="3" rx="1.5"/><rect class="sc" x="30" y="34" width="44" height="34" rx="6"/><path class="hr" d="M34 63l13-15 8 7 5-5 15 12"/><circle class="hr" cx="58" cy="46" r="4"/><rect class="sc" x="10" y="76" width="60" height="22" rx="8"/><rect class="bar" x="17" y="82" width="44" height="3" rx="1.5"/><rect class="bar" x="17" y="89" width="30" height="3" rx="1.5"/><rect class="ac" x="34" y="104" width="60" height="22" rx="8" fill="none"/><rect class="bar" x="41" y="110" width="44" height="3" rx="1.5"/><rect class="bar" x="41" y="117" width="26" height="3" rx="1.5"/><rect class="sc" x="10" y="132" width="52" height="18" rx="8"/><rect class="bar" x="17" y="138" width="38" height="3" rx="1.5"/><rect class="sc" x="10" y="156" width="84" height="14" rx="7"/><circle class="hr" cx="86" cy="163" r="5"/></g><path class="ac" d="M128 100h20m0 0-5-5m5 5-5 5"/><g transform="translate(190,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="7" width="26" height="5" rx="2.5"/><rect class="ac" x="62" y="16" width="32" height="13" rx="6.5" fill="none"/><rect class="barh" x="70" y="21" width="16" height="3" rx="1.5"/><rect class="sc" x="8" y="34" width="88" height="50" rx="6"/><path class="hr" d="M12 79l26-22 16 10 11-7 30 18"/><circle class="hr" cx="80" cy="46" r="4"/><rect class="bar" x="12" y="90" width="40" height="3" rx="1.5"/><rect class="hr" x="10" y="98" width="27" height="13" rx="6.5" fill="none"/><rect class="bar" x="17" y="103" width="13" height="3" rx="1.5"/><rect class="hr" x="39" y="98" width="27" height="13" rx="6.5" fill="none"/><rect class="bar" x="46" y="103" width="13" height="3" rx="1.5"/><rect class="ac" x="68" y="98" width="26" height="13" rx="6.5" fill="none"/><rect class="barh" x="75" y="103" width="12" height="3" rx="1.5"/><rect class="acf" x="12" y="118" width="30" height="4" rx="2"/><rect class="bar" x="12" y="130" width="78" height="4" rx="2.0"/><rect class="bar" x="12" y="140" width="70" height="4" rx="2.0"/><rect class="bar" x="12" y="150" width="46" height="4" rx="2.0"/></g></svg></div>
         <b>対話から、日記</b>
         <p>話したことは、あなたの言葉づかいのまま日記になります。写真の画面の<span class="key">日記</span>から、いつでも読み返せます。</p>
         <p>おすすめは、翌日に読むこと。話している最中には気づかなかったことが、静かに見えてきます。</p>
@@ -122,16 +99,7 @@
     <p class="sec-note">同じ対話が、読みものになります。ここは、気が向いたときだけ。</p>
     <ol class="steps-list cont">
       <li>
-        <div class="step-art"><svg viewBox="0 0 260 96" role="img" aria-hidden="true" focusable="false">
-  <rect class="pf" x="6" y="12" width="76" height="72" rx="6"/>
-  <path class="hr" d="M16 30h56M16 40h56M16 50h56M16 60h34"/>
-  <path class="ac" d="M100 49h20m0 0-5-5m5 5-5 5"/>
-  <path class="ln" d="M138 26c14-8 28-8 40 0v46c-12-7-26-7-40 0z"/>
-  <path class="ln" d="M218 26c-14-8-28-8-40 0v46c12-7 26-7 40 0z"/>
-  <path class="ln" d="M178 26v46"/>
-  <circle class="ac" cx="178" cy="49" r="13"/><path class="acf" d="M174 43l10 6-10 6z"/>
-  <path class="ln" d="M232 38c4 5 4 17 0 22M241 32c7 9 7 29 0 38"/>
-</svg></div>
+        <div class="step-art"><svg viewBox="0 0 300 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(6,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="7" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="20" width="88" height="40" rx="6"/><path class="hr" d="M12 55l26-18 16 8 11-6 30 14"/><circle class="hr" cx="80" cy="32" r="4"/><rect class="ph" x="4" y="64" width="96" height="104" rx="12"/><rect class="bar" x="16" y="76" width="36" height="4" rx="2.0"/><rect class="sc" x="12" y="88" width="36" height="16" rx="8"/><rect class="bar" x="18" y="95" width="22" height="3" rx="1.5"/><rect class="sc" x="54" y="88" width="36" height="16" rx="8"/><rect class="bar" x="60" y="95" width="22" height="3" rx="1.5"/><rect class="sc" x="12" y="110" width="36" height="16" rx="8"/><rect class="bar" x="18" y="117" width="22" height="3" rx="1.5"/><rect class="sc" x="54" y="110" width="36" height="16" rx="8"/><rect class="bar" x="60" y="117" width="16" height="3" rx="1.5"/><path class="ac" d="M80 114v-2a2.5 2.5 0 0 1 5 0v2"/><rect class="acf" x="79" y="114" width="7" height="6" rx="1.5"/><rect class="sc" x="12" y="132" width="36" height="16" rx="8"/><rect class="bar" x="18" y="139" width="22" height="3" rx="1.5"/><rect class="sc" x="54" y="132" width="36" height="16" rx="8"/><rect class="bar" x="60" y="139" width="16" height="3" rx="1.5"/><path class="ac" d="M80 136v-2a2.5 2.5 0 0 1 5 0v2"/><rect class="acf" x="79" y="136" width="7" height="6" rx="1.5"/></g><path class="ac" d="M128 100h20m0 0-5-5m5 5-5 5"/><g transform="translate(190,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="7" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="26" width="88" height="54" rx="6"/><path class="hr" d="M12 75l26-24 16 11 11-8 30 19"/><circle class="hr" cx="80" cy="38" r="4"/><rect class="bar" x="12" y="88" width="52" height="5" rx="2.5"/><rect class="bar" x="12" y="102" width="80" height="4" rx="2.0"/><rect class="bar" x="12" y="112" width="74" height="4" rx="2.0"/><rect class="bar" x="12" y="122" width="80" height="4" rx="2.0"/><rect class="bar" x="12" y="132" width="56" height="4" rx="2.0"/><rect class="sc" x="12" y="148" width="80" height="16" rx="8.0"/><circle class="ac" cx="23" cy="156.0" r="6"/><path class="acf" d="M21 153.0l5 3-5 3z"/><rect class="bar" x="36" y="154.0" width="44" height="4" rx="2.0"/></g></svg></div>
         <b>対話から、物語</b>
         <p>話した言葉を材料に、物語を書けます。<span class="key">回想</span>は語った思い出をそのまま織り込む一篇、<span class="key">創作</span>は写真の一瞬から時間が動きだす一篇。できた物語は、そのまま声で聴けます。</p>
         <p>写真だけからでも書けます。タイトル横の<span class="key">鉛筆</span>から<span class="key">自動で生成する</span>を選ぶと、語り・情景・創作・感性・観察・内省・エッセイ・絵日記・五感・視線誘導から文体を選べます。鍵マークのついた文体は、上位のプランで開きます。</p>
