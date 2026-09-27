@@ -6,8 +6,8 @@
 <title>使い方 — ミミセカ シア</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../site.css?v=20260926a">
-<script src="../site.js?v=20260926a" defer></script>
+<link rel="stylesheet" href="../site.css?v=20260927a">
+<script src="../site.js?v=20260927a" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
 <link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -28,6 +28,7 @@
   .steps-list li b { display: block; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
   .steps-list li p { font-size: 0.88rem; color: var(--ink-2); }
   .steps-list li p + p { margin-top: 6px; }
+  .steps-list.cont { counter-reset: step 3; }
   .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
   .prose p + p { margin-top: 12px; }
   .prose b { color: var(--ink); font-weight: 700; }
@@ -48,55 +49,45 @@
 <header class="cover">
   <div class="kicker">使い方</div>
   <h1 class="mid">押すだけ、話すだけ。</h1>
-  <p class="one">覚えることはありません。<br>はじめの一日と、そのあとの流れだけ、ここに。</p>
+  <p class="one">覚えることは、四つだけ。<br>撮って保存、写真と話す、日記になる、物語になる。</p>
 </header>
 
 <div class="frame">
   <main id="main">
-  <section aria-labelledby="h-day1">
-    <h2 class="sec-head" id="h-day1">はじめの一日</h2>
-    <p class="sec-note">アプリを開いたら、いつものカメラのように一枚。それだけで、声がつきます。</p>
+  <section aria-labelledby="h-flow">
+    <h2 class="sec-head" id="h-flow">撮って、話して、日記になる</h2>
+    <p class="sec-note">ここまでが、ミミセカの背骨です。慣れれば、一日 3 分ほど。</p>
     <ol class="steps-list">
       <li>
-        <b>撮る</b>
-        <p>画面中央の丸いボタンを押します。iPhone の音量ボタンでも撮れるので、画面を見なくてもかまいません。</p>
-        <p>右下には、いまいる場所の名前が出ます。押すと、その場所を写真に残すかどうかを切り替えられます。</p>
+        <b>撮影から、思い出に保存</b>
+        <p>画面中央の丸いボタンを押します。iPhone の音量ボタンでも撮れるので、画面を見なくてもかまいません。右下の場所の名前を押すと、その場所を写真に残すかどうかを切り替えられます。</p>
+        <p>数秒待つと、写っているものの説明が声で読み上げられます。撮った写真は、説明がついたままカメラロールの「ミミセカ」アルバムへ自動で保存され、写真アプリでも読み上げられます。</p>
+        <p>この一枚をアプリに残すときは、画面上部の<span class="key">思い出保存</span>を押します。LINE・X・ほかのアプリへは、下のボタンからそのまま送れます。</p>
       </li>
       <li>
-        <b>聴く</b>
-        <p>数秒待つと、写っているものの説明が声で読み上げられます。目を閉じたままでも、その一枚がどんな景色かわかります。</p>
+        <b>思い出から、対話</b>
+        <p><span class="key">思い出</span>をひらいて、話したい写真をひとつ選びます。写真の画面で<span class="key">対話</span>を押すと、シアが問いかけます。</p>
+        <p>答えを考えなくて大丈夫です。シアは助言も解決もせず、あなたの言葉をそのまま受けとめて、ひとつだけ訊きます。3〜5 回答えるうちに、忘れかけていたことがほどけてきます。</p>
       </li>
       <li>
-        <b>残す</b>
-        <p>撮った写真は、説明がついたままカメラロールの「ミミセカ」アルバムへ自動で保存されます。写真アプリでも読み上げられ、文字で検索して探せます。</p>
-        <p>アプリの中に残すときは、画面上部の<span class="key">思い出保存</span>を押します。</p>
-      </li>
-      <li>
-        <b>送る</b>
-        <p>LINE・X・ほかのアプリへは、下のボタンからそのまま送れます。</p>
+        <b>対話から、日記</b>
+        <p>話したことは、あなたの言葉づかいのまま日記になります。写真の画面の<span class="key">日記</span>から、いつでも読み返せます。</p>
+        <p>おすすめは、翌日に読むこと。話している最中には気づかなかったことが、静かに見えてきます。</p>
       </li>
     </ol>
-  </section>
-
-  <section aria-labelledby="h-talk">
-    <h2 class="sec-head" id="h-talk">話すと、日記になる</h2>
-    <p class="sec-note">一日の終わりに、今日の一枚とすこし話す。ここがミミセカの本体です。</p>
-    <div class="prose">
-      <p><span class="key">思い出</span>をひらいて、話したい写真をひとつ選びます。写真の画面で<span class="key">対話</span>を押すと、シアが問いかけます。</p>
-      <p>答えを考えなくて大丈夫です。シアは助言も解決もせず、あなたの言葉をそのまま受けとめて、ひとつだけ訊きます。3〜5 回答えるうちに、忘れかけていたことがほどけてきます。</p>
-      <p>話したことは、あなたの言葉づかいのまま<b>日記</b>になります。写真の画面の「日記」から、いつでも読み返せます。</p>
-    </div>
-    <p class="note-line">対話は無料でも使えます（1 週間に 10 往復まで・1 枚につき 5 往復まで）。話したことを日記や物語にまとめる執筆は、スタンダードプラン以上です。</p>
+    <p class="note-line">対話は無料でも使えます（1 週間に 10 往復まで・1 枚につき 5 往復まで）。話したことを日記にまとめる執筆は、スタンダードプラン以上です。</p>
   </section>
 
   <section aria-labelledby="h-story">
-    <h2 class="sec-head" id="h-story">物語にする</h2>
-    <p class="sec-note">同じ一枚が、文体を変えると別の顔になります。</p>
-    <div class="prose">
-      <p>写真の画面をひらいて、タイトル横の<span class="key">鉛筆</span>から編集画面へ。<span class="key">自動で生成する</span>を選ぶと、文体を選べます。</p>
-      <p>語り・情景・創作・感性・観察・内省・エッセイ・絵日記・五感・視線誘導。鍵マークのついた文体は、上位のプランで開きます。</p>
-      <p>できた物語は、そのまま声で聴けます。気に入らなければ作り直せますし、自分で書き直すこともできます。</p>
-    </div>
+    <h2 class="sec-head" id="h-story">そして、物語に</h2>
+    <p class="sec-note">同じ対話が、読みものになります。ここは、気が向いたときだけ。</p>
+    <ol class="steps-list cont">
+      <li>
+        <b>対話から、物語</b>
+        <p>話した言葉を材料に、物語を書けます。<span class="key">回想</span>は語った思い出をそのまま織り込む一篇、<span class="key">創作</span>は写真の一瞬から時間が動きだす一篇。できた物語は、そのまま声で聴けます。</p>
+        <p>写真だけからでも書けます。タイトル横の<span class="key">鉛筆</span>から<span class="key">自動で生成する</span>を選ぶと、語り・情景・創作・感性・観察・内省・エッセイ・絵日記・五感・視線誘導から文体を選べます。鍵マークのついた文体は、上位のプランで開きます。</p>
+      </li>
+    </ol>
     <p class="note-line">物語を AI に書いてもらうのはサポータープラン以上、または物語化チケットで。自分で書いて残すことに制限はありません。</p>
   </section>
 
