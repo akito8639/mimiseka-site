@@ -173,6 +173,7 @@ footer .copyright { margin-top: 18px; font-size: 0.72rem; letter-spacing: 0.08em
 @media (max-width: 400px) {
   .q-line, .creed-line { font-size: 1.1rem; letter-spacing: 0.06em; }
   .cover h1, .cover h1.mid { letter-spacing: 0.08em; text-indent: 0.08em; }
+  .cover h1.mid { font-size: clamp(1.15rem, 4.6vw, 1.6rem); }  /* 長い題が 320px 幅で枠を越えないように */
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
