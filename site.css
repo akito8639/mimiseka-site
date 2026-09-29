@@ -22,10 +22,12 @@
 /* 行の折り返しは句読点で（keep-all）。句読点のない長い語だけは幅で折る（anywhere）ので、はみ出しはしない */
 body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 2.0; -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; hanging-punctuation: allow-end; }
 .np { white-space: nowrap; }
-/* 格子・並びの子は最小幅を 0 にする。break-word は最小幅を縮めないので、これが無いと長い節が列を押し広げ、隣（写真の段など）が潰れる */
-.card, .item, .app, .tayori-item,
-.two > *, .grid > *, .apps > *, .listen > *, .talk > *, .shots > *,
-.listen .text, .listen .story, .listen .player > * { min-width: 0; }  /* site.js が付ける「文字＋句読点」の組。句読点だけが行頭に落ちない */
+/* ⚠️ `overflow-wrap: break-word` は要素の最小幅を縮めない。格子・並びの子に最小幅 0 を
+   与えないと、長い節が自分の列を押し広げ、隣の段が潰れる（2026-09-29 に「聴く写真」の
+   写真の段が 0 幅になり、アクセシビリティ頁の一覧が枠外へ出た）。個別に足すと必ず
+   取りこぼすので、ここで全体に当てる。`:where()` は詳細度 0 なので、明示指定が勝つ。
+   block 要素では既定（auto = 0）と同じなので副作用はない。 */
+:where(body *) { min-width: 0; }  /* site.js が付ける「文字＋句読点」の組。句読点だけが行頭に落ちない */
 ::selection { background: var(--shu-soft); }
 a { color: var(--shu); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--shu); outline-offset: 3px; }

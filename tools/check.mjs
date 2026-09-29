@@ -18,8 +18,9 @@ const WIDTHS = [1600, 1100, 760, 375, 320];
 const MIME = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript',
   '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.txt': 'text/plain' };
 
+const SKIP_DIR = /(^|\/)(node_modules|\.git|\.github)(\/|$)/;
 const pages = fs.readdirSync(ROOT, { recursive: true })
-  .filter((f) => typeof f === 'string' && f.endsWith('.html') && !f.startsWith('.'))
+  .filter((f) => typeof f === 'string' && f.endsWith('.html') && !f.startsWith('.') && !SKIP_DIR.test(f))
   .map((f) => '/' + f.split(path.sep).join('/'));
 
 const server = http.createServer((req, res) => {
@@ -47,7 +48,7 @@ for (const p of pages) {
   // --- 4. リンク切れ
   for (const m of html.matchAll(/(?:href|src)="(?!https?:|mailto:|#|data:)([^"]+)"/g)) {
     const target = m[1].split('?')[0].split('#')[0];
-    if (!target) continue;
+    if (!target || target.includes('${')) continue;   // テンプレート文字列（tayori.js が差し込む）は実体を持たない
     const abs = path.resolve(path.dirname(path.join(ROOT, p.slice(1))), target);
     if (!fs.existsSync(abs)) errors.push(`リンク切れ ${p} → ${m[1]}`);
   }
