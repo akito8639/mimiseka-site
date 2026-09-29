@@ -6,8 +6,8 @@
 <title>使い方 — ミミセカ シア</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../site.css?v=20260929h">
-<script src="../site.js?v=20260929h" defer></script>
+<link rel="stylesheet" href="../site.css?v=20260929k">
+<script src="../site.js?v=20260929k" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
 <link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -35,6 +35,9 @@
   .prose b { color: var(--ink); font-weight: 700; }
   .prose .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
   .note-line { max-width: 34em; margin: 16px auto 0; font-size: 0.8rem; color: var(--ink-3); }
+  /* プランの錠に当たる前に伝える忠告。派手にせず、朱の細い縦線だけ */
+  .notice { margin: 12px 0 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--shu); font-size: 0.84rem; color: var(--ink-2); }
+  .notice b { color: var(--ink); font-weight: 700; }
   .more-center { text-align: center; margin-top: 26px; font-size: 0.86rem; }
   /* 画面の写し（スクリーンショット）。枠は髪線だけ・影は足さない */
   .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; max-width: 34em; margin: 26px auto 0; }
@@ -95,9 +98,10 @@
         <p>話がほどけてくると、シアの方から「では、書いてみましょう」と声をかけます。そのとき、入力欄が<span class="key">執筆</span>のボタンに変わります。押すと、話したことが、あなたの言葉づかいのまま、日記になります。</p>
         <p>自分のタイミングでもかまいません。画面右上の<span class="key">執筆</span>からは、話の途中でも書けます。できた日記は、写真の画面の<span class="key">日記</span>から読み返せます。</p>
         <p>おすすめは、翌日に読むこと。そのときには気づかなかったことが、静かに見えてきます。</p>
+        <p class="notice">話したことを AI が日記にまとめるには、<b>スタンダードプラン以上</b>が必要です。対話そのものと、自分の言葉で書くことは、無料のままできます。</p>
       </li>
     </ol>
-    <p class="note-line">対話は無料でも使えます（1 週間に 10 往復まで・1 枚につき 5 往復まで）。話したことを日記にまとめる執筆は、スタンダードプラン以上です。</p>
+    <p class="note-line">対話は無料でも使えます（1 週間に 10 往復まで・1 枚につき 5 往復まで）。</p>
   </section>
 
   <section aria-labelledby="h-story">
@@ -110,9 +114,10 @@
         <p>話した言葉を材料に、物語を書けます。</p>
         <p>入口は二つあります。ひとつは、対話の画面の<span class="key">執筆</span>から。もうひとつは、写真の画面で<span class="key">物語</span>のタブをひらき、タイトル横の<span class="key">鉛筆</span>を押し、<span class="key">対話から物語を作る</span>を選ぶ道です。</p>
         <p>できた物語は、そのまま声で聴けます。作り直しも、自分で書き直すのも自由です。</p>
+        <p class="notice">対話から物語を書くのも、<b>スタンダードプラン以上</b>です。写真だけから書くときは、文体によって必要なプランが変わります（語り・絵日記は、サポータープラン以上か物語化チケットで）。</p>
       </li>
     </ol>
-    <p class="note-line">対話をしていない写真からも、タイトル横の鉛筆から<span class="key">自動で生成する</span>を選べば書けます（文体は 10 種類。鍵マークのついたものは、上位のプランで開きます）。物語を AI に書いてもらうのはサポータープラン以上、または物語化チケットで。自分で書いて残すことに制限はありません。</p>
+    <p class="note-line">対話をしていない写真からも、タイトル横の鉛筆から<span class="key">自動で生成する</span>を選べば書けます（文体は 10 種類。鍵マークのついたものは、上位のプランで開きます）。自分で書いて残すことに、制限はありません。</p>
   </section>
 
   <p class="more-center"><a href="lookback.html">たまった一枚を、ふりかえる・贈る →</a></p>
