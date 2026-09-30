@@ -6,8 +6,8 @@
 <title>カメラとしても、ちゃんと — ミミセカ シア</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../site.css?v=20260930c">
-<script src="../site.js?v=20260930c" defer></script>
+<link rel="stylesheet" href="../site.css?v=20260930d">
+<script src="../site.js?v=20260930d" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
 <link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -31,6 +31,18 @@
   .bridge a.more { display: inline-block; margin-top: 18px; font-size: 0.86rem; text-decoration: none; border-bottom: 1px solid var(--shu-soft); padding-bottom: 2px; }
   .bridge a.more:hover { border-bottom-color: var(--shu); }
   .bridge .back { display: inline-block; margin-top: 30px; font-size: 0.86rem; }
+  /* 画面の骨組みの挿絵（使い方の頁と同じ組み・朱は「次に押すもの」だけ） */
+  .step-art { margin: 20px 0 6px; }
+  .step-art svg { display: block; width: 100%; max-width: 360px; height: auto; margin-inline: auto; }
+  .step-art svg .ph { fill: var(--ground-raised); stroke: var(--ink-3); stroke-width: 1.5; }
+  .step-art svg .sc { fill: var(--ground-inset); stroke: var(--hair); stroke-width: 1; }
+  .step-art svg .hr { fill: none; stroke: var(--hair); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .ln { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .ac { fill: none; stroke: var(--shu); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .acf { fill: var(--shu); }
+  .step-art svg .bar { fill: var(--ink-3); opacity: 0.35; }
+  .step-art svg .isl { fill: var(--ink-3); opacity: 0.55; }
+  .art-note { max-width: 34em; margin: 4px auto 0; font-size: 0.78rem; color: var(--ink-3); text-align: center; }
 </style>
 </head>
 <body>
@@ -50,6 +62,8 @@
   <section aria-labelledby="h-nice">
     <h2 class="sec-head left" id="h-nice">きれいに撮る</h2>
     <p class="lead">むずかしい設定は要りません。でも、こだわりたいときには、こだわれます。</p>
+<div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="28" width="88" height="84" rx="6"/><path class="hr" d="M12 107l26-38 16 17 11-12 30 30"/><circle class="hr" cx="82" cy="39" r="3.5"/><rect class="bar" x="12" y="16" width="10" height="4" rx="2.0"/><rect class="bar" x="28" y="16" width="10" height="4" rx="2.0"/><circle class="ac" cx="68" cy="18" r="11"/><circle class="acf" cx="63" cy="18" r="2"/><circle class="acf" cx="68" cy="18" r="2"/><circle class="acf" cx="73" cy="18" r="2"/><rect class="bar" x="86" y="16" width="8" height="4" rx="2.0"/><circle class="ln" cx="52" cy="140" r="13"/><rect class="sc" x="14" y="160" width="76" height="12" rx="6"/><rect class="bar" x="22" y="164" width="14" height="4" rx="2.0"/><rect class="bar" x="45" y="164" width="14" height="4" rx="2.0"/><rect class="bar" x="68" y="164" width="14" height="4" rx="2.0"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(200,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="20" width="88" height="30" rx="6"/><path class="hr" d="M12 45l26-14 16 6 11-4 30 11"/><circle class="hr" cx="82" cy="31" r="3.5"/><rect class="ph" x="4" y="56" width="96" height="112" rx="12"/><rect class="sc" x="12" y="62" width="38" height="28" rx="8"/><path class="ln" d="M33 68l-5 7h4l-2 7 6-8h-4z"/><rect class="bar" x="20" y="84" width="22" height="3" rx="1.5"/><rect class="sc" x="56" y="62" width="38" height="28" rx="8"/><circle class="ln" cx="75" cy="75" r="6.5"/><circle class="acf" cx="75" cy="75" r="2"/><rect class="bar" x="64" y="84" width="22" height="3" rx="1.5"/><rect class="sc" x="12" y="96" width="38" height="28" rx="8"/><circle class="ln" cx="29" cy="109" r="5.5"/><circle class="hr" cx="34" cy="109" r="5.5"/><rect class="bar" x="20" y="118" width="22" height="3" rx="1.5"/><rect class="sc" x="56" y="96" width="38" height="28" rx="8"/><circle class="ln" cx="75" cy="110" r="6"/><path class="ln" d="M75 110v-3.5M75 110h2.5"/><path class="ln" d="M72.5 102.5h5"/><rect class="bar" x="64" y="118" width="22" height="3" rx="1.5"/><rect class="sc" x="12" y="130" width="38" height="28" rx="8"/><rect class="ln" x="28" y="136" width="6" height="9" rx="3"/><path class="ln" d="M25.5 143a5.5 5.5 0 0 0 11 0M31 148.5v2.5"/><rect class="bar" x="20" y="152" width="22" height="3" rx="1.5"/><rect class="sc" x="56" y="130" width="38" height="28" rx="8"/><path class="ln" d="M75 151c0 0 6-6.5 6-10.5a6 6 0 1 0-12 0c0 4 6 10.5 6 10.5z"/><circle class="hr" cx="75" cy="140.5" r="2.2"/><rect class="bar" x="64" y="152" width="22" height="3" rx="1.5"/></g></svg></div>
+    <p class="art-note">上の ⋯ をひらくと、フラッシュ・ポートレート・フィルタ・タイマー・録音・位置情報の 6 つを、一度に変えられます。</p>
     <div class="grid">
       <div class="item"><h3>ポートレート</h3><p>背景をふんわりぼかして撮れます。ぼかしの強さは撮ったあとからでも調整できて、その一枚が保存にも、物語にも使われます。</p></div>
       <div class="item"><h3>色合い</h3><p>その日の光に合わせて、色合いを6つから選べます。継ぎ目の線がすっと流れて、切り替わったことが目でわかります。</p></div>
