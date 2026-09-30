@@ -8,7 +8,7 @@
 //   5. CSS/JS の版ずれ（頁ごとに ?v= が違うと、古い CSS と新しい HTML が混ざる）
 //
 // 文章の折り返しの「不格好さ」は数えるだけで落とさない（好みの領域なので門にしない）。
-import { chromium } from 'playwright';
+import { chromium, webkit } from 'playwright';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -55,7 +55,10 @@ for (const p of pages) {
 }
 if (vers.size > 1) errors.push(`CSS/JS の版がそろっていない: ${[...vers.keys()].join(' / ')}`);
 
-const browser = await chromium.launch();
+// ⚠️ Chromium だけでは足りない。Safari は `word-break: keep-all` のとき句読点でも折らず、
+// 長い一文がそのまま横にはみ出す（2026-09-30 に iPhone で発覚）。WebKit でも同じ検査をする。
+for (const [engineName, engine] of [['chromium', chromium], ['webkit', webkit]]) {
+const browser = await engine.launch();
 const ctx = await browser.newContext({ deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 
@@ -111,7 +114,7 @@ for (const p of pages) {
       return out;
     }, w);
 
-    const at = `${p} @${w}`;
+    const at = `${p} @${w} (${engineName})`;
     if (r.over.length) errors.push(`はみ出し ${at}: ${r.over.join(', ')}`);
     for (const m of r.images) errors.push(`画像 ${at}: ${m}`);
     for (const m of r.collapsed) errors.push(`画像 ${at}: ${m}`);
@@ -122,6 +125,7 @@ for (const p of pages) {
 }
 
 await browser.close();
+}
 server.close();
 
 if (warns.length) console.log('— 参考（落とさない）—\n' + warns.join('\n'));
@@ -129,4 +133,4 @@ if (errors.length) {
   console.error('\n✗ ' + errors.length + ' 件\n' + errors.join('\n'));
   process.exit(1);
 }
-console.log(`\n✓ ${pages.length} 頁 × ${WIDTHS.length} 幅、問題なし`);
+console.log(`\n✓ ${pages.length} 頁 × ${WIDTHS.length} 幅 × 2 エンジン（Chromium / WebKit）、問題なし`);
