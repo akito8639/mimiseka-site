@@ -68,7 +68,14 @@ for (const p of pages) {
     const resp = await page.goto(base + p, { waitUntil: 'load' });
     if (!resp || !resp.ok()) { errors.push(`開けない ${p}`); continue; }
     await page.evaluate(() => document.fonts.ready);
-    await page.waitForTimeout(150);
+    // 遅延読み込みの画像を起こしてから測る（WebKit は Chromium より読み込みが遅い）
+    await page.evaluate(async () => {
+      const step = window.innerHeight;
+      for (let y = 0; y < document.body.scrollHeight; y += step) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); }
+      window.scrollTo(0, 0);
+      await Promise.all([...document.images].filter(i => !i.complete).map(i => i.decode().catch(() => {})));
+    });
+    await page.waitForTimeout(250);
 
     const r = await page.evaluate((W) => {
       const out = { over: [], images: [], collapsed: [], head: [], tail: [], ragged: 0 };
