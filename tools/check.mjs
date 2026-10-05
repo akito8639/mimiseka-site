@@ -83,7 +83,11 @@ for (const p of pages) {
       for (const el of document.querySelectorAll('body *')) {
         const b = el.getBoundingClientRect();
         if (b.width > 0 && b.right > W + 1) {
-          out.over.push(el.tagName + (el.className ? '.' + String(el.className).slice(0, 18) : ''));
+          // 要素名だけでは直せない（どの文字列が溢れているか分からず、総当たりになる）。
+          // 中身の頭 24 字と実幅を添えて、ログから直接その箇所へ行けるようにする。
+          const txt = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 24);
+          out.over.push(el.tagName + (el.className ? '.' + String(el.className).slice(0, 18) : '')
+            + ` ${Math.round(b.width)}px` + (txt ? ` 「${txt}」` : ''));
           if (out.over.length > 4) break;
         }
       }
