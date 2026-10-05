@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>写真に言葉をつける — ミミセカ シア</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../site.css?v=20261006a">
+<script src="../site.js?v=20261006a" defer></script>
+<link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F1E7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ミミセカ">
+<meta property="og:title" content="写真に言葉をつける — ミミセカ シア">
+<meta property="og:description" content="撮るか、選ぶか。それだけで写真に説明がつき、カメラロールから言葉で探せるようになります。">
+<meta property="og:url" content="https://mimiseka.jp/scia/caption.html">
+<meta property="og:image" content="https://mimiseka.jp/brand/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="撮るか、選ぶか。それだけで写真に説明がつき、カメラロールから言葉で探せるようになります。">
+<style>
+  .steps-list { list-style: none; max-width: 34em; margin: 0 auto; counter-reset: step; border-top: 1px solid var(--hair); }
+  .steps-list li { position: relative; padding: 16px 0; border-bottom: 1px solid var(--hair); counter-increment: step; }
+  .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 18px; width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--hair); display: grid; place-items: center; font-family: var(--serif); font-size: 0.8rem; color: var(--shu); line-height: 1; }
+  .steps-list li b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
+  .steps-list li p { font-size: 0.88rem; color: var(--ink-2); }
+  .steps-list li p + p { margin-top: 6px; }
+  .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
+  .prose p + p { margin-top: 12px; }
+  .prose b { color: var(--ink); font-weight: 700; }
+  .prose .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .note-line { max-width: 34em; margin: 16px auto 0; font-size: 0.8rem; color: var(--ink-3); }
+  /* 言い添えておきたいこと。派手にせず、朱の細い縦線だけ */
+  .notice { max-width: 34em; margin: 16px auto 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--shu); font-size: 0.84rem; color: var(--ink-2); }
+  .notice b { color: var(--ink); font-weight: 700; }
+  .more-center { text-align: center; margin-top: 26px; font-size: 0.86rem; }
+  /* 挿絵。線は髪線と本文色、朱は「次に押すもの」ひとつだけ。文字は入れない（翻訳不要）*/
+  .step-art { margin: 10px 0 16px; }
+  .step-art svg { display: block; width: 100%; max-width: 360px; height: auto; margin-inline: auto; }
+  .step-art svg .ph { fill: var(--ground-raised); stroke: var(--ink-3); stroke-width: 1.5; }
+  .step-art svg .sc { fill: var(--ground-inset); stroke: var(--hair); stroke-width: 1; }
+  .step-art svg .bar { fill: var(--ink-3); opacity: 0.35; }
+  .step-art svg .barh { fill: var(--hair); }
+  .step-art svg .isl { fill: var(--ink-3); opacity: 0.55; }
+  .step-art svg .ln { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .hr { fill: none; stroke: var(--hair); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .ac { fill: none; stroke: var(--shu); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .acf { fill: var(--shu); }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へとばす</a>
+<nav class="topbar" aria-label="ページの位置"><a class="home" href="../index.html"><picture><source srcset="../brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="../brand/logo-line.png" alt="ミミセカ" height="26"></picture></a><a href="index.html">シア</a></nav>
+
+<header class="cover">
+  <div class="kicker">使い方</div>
+  <h1 class="mid">あの一枚が、<span class="shu">言葉で見つかる</span>。</h1>
+  <p class="one">VoiceOver で iPhone を使っている方へ。<br>撮るか、選ぶか。それだけで写真に説明がつき、カメラロールの中から、あとで言葉で探せるようになります。</p>
+</header>
+
+<div class="frame">
+<main id="main">
+
+  <section aria-labelledby="h-shoot">
+    <h2 class="sec-head" id="h-shoot">撮って、聴いて、残る</h2>
+    <ol class="steps-list">
+      <li>
+        <b>撮る</b>
+        <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(0,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="20" width="88" height="92" rx="6"/><path class="hr" d="M12 107l26-41 16 18 11-13 30 33"/><circle class="hr" cx="82" cy="31" r="3.5"/><rect class="hr" x="12" y="138" width="26" height="13" rx="6.5" fill="none"/><rect class="hr" x="66" y="138" width="26" height="13" rx="6.5" fill="none"/><circle class="ln" cx="52" cy="144" r="13"/><rect class="sc" x="14" y="160" width="76" height="12" rx="6"/><rect class="bar" x="22" y="164" width="14" height="4" rx="2.0"/><rect class="bar" x="45" y="164" width="14" height="4" rx="2.0"/><rect class="bar" x="68" y="164" width="14" height="4" rx="2.0"/></g><path class="ac" d="M108 100h16m0 0-5-5m5 5-5 5"/><g transform="translate(128,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="20" width="88" height="92" rx="6"/><path class="hr" d="M12 107l26-41 16 18 11-13 30 33"/><circle class="hr" cx="82" cy="31" r="3.5"/><rect class="hr" x="12" y="138" width="26" height="13" rx="6.5" fill="none"/><rect class="bar" x="19" y="143" width="12" height="3" rx="1.5"/><rect class="hr" x="66" y="138" width="26" height="13" rx="6.5" fill="none"/><rect class="bar" x="73" y="143" width="12" height="3" rx="1.5"/><circle class="ac" cx="52" cy="144" r="13"/><rect class="acf" x="46" y="138" width="12" height="12" rx="2"/><rect class="sc" x="14" y="160" width="76" height="12" rx="6"/><rect class="bar" x="22" y="164" width="14" height="4" rx="2.0"/><rect class="bar" x="45" y="164" width="14" height="4" rx="2.0"/><rect class="bar" x="68" y="164" width="14" height="4" rx="2.0"/></g><path class="ac" d="M236 100h16m0 0-5-5m5 5-5 5"/><g transform="translate(256,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="36" width="88" height="66" rx="6"/><path class="hr" d="M12 97l26-30 16 13 11-9 30 24"/><circle class="hr" cx="82" cy="47" r="3.5"/><rect class="bar" x="12" y="110" width="80" height="4" rx="2.0"/><rect class="bar" x="12" y="120" width="70" height="4" rx="2.0"/><rect class="bar" x="12" y="130" width="52" height="4" rx="2.0"/><rect class="sc" x="12" y="144" width="80" height="16" rx="8.0"/><circle class="hr" cx="23" cy="152.0" r="6"/><path class="bar" d="M21 149.0l5 3-5 3z"/><rect class="bar" x="36" y="150.0" width="44" height="4" rx="2.0"/></g></svg></div>
+        <p>画面まんなかの丸いボタンを押します。iPhone の音量ボタンでも切れるので、ボタンを探さなくてもかまいません。VoiceOver がそれぞれのボタンを読み上げます。</p>
+        <p>撮ると確認画面になります。これでよければ、もう一度まんなかのボタン（<span class="key">保存</span>）を押します。撮り直すなら<span class="key">再撮影</span>です。</p>
+      </li>
+      <li>
+        <b>聴く</b>
+        <p>数秒待つと、何が写っているかを事実だけで短く述べた説明が、声で流れます。「白いマグカップと、窓からの光」——そんな調子です。</p>
+        <p>うまく撮れていなかったときも、同じように述べます。暗い、ぼやけている、文字が読み取れない——見栄えよく言い換えたり、黙ったりはしません。</p>
+      </li>
+      <li>
+        <b>残る</b>
+        <p>いま流れた説明をキャプションに書き込んだ一枚が、カメラロールの「<b>ミミセカ</b>」アルバムへ<b>自動で保存されます</b>。保存の操作は要りません。</p>
+        <p>説明は写真そのものに書き込まれます。だから、アプリを閉じても、ほかの人に送っても、言葉はその写真についたままです。</p>
+      </li>
+    </ol>
+    <div class="notice">
+      アプリの中に<span class="key">思い出</span>として残したいときだけ、画面上部の<span class="key">思い出保存</span>を押します。押さなくても、カメラロールへの保存は済んでいます。
+    </div>
+  </section>
+
+  <section aria-labelledby="h-pick">
+    <h2 class="sec-head" id="h-pick">カメラロールにある写真にも</h2>
+    <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="bar" x="12" y="24" width="44" height="5" rx="2.5"/><rect class="hr" x="10" y="40" width="40" height="22" rx="8" fill="none"/><rect class="bar" x="20" y="49" width="20" height="4" rx="2"/><rect class="ac" x="54" y="40" width="40" height="22" rx="8" fill="none"/><rect class="barh" x="64" y="49" width="20" height="4" rx="2"/><rect class="bar" x="12" y="76" width="80" height="4" rx="2"/><rect class="bar" x="12" y="86" width="64" height="4" rx="2"/><rect class="sc" x="8" y="100" width="88" height="48" rx="6"/><path class="hr" d="M12 143l26-26 16 12 11-8 30 22"/><circle class="hr" cx="82" cy="113" r="3.5"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(200,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="bar" x="12" y="24" width="36" height="5" rx="2.5"/><rect class="sc" x="10" y="40" width="26" height="26" rx="4"/><rect class="sc" x="39" y="40" width="26" height="26" rx="4"/><rect class="sc" x="68" y="40" width="26" height="26" rx="4"/><rect class="sc" x="10" y="69" width="26" height="26" rx="4"/><rect class="sc" x="39" y="69" width="26" height="26" rx="4"/><rect class="sc" x="68" y="69" width="26" height="26" rx="4"/><rect class="sc" x="10" y="98" width="26" height="26" rx="4"/><rect class="sc" x="39" y="98" width="26" height="26" rx="4"/><rect class="sc" x="68" y="98" width="26" height="26" rx="4"/><rect class="ac" x="39" y="69" width="26" height="26" rx="4" fill="none"/><rect class="sc" x="12" y="140" width="80" height="16" rx="8"/><rect class="bar" x="24" y="146" width="56" height="4" rx="2"/></g></svg></div>
+    <div class="prose">
+      <p>ホームの<span class="key">写真から選ぶ</span>を押すと、カメラロールの写真を選べます。そこから先は、撮ったときと同じです。説明が作られ、声で流れ、キャプションのついた一枚が「ミミセカ」アルバムに増えます。</p>
+      <p><b>元の写真は書き換えません。</b>説明のついた一枚が、新しく加わるかたちです。元の一枚はそのまま残るので、気軽に試せます。</p>
+      <p>何年も前に撮った写真でもかまいません。誰かに撮ってもらった写真でも、送られてきた写真でも、あとから言葉をつけられます。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-find">
+    <h2 class="sec-head" id="h-find">言葉で、あの一枚が見つかる</h2>
+    <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="ac" x="10" y="22" width="84" height="18" rx="9" fill="none"/><circle class="ac" cx="22" cy="30" r="4"/><path class="ac" d="M25 33l4 4"/><rect class="barh" x="34" y="29" width="34" height="4" rx="2"/><rect class="sc" x="10" y="52" width="26" height="26" rx="4"/><rect class="bar" x="42" y="58" width="48" height="4" rx="2"/><rect class="bar" x="42" y="68" width="34" height="4" rx="2"/><rect class="sc" x="10" y="88" width="26" height="26" rx="4"/><rect class="bar" x="42" y="94" width="44" height="4" rx="2"/><rect class="bar" x="42" y="104" width="30" height="4" rx="2"/><rect class="sc" x="10" y="124" width="26" height="26" rx="4"/><rect class="bar" x="42" y="130" width="40" height="4" rx="2"/><rect class="bar" x="42" y="140" width="26" height="4" rx="2"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(200,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="22" width="88" height="66" rx="6"/><path class="hr" d="M12 83l26-30 16 13 11-9 30 24"/><circle class="hr" cx="82" cy="33" r="3.5"/><rect class="bar" x="12" y="98" width="80" height="4" rx="2"/><rect class="bar" x="12" y="108" width="72" height="4" rx="2"/><rect class="bar" x="12" y="118" width="54" height="4" rx="2"/><rect class="sc" x="12" y="134" width="80" height="16" rx="8"/><circle class="hr" cx="23" cy="142" r="6"/><path class="bar" d="M21 139l5 3-5 3z"/><rect class="bar" x="36" y="140" width="44" height="4" rx="2"/></g></svg></div>
+    <div class="prose">
+      <p>書き込まれた説明は、iPhone 標準の<b>写真アプリの「キャプション」</b>になります。写真を選ぶと VoiceOver がその説明を読み上げるので、<b>開かなくても、どの写真かがわかります</b>。</p>
+      <p>そして、写真アプリの検索に「縁側」や「湯呑み」と入れれば、その写真が出てきます。撮った日を思い出せなくても、覚えているのが一つの言葉だけでも、そこから辿れます。</p>
+      <p>送った先でも言葉は残ります。X に投稿すれば代替テキストとして自動で添えられ、家族に送れば、相手の VoiceOver がその説明を読みます。</p>
+    </div>
+    <div class="notice">
+      写真に書き込まれるのは、いつも<b>説明</b>です。あとから物語や日記を書いても、写真についたキャプションは、事実を述べた説明のまま変わりません。<b>探すための言葉と、読むための言葉を、混ぜないため</b>です。
+    </div>
+    <p class="note-line">説明が写真と合っていないと感じたら、書き換えられます。AI が読み違えることはあるので、そのための口を用意してあります。</p>
+  </section>
+
+</main>
+</div>
+
+<section class="creed" aria-label="むすび">
+  <p class="creed-line">撮った、では終わらせない。<br>——言葉がついて、はじめて<em>あとで会える</em>一枚になります。</p>
+  <p class="more-center"><a href="../accessibility.html">耳と指先で、最後まで — アクセシビリティへの配慮 →</a></p>
+  <a class="back" href="index.html">← シアのページへもどる</a>　<a class="back" href="howto.html">使い方の全体へ →</a>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="../index.html">ミミセカ</a>
+    <a href="index.html">シア</a>
+    <a href="../lupe/index.html">ルペ</a>
+    <a href="../news.html">便り</a>
+    <a href="../about.html">私たち</a>
+    <a href="../accessibility.html">アクセシビリティ</a>
+    <a href="../contact.html">お問い合わせ</a>
+    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+  </div>
+  <p class="copyright">© 2026 MimiSeka Project</p>
+</footer>
+</body>
+</html>
