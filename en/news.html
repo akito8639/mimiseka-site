@@ -1,29 +1,29 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>便り — ミミセカ</title>
+<title>News — MimiSeka</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="site.css?v=20261006c">
-<script src="site.js?v=20261006c" defer></script>
-<link rel="icon" type="image/png" sizes="64x64" href="brand/favicon.png">
-<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<link rel="stylesheet" href="../site.css?v=20261006c">
+<script src="../site.js?v=20261006c" defer></script>
+<link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
 <link rel="alternate" hreflang="ja" href="https://mimiseka.jp/news.html">
 <link rel="alternate" hreflang="en" href="https://mimiseka.jp/en/news.html">
 <link rel="alternate" hreflang="x-default" href="https://mimiseka.jp/news.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="ミミセカ">
-<meta property="og:title" content="便り — ミミセカ">
-<meta property="og:description" content="イベント、公開のお知らせ、アプリの更新。ミミセカからの小さな知らせを、新しい順に。">
-<meta property="og:url" content="https://mimiseka.jp/news.html">
+<meta property="og:site_name" content="MimiSeka">
+<meta property="og:title" content="News — MimiSeka">
+<meta property="og:description" content="Events, releases and app updates. Small notices from MimiSeka, newest first.">
+<meta property="og:url" content="https://mimiseka.jp/en/news.html">
 <meta property="og:image" content="https://mimiseka.jp/brand/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="イベント、公開のお知らせ、アプリの更新。ミミセカからの小さな知らせを、新しい順に。">
+<meta name="description" content="Events, releases and app updates. Small notices from MimiSeka, newest first.">
 <style>
   main { padding: 36px 0 56px; }
   .kind.app { border-style: dashed; }
@@ -48,30 +48,33 @@
 </head>
 <body>
 
-<a class="skip" href="#main">本文へとばす</a>
-<nav class="topbar" aria-label="ページの位置"><a class="home" href="index.html"><picture><source srcset="brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="brand/logo-line.png" alt="ミミセカ" height="26"></picture></a><span class="lang"><a href="en/news.html" hreflang="en" lang="en">English</a></span></nav>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topbar" aria-label="Breadcrumb"><a class="home" href="index.html"><picture><source srcset="../brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="../brand/logo-line.png" alt="MimiSeka" height="26"></picture></a><span class="lang"><a href="../news.html" hreflang="ja" lang="ja">日本語</a></span></nav>
 
 <header class="cover">
-  <div class="kicker">お知らせ</div>
-  <h1>便り</h1>
-  <p class="one">イベント、公開のお知らせ、アプリの更新。ミミセカからの小さな知らせを、新しい順に。</p>
+  <div class="kicker">Notices</div>
+  <h1 class="mid">News</h1>
+  <p class="one">Events, releases and app updates. Small notices from MimiSeka, newest first.</p>
 </header>
 
 <div class="frame narrow">
-<main id="main" aria-label="便りの一覧"></main>
-<a class="back" href="index.html">← ミミセカのトップへもどる</a>
+<main id="main" aria-label="List of notices"></main>
+<a class="back" href="index.html">← Back to the MimiSeka home</a>
 </div>
 
 
-<script src="tayori.js?v=20261006c"></script>
+<script src="../tayori.js?v=20261006c"></script>
 <script>
 (() => {
   'use strict';
   const main = document.getElementById('main');
   const items = (window.TAYORI || []).slice().sort((a, b) => b.date.localeCompare(a.date));
-  if (!items.length) { main.innerHTML = '<p class="empty">まだ便りはありません。</p>'; return; }
+  if (!items.length) { main.innerHTML = '<p class="empty">No notices yet.</p>'; return; }
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt = (d) => { const [y, m, day] = d.split('-'); return `${y}.${m}.${day}`; };
+  // 写真のパスは tayori.js が持つ（サイト直下からの相対）。この頁は /en/ にあるので 1 階層戻す。
+  // 絶対パスにはしない —— 秘密の経路で下見するとき、頭に別の階層が付くため。
+  const asset = (u) => (/^https?:/.test(u) ? u : '../' + u);
   let year = '', html = '';
   for (const raw of items) {
     const it = window.TAYORI_L ? window.TAYORI_L(raw) : raw;
@@ -82,8 +85,8 @@
       <div class="meta"><time datetime="${esc(it.date)}">${fmt(it.date)}</time><span class="${kindCls}">${esc(it.kind)}</span>${it.app ? `<span class="kind app">${esc(it.app)}</span>` : ''}</div>
       <h2><a href="#${esc(it.date)}">${esc(it.title)}</a></h2>
       <p class="body">${esc(it.body)}</p>
-      ${it.photo ? `<figure><img src="${esc(it.photo)}" alt="${esc(it.photoAlt || '')}" loading="lazy" width="1600" height="900">${it.caption ? `<figcaption>${esc(it.caption)}</figcaption>` : ''}</figure>` : ''}
-      ${it.link ? `<p class="more"><a href="${esc(it.link)}">くわしく →</a></p>` : ''}
+      ${it.photo ? `<figure><img src="${esc(asset(it.photo))}" alt="${esc(it.photoAlt || '')}" loading="lazy" width="1600" height="900">${it.caption ? `<figcaption>${esc(it.caption)}</figcaption>` : ''}</figure>` : ''}
+      ${it.link ? `<p class="more"><a href="${esc(it.link)}">More →</a></p>` : ''}
     </article>`;
   }
   main.innerHTML = html;
@@ -91,14 +94,14 @@
 </script>
 <footer>
   <div class="links">
-    <a href="index.html">ミミセカ</a>
-    <a href="scia/index.html">シア</a>
-    <a href="lupe/index.html">ルペ</a>
-    <a href="news.html">便り</a>
-    <a href="about.html">私たち</a>
-    <a href="accessibility.html">アクセシビリティ</a>
-    <a href="contact.html">お問い合わせ</a>
-    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+    <a href="index.html">MimiSeka</a>
+    <a href="scia/index.html">Scia</a>
+    <a href="lupe/index.html">Lupe</a>
+    <a href="news.html">News</a>
+    <a href="about.html">About us</a>
+    <a href="accessibility.html">Accessibility</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://privacy.mimiseka.jp">Privacy policy</a>
   </div>
   <p class="copyright">© 2026 MimiSeka Project</p>
 </footer>

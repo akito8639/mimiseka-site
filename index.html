@@ -6,8 +6,8 @@
 <title>ミミセカ — 聴く写真、書かない日記</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="site.css?v=20261006b">
-<script src="site.js?v=20261006b" defer></script>
+<link rel="stylesheet" href="site.css?v=20261006c">
+<script src="site.js?v=20261006c" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="brand/favicon.png">
 <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -154,7 +154,7 @@
   };
 })();
 </script>
-<script src="tayori.js?v=20261006b"></script>
+<script src="tayori.js?v=20261006c"></script>
 <script>
 (() => {
   'use strict';
@@ -163,9 +163,8 @@
   const items = (window.TAYORI || []).slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
   const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt = (d) => { const [y, m, day] = d.split('-'); return `${y}.${m}.${day}`; };
-  list.innerHTML = items.length ? items.map((it) =>
-    `<div class="tayori-item"><div class="meta"><time datetime="${esc(it.date)}">${fmt(it.date)}</time><span class="kind">${esc(it.kind)}${it.app ? '・' + esc(it.app) : ''}</span></div><a href="news.html#${esc(it.date)}">${esc(it.title)}</a></div>`
-  ).join('') : '<p class="sec-note">まだ便りはありません。</p>';
+  list.innerHTML = items.length ? items.map((raw) => { const it = window.TAYORI_L ? window.TAYORI_L(raw) : raw; return `<div class="tayori-item"><div class="meta"><time datetime="${esc(it.date)}">${fmt(it.date)}</time><span class="kind">${esc(it.kind)}${it.app ? '・' + esc(it.app) : ''}</span></div><a href="news.html#${esc(it.date)}">${esc(it.title)}</a></div>`
+  }).join('') : '<p class="sec-note">まだ便りはありません。</p>';
 })();
 </script>
 <script>

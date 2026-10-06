@@ -6,8 +6,8 @@
 <title>MimiSeka — Photographs you listen to. A diary you never write.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../site.css?v=20261006b">
-<script src="../site.js?v=20261006b" defer></script>
+<link rel="stylesheet" href="../site.css?v=20261006c">
+<script src="../site.js?v=20261006c" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
 <link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -98,6 +98,13 @@
     </div>
   </section>
 
+  <section class="tight" aria-labelledby="h-tayori">
+    <h2 class="sec-head" id="h-tayori">News</h2>
+    <p class="sec-note">Events and releases. Just the most recent.</p>
+    <div class="tayori-list" id="tayoriList"></div>
+    <p class="more-link"><a href="news.html">All news →</a></p>
+  </section>
+
   <section class="tight" aria-labelledby="h-stance">
     <h2 class="sec-head" id="h-stance">Where this began</h2>
     <p class="origin">
@@ -123,13 +130,12 @@
     <a href="index.html">MimiSeka</a>
     <a href="scia/index.html">Scia</a>
     <a href="lupe/index.html">Lupe</a>
-    <a href="../news.html" hreflang="ja">News</a>
+    <a href="news.html">News</a>
     <a href="about.html">About us</a>
     <a href="accessibility.html">Accessibility</a>
-    <a href="../contact.html" hreflang="ja">Contact</a>
+    <a href="contact.html">Contact</a>
     <a href="https://privacy.mimiseka.jp">Privacy policy</a>
   </div>
-  <p class="note-ja" lang="ja">リンク先のうち、英語版がまだ無いページは日本語で開きます。</p>
   <p class="copyright">© 2026 MimiSeka Project</p>
 </footer>
 <script>
@@ -146,6 +152,19 @@
     speechSynthesis.cancel(); speechSynthesis.speak(u);
     btn.dataset.speaking = '1'; btn.textContent = busy;
   };
+})();
+</script>
+<script src="../tayori.js?v=20261006c"></script>
+<script>
+(() => {
+  'use strict';
+  const list = document.getElementById('tayoriList');
+  if (!list) return;
+  const items = (window.TAYORI || []).slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+  const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmt = (d) => { const [y, m, day] = d.split('-'); return `${y}.${m}.${day}`; };
+  list.innerHTML = items.length ? items.map((raw) => { const it = window.TAYORI_L ? window.TAYORI_L(raw) : raw; return `<div class="tayori-item"><div class="meta"><time datetime="${esc(it.date)}">${fmt(it.date)}</time><span class="kind">${esc(it.kind)}${it.app ? ' · ' + esc(it.app) : ''}</span></div><a href="news.html#${esc(it.date)}">${esc(it.title)}</a></div>`;
+  }).join('') : '<p class="sec-note">No notices yet.</p>';
 })();
 </script>
 <script>

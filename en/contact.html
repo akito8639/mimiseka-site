@@ -1,24 +1,24 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>お問い合わせ — ミミセカ</title>
+<title>Contact — MimiSeka</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="site.css?v=20261006c">
-<script src="site.js?v=20261006c" defer></script>
-<link rel="icon" type="image/png" sizes="64x64" href="brand/favicon.png">
-<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<link rel="stylesheet" href="../site.css?v=20261006c">
+<script src="../site.js?v=20261006c" defer></script>
+<link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
 <link rel="alternate" hreflang="ja" href="https://mimiseka.jp/contact.html">
 <link rel="alternate" hreflang="en" href="https://mimiseka.jp/en/contact.html">
 <link rel="alternate" hreflang="x-default" href="https://mimiseka.jp/contact.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="ミミセカ">
-<meta property="og:title" content="お問い合わせ — ミミセカ">
+<meta property="og:site_name" content="MimiSeka">
+<meta property="og:title" content="Contact — MimiSeka">
 <meta property="og:description" content="使ってみての感想、うまくいかないこと、取材や協働のご相談。どんなことでも、ここから届きます。">
-<meta property="og:url" content="https://mimiseka.jp/contact.html">
+<meta property="og:url" content="https://mimiseka.jp/en/contact.html">
 <meta property="og:image" content="https://mimiseka.jp/brand/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -63,73 +63,73 @@
 </style>
 </head>
 <body>
-<a class="skip" href="#main">本文へとばす</a>
-<nav class="topbar" aria-label="ページの位置"><a class="home" href="index.html"><picture><source srcset="brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="brand/logo-line.png" alt="ミミセカ" height="26"></picture></a><span class="lang"><a href="en/contact.html" hreflang="en" lang="en">English</a></span></nav>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topbar" aria-label="Breadcrumb"><a class="home" href="index.html"><picture><source srcset="../brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="../brand/logo-line.png" alt="MimiSeka" height="26"></picture></a><span class="lang"><a href="../contact.html" hreflang="ja" lang="ja">日本語</a></span></nav>
 
 <header class="cover short">
-  <div class="kicker">お問い合わせ</div>
-  <h1 class="mid">おたよりを、どうぞ</h1>
-  <p class="one">使ってみての感想、うまくいかないこと、取材や協働のご相談。<br>どんなことでも、ここから届きます。</p>
+  <div class="kicker">Contact</div>
+  <h1 class="mid">Please do write</h1>
+  <p class="one">How it felt to use, something that will not work, press or partnership enquiries.<br>Whatever it is, it reaches us from here.</p>
 </header>
 
 <div class="frame">
 <main id="main">
   <form id="contactForm" novalidate>
     <div class="field">
-      <label for="name">お名前<span class="opt">任意</span></label>
-      <input type="text" id="name" name="name" autocomplete="name" placeholder="ニックネームでも">
+      <label for="name">Your name<span class="opt">optional</span></label>
+      <input type="text" id="name" name="name" autocomplete="name" placeholder="A nickname is fine">
     </div>
     <div class="field" id="f-email">
-      <label for="email">メールアドレス</label>
+      <label for="email">Email address</label>
       <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-hint email-err" placeholder="you@example.com" inputmode="email">
-      <span class="hint" id="email-hint">お返事はこのアドレスに届きます。</span>
-      <span class="err" id="email-err" role="alert">メールアドレスの形をご確認ください。</span>
+      <span class="hint" id="email-hint">Our reply will go to this address.</span>
+      <span class="err" id="email-err" role="alert">Please check the form of the email address.</span>
     </div>
     <div class="field">
-      <label for="topic">用件</label>
+      <label for="topic">Subject</label>
       <select id="topic" name="topic">
-        <option value="アプリの使いかた・不具合">アプリの使いかた・不具合</option>
-        <option value="アクセシビリティのこと">アクセシビリティのこと</option>
-        <option value="取材・協働・イベント">取材・協働・イベント</option>
-        <option value="感想・ご提案">感想・ご提案</option>
-        <option value="そのほか">そのほか</option>
+        <option value="Using the app / something broken">Using the app, or something broken</option>
+        <option value="Accessibility">Accessibility</option>
+        <option value="Press / partnership / events">Press, partnership or events</option>
+        <option value="Impressions / suggestions">Impressions and suggestions</option>
+        <option value="Something else">Something else</option>
       </select>
     </div>
     <div class="field" id="f-message">
-      <label for="message">内容</label>
-      <textarea id="message" name="message" required aria-describedby="message-hint message-err" placeholder="お困りごとは、どの画面で何をしたときかを書いていただけると助かります。"></textarea>
-      <span class="hint" id="message-hint">写真や本文は送らないでください——お返事に必要なことだけで大丈夫です。</span>
-      <span class="err" id="message-err" role="alert">内容をご記入ください。</span>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required aria-describedby="message-hint message-err" placeholder="If something is going wrong, it helps a great deal to know which screen you were on and what you were doing."></textarea>
+      <span class="hint" id="message-hint">Please do not send photographs or the text of your stories — only what is needed for a reply.</span>
+      <span class="err" id="message-err" role="alert">Please write a message.</span>
     </div>
     <div class="hp" aria-hidden="true">
-      <label for="website">このらんは空のままにしてください</label>
+      <label for="website">Please leave this field empty</label>
       <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
     </div>
     <div id="turnstile" class="turnstile" hidden></div>
     <div class="actions">
-      <button type="submit" class="btn-submit" id="submitBtn">送る</button>
-      <span class="privacy">いただいた内容は、お返事のためだけに使います。</span>
+      <button type="submit" class="btn-submit" id="submitBtn">Send</button>
+      <span class="privacy">What you send is used only to reply to you.</span>
     </div>
   </form>
   <div class="status" id="status" role="status" aria-live="polite"></div>
   <div class="done" id="done" tabindex="-1">
-    <p class="big">届きました。</p>
-    <p>ありがとうございます。数日のうちに、メールでお返事します。</p>
+    <p class="big">It has arrived.</p>
+    <p>Thank you. We will reply by email within a few days.</p>
   </div>
-  <p class="alt">フォームがうまく使えないときは、<a href="mailto:support@mimiseka.jp">support@mimiseka.jp</a> へ直接どうぞ。</p>
+  <p class="alt">If the form will not work for you, please write straight to <a href="mailto:support@mimiseka.jp">support@mimiseka.jp</a>.</p>
 </main>
 </div>
 
 <footer>
   <div class="links">
-    <a href="index.html">ミミセカ</a>
-    <a href="scia/index.html">シア</a>
-    <a href="lupe/index.html">ルペ</a>
-    <a href="news.html">便り</a>
-    <a href="about.html">私たち</a>
-    <a href="accessibility.html">アクセシビリティ</a>
-    <a href="contact.html">お問い合わせ</a>
-    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+    <a href="index.html">MimiSeka</a>
+    <a href="scia/index.html">Scia</a>
+    <a href="lupe/index.html">Lupe</a>
+    <a href="news.html">News</a>
+    <a href="about.html">About us</a>
+    <a href="accessibility.html">Accessibility</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://privacy.mimiseka.jp">Privacy policy</a>
   </div>
   <p class="copyright">© 2026 MimiSeka Project</p>
 </footer>
@@ -179,11 +179,11 @@
   }
 
   const ERRORS = {
-    turnstile_failed: '確認に失敗しました。ページを読み直して、もう一度お試しください。',
-    too_many_requests: '短い時間に送信が続いています。しばらく置いてから、もう一度お願いします。',
-    message_too_long: '内容は 4000 字までにしてください。',
-    invalid_email: 'メールアドレスの形をご確認ください。',
-    contact_unavailable: 'いまフォームを受け付けられません。',
+    turnstile_failed: 'The check did not pass. Please reload the page and try again.',
+    too_many_requests: 'Several messages have been sent in a short time. Please leave it a while and try again.',
+    message_too_long: 'Please keep the message to 4000 characters.',
+    invalid_email: 'Please check the form of the email address.',
+    contact_unavailable: 'The form cannot take messages at the moment.',
   };
 
   form.addEventListener('submit', async (e) => {
@@ -195,16 +195,16 @@
 
     if (!live) {
       const subject = `[ミミセカ] ${data.get('topic')}`;
-      const body = `${data.get('message')}\n\n—\nお名前: ${data.get('name') || '（未記入）'}\nメール: ${data.get('email')}`;
+      const body = `${data.get('message')}\n\n—\nName: ${data.get('name') || '(not given)'}\nEmail: ${data.get('email')}`;
       location.href = `mailto:${FALLBACK_MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      setStatus('メールの作成画面をひらきました。<b>そのまま送信</b>してください。ひらかない場合は、下のアドレスへ直接お送りください。');
+      setStatus('A new email has been opened. Please <b>send it as it is</b>. If nothing opened, write to the address below instead.');
       return;
     }
 
     const token = window.turnstile && tsWidget !== null ? window.turnstile.getResponse(tsWidget) : '';
-    if (!token) { setStatus('確認がまだ終わっていません。数秒待って、もう一度「送る」を押してください。'); return; }
+    if (!token) { setStatus('The check has not finished yet. Please wait a few seconds and press Send again.'); return; }
 
-    btn.disabled = true; btn.textContent = '送っています…';
+    btn.disabled = true; btn.textContent = 'Sending…';
     try {
       const res = await fetch(ENDPOINT, {
         method: 'POST',
@@ -222,9 +222,9 @@
       form.hidden = true; status.classList.remove('show');
       done.classList.add('show'); done.focus();
     } catch (err) {
-      const msg = ERRORS[err.message] || '送れませんでした。時間をおいてもう一度お試しください。';
+      const msg = ERRORS[err.message] || 'It could not be sent. Please leave it a little and try again.';
       setStatus(`${msg} うまくいかないときは <a href="mailto:${FALLBACK_MAIL}">${FALLBACK_MAIL}</a> へ直接どうぞ。`);
-      btn.disabled = false; btn.textContent = '送る';
+      btn.disabled = false; btn.textContent = 'Send';
       if (window.turnstile && tsWidget !== null) window.turnstile.reset(tsWidget);
     }
   });
