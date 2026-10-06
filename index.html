@@ -6,11 +6,14 @@
 <title>ミミセカ — 聴く写真、書かない日記</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="site.css?v=20261006a">
-<script src="site.js?v=20261006a" defer></script>
+<link rel="stylesheet" href="site.css?v=20261006b">
+<script src="site.js?v=20261006b" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="brand/favicon.png">
 <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
+<link rel="alternate" hreflang="ja" href="https://mimiseka.jp/">
+<link rel="alternate" hreflang="en" href="https://mimiseka.jp/en/">
+<link rel="alternate" hreflang="x-default" href="https://mimiseka.jp/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ミミセカ">
 <meta property="og:title" content="ミミセカ — 聴く写真、書かない日記">
@@ -24,6 +27,7 @@
 </head>
 <body>
 <a class="skip" href="#main">本文へとばす</a>
+<nav class="topbar lang-only" aria-label="言語"><span class="lang"><a href="en/index.html" hreflang="en" lang="en">English</a></span></nav>
 
 <header class="cover tall">
   <h1><picture><source srcset="brand/logo-dark.png" media="(prefers-color-scheme: dark)"><img class="logo" src="brand/logo.png" alt="ミミセカ" width="640" height="640"></picture></h1>
@@ -141,14 +145,16 @@
   window.mimisekaSpeak = (text, btn, idle, busy) => {
     if (btn.dataset.speaking === '1') { speechSynthesis.cancel(); btn.dataset.speaking = '0'; btn.textContent = idle; return; }
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP'; u.rate = 0.95;
+    // 読み上げの声は頁の言語に従う（英語の頁を日本語の声で読ませない）
+    u.lang = (document.documentElement.lang || 'ja').toLowerCase().startsWith('en') ? 'en-US' : 'ja-JP';
+    u.rate = 0.95;
     u.onend = u.onerror = () => { btn.dataset.speaking = '0'; btn.textContent = idle; };
     speechSynthesis.cancel(); speechSynthesis.speak(u);
     btn.dataset.speaking = '1'; btn.textContent = busy;
   };
 })();
 </script>
-<script src="tayori.js?v=20261006a"></script>
+<script src="tayori.js?v=20261006b"></script>
 <script>
 (() => {
   'use strict';

@@ -188,3 +188,22 @@ footer .copyright { margin-top: 18px; font-size: 0.72rem; letter-spacing: 0.08em
 .cover .logo { display: block; width: min(150px, 40vw); height: auto; margin: 0 auto 10px; }
 .cover .appicon { display: block; width: 84px; height: 84px; border-radius: 20px; margin: 0 auto 18px; }
 .app .icon { display: block; width: 56px; height: 56px; border-radius: 14px; margin-bottom: 14px; }
+
+/* ── 英語の頁 ──────────────────────────────────────────────
+   字間（letter-spacing）と字下げ（text-indent）は日本語の見出しのために広げてある。
+   ラテン文字に同じ値を当てると語が崩れて読めないので、ここで詰める。 */
+[lang="en"] .cover h1, [lang="en"] .cover h1.mid, [lang="en"] .sec-head,
+[lang="en"] .q-line, [lang="en"] .creed-line, [lang="en"] .creed-close { letter-spacing: 0.01em; text-indent: 0; }
+[lang="en"] .cover .kicker, [lang="en"] .app-kicker, [lang="en"] .mode { letter-spacing: 0.16em; text-indent: 0; }
+[lang="en"] .one, [lang="en"] .sub, [lang="en"] p { letter-spacing: 0; }
+[lang="en"] h2, [lang="en"] h3 { letter-spacing: 0.01em; }
+
+/* 言語の切り替え。いまの言語は出さず、もう一方へのリンクだけを置く
+   （現在地を色や太さで示すと、色だけに頼る表示になるため） */
+.topbar .lang { margin-left: auto; }
+.topbar .lang a { color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; }
+.topbar .lang a:hover { color: var(--shu); }
+/* トップは表紙から始まる作りなので、言語の行だけを薄く置く */
+.topbar.lang-only { padding-bottom: 0; min-height: 0; }
+/* 英語版がまだ揃っていない間だけ出す断り */
+footer .note-ja { margin-top: 10px; font-size: 0.74rem; color: var(--ink-3); }

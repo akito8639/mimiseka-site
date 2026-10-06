@@ -97,7 +97,9 @@ for (const p of pages) {
         if (!img.complete || img.naturalWidth === 0) out.images.push('読めない: ' + img.getAttribute('src'));
         else if (b.width < 24 || b.height < 24) out.collapsed.push('潰れた: ' + img.getAttribute('src') + ` (${Math.round(b.width)}x${Math.round(b.height)})`);
       }
-      // 3. 禁則（行頭の句読点・行末の開きかっこ）
+      // 3. 禁則（行頭の句読点・行末の開きかっこ）—— 日本語の頁だけ。
+      //    英語は語の間で折れるので、この検査は意味を持たない。
+      if (!(document.documentElement.lang || '').toLowerCase().startsWith('ja')) return out;
       const rg = document.createRange();
       const OKEND = /[、。！？」』）—・  ]$/;
       for (const el of document.querySelectorAll('p, li, dd, figcaption, h1, h2, h3')) {

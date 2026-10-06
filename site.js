@@ -96,5 +96,7 @@
     for (const rule of RULES) nowrap(root, rule);
   };
   window.mimisekaKinsoku = apply;
-  apply(document.body);
+  // ここでやっているのは日本語の組版（禁則・和欧間・句読点での折り返し）なので、
+  // 英語の頁には当てない。当てると語の途中に <wbr> が入り、単語が割れて読めなくなる。
+  if ((document.documentElement.lang || '').toLowerCase().startsWith('ja')) apply(document.body);
 })();
