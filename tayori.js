@@ -3,11 +3,49 @@
 // 写真を添えるなら photo（photo/ 配下・横 1600px）と photoAlt（目を閉じた人にも伝わる説明・必須）、あれば caption。写真は便りのページにだけ出ます。
 // このファイルだけ書き換えれば、トップと便りのページの両方に出ます。
 // 頁の言語で項目を選ぶ。en が無いエントリは日本語のまま出る（翻訳待ちでも壊れない）
+// 同じ日付が 2 本並ぶと記事の id が衝突し、トップからのリンクが先頭にしか飛ばない。
+// 読み込み時に一度だけ、記事ごとの印を決めておく（同じ日の 2 本目以降は -2, -3…）。
+window.TAYORI_ANCHOR = (list) => {
+  const seen = {};
+  for (const it of list) {
+    const n = (seen[it.date] = (seen[it.date] || 0) + 1);
+    it.anchor = n === 1 ? it.date : it.date + '-' + n;
+  }
+  return list;
+};
+
 window.TAYORI_L = (it) =>
   ((document.documentElement.lang || 'ja').toLowerCase().startsWith('en') && it.en)
     ? Object.assign({}, it, it.en) : it;
 
 window.TAYORI = [
+  {
+    date: "2026-10-06",
+    kind: "お知らせ",
+    app: null,
+    title: "サイトに英語版を加えました",
+    body: "すべてのページに英語版を用意しました。どのページでも、右上から切り替えられます。",
+    link: "en/index.html",
+    en: {
+      kind: "Notice", app: null,
+      title: "The site is now available in English",
+      body: "Every page now has an English version. You can switch between the two from the top right of any page.",
+      link: "index.html"
+    }
+  },
+  {
+    date: "2026-10-06",
+    kind: "お知らせ",
+    app: "シア",
+    title: "使い方に「写真に言葉をつける」を加えました",
+    body: "VoiceOver でお使いの方へ。撮るか選ぶかで写真に説明がつき、カメラロールから言葉で探せるようになるまでを、1 ページにまとめました。",
+    link: "scia/caption.html",
+    en: {
+      kind: "Notice", app: "Scia",
+      title: "A new guide: giving a photograph words",
+      body: "For people using VoiceOver. One page on how taking or choosing a photo gives it a description, and how to find it again by a word."
+    }
+  },
   {
     date: "2026-09-20",
     kind: "お知らせ",
@@ -66,3 +104,5 @@ window.TAYORI = [
     }
   }
 ];
+
+window.TAYORI_ANCHOR(window.TAYORI);
