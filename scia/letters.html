@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手紙が届く — ミミセカ シア 1.3.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../site.css?v=20261006d">
+<script src="../site.js?v=20261006d" defer></script>
+<link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F1E7">
+<link rel="alternate" hreflang="ja" href="https://mimiseka.jp/scia/letters.html">
+<link rel="alternate" hreflang="en" href="https://mimiseka.jp/en/scia/letters.html">
+<link rel="alternate" hreflang="x-default" href="https://mimiseka.jp/scia/letters.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ミミセカ">
+<meta property="og:title" content="手紙が届く — ミミセカ シア 1.3.0">
+<meta property="og:description" content="一日に一通は、あの日のあなたから。月に一通は、シアから。そして、写真の説明は話し方を選べるようになります。">
+<meta property="og:url" content="https://mimiseka.jp/scia/letters.html">
+<meta property="og:image" content="https://mimiseka.jp/brand/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="一日に一通は、あの日のあなたから。月に一通は、シアから。そして、写真の説明は話し方を選べるようになります。">
+<style>
+  .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
+  .prose p + p { margin-top: 12px; }
+  .prose b { color: var(--ink); font-weight: 700; }
+  .prose .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .note-line { max-width: 34em; margin: 16px auto 0; font-size: 0.8rem; color: var(--ink-3); }
+  /* 言い添えておきたいこと。派手にせず、朱の細い縦線だけ */
+  .notice { max-width: 34em; margin: 16px auto 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--shu); font-size: 0.84rem; color: var(--ink-2); }
+  .notice b { color: var(--ink); font-weight: 700; }
+  .more-center { text-align: center; margin-top: 26px; font-size: 0.86rem; }
+  /* 節の肩に置く、誰からの手紙かの一行 */
+  .from { max-width: 34em; margin: -6px auto 14px; font-family: var(--serif); font-size: 0.86rem; letter-spacing: 0.08em; color: var(--ink-3); }
+  /* 便箋。手紙の例を、本文から一段落として見せる */
+  .letter { max-width: 30em; margin: 18px auto 0; padding: 18px 20px; border: 1px solid var(--hair); border-radius: 12px; background: var(--ground-raised); font-family: var(--serif); font-size: 0.9rem; line-height: 2; color: var(--ink); }
+  .letter .stamp { display: block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 8px; }
+  .letter .sign { display: block; text-align: right; font-size: 0.84rem; color: var(--ink-2); margin-top: 8px; }
+  /* 話し方の二つを、並べて読み比べる */
+  .pair { max-width: 34em; margin: 16px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); gap: 12px; }
+  .pair div { padding: 14px 16px; border: 1px solid var(--hair); border-radius: 12px; background: var(--ground-raised); font-size: 0.88rem; color: var(--ink-2); }
+  .pair b { display: block; font-family: var(--serif); font-size: 0.84rem; letter-spacing: 0.1em; color: var(--shu); margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へとばす</a>
+<nav class="topbar" aria-label="ページの位置"><a class="home" href="../index.html"><picture><source srcset="../brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="../brand/logo-line.png" alt="ミミセカ" height="26"></picture></a><a href="index.html">シア</a><span class="lang"><a href="../en/scia/letters.html" hreflang="en" lang="en">English</a></span></nav>
+
+<header class="cover">
+  <div class="kicker">1.3.0 の新しいこと（近日公開）</div>
+  <h1 class="mid">手紙が、<span class="shu">届く</span>。</h1>
+  <p class="one">一日に一通は、あの日のあなたから。月に一通は、シアから。<br>そして、写真の説明は、話し方を選べるようになります。</p>
+</header>
+
+<div class="frame">
+<main id="main">
+
+  <section aria-labelledby="h-today">
+    <h2 class="sec-head" id="h-today">今日の手紙</h2>
+    <p class="from">あの日のあなたから、一日に一通</p>
+    <div class="prose">
+      <p>ホームの<span class="key">ジャーナリング</span>を押すと、手紙が届く机があります。毎晩 10 時に、封書が一通。差出人は、<b>あの日のあなた</b>です。</p>
+      <p>一年前の同じ日の日記。話が途中で止まっている日。同じ場所にいた日や、同じ天気の日の日記。その日に残した言葉が、あなたの言葉づかいのまま、便箋に載って届きます。<b>要約も、言い換えもしません。</b></p>
+    </div>
+    <div class="letter" aria-label="手紙の例">
+      <span class="stamp">10 月 7 日 着</span>
+      あなたへ<br>
+      久しぶりに実家。縁側で母とお茶。たいした話はしていないのに、洗濯物を取り込むタイミングで、ふたりで笑った。それだけの夕方だったけど、それで十分だった気がする。
+      <span class="sign">一年前のあなたより</span>
+    </div>
+    <div class="prose">
+      <p><span class="key">封を切る</span>で読めます。<span class="key">声で読む</span>を押せば、朗読の声で聴けます。話が途中だった日の手紙には<span class="key">続きを話す</span>があり、そのまま対話に戻れます。</p>
+      <p>開けなかった手紙は、その日限りです。翌日の 10 時に、次の一通に替わります。束にして数を見せる代わりに、一通に価値を置きました。</p>
+    </div>
+    <div class="notice">
+      章が三つほどたまるまでは、シアからの最初の一通が置いてあります。写真を一枚撮ると、次の手紙の種になります。<b>プランによる制限はありません。</b>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-month">
+    <h2 class="sec-head" id="h-month">ひと月の手紙</h2>
+    <p class="from">シアから、月に一通</p>
+    <div class="prose">
+      <p>月が変わって最初の 7 日間、ホームに<span class="key">先月の出来ごと</span>が出ます。その冒頭に、シアからの手紙が置かれます。</p>
+      <p>先月の日記と、写真について話した言葉をもとに、<b>写真を一緒に見ていた友達が、ひと月を思い返して話しかけてくる</b>、200 字から 300 字ほどの文章です。撮っただけで言葉のない写真は、日付と場所と写っているものだけが、背景として添えられます。</p>
+      <p><span class="key">手紙を聴く</span>を押すと、<b>シアの声</b>で読み上げます。シアの声は、物語や案内の声とは別に、設定の「朗読の声をえらぶ」から選べます。</p>
+      <p>同じ面には、先月あなたが何度も戻った写真の並びと、去年の同じ月の一枚があります。<span class="key">この並びを本にする</span>を押せば、その月がそのまま一冊になります。</p>
+    </div>
+    <div class="notice">
+      有料のプランなら毎月届きます。無料でも、はじめの 3 か月は届きます。通知は、設定の<span class="key">先月の手紙を届ける</span>で。月のはじめに 1 通だけです。
+    </div>
+  </section>
+
+  <section aria-labelledby="h-tone">
+    <h2 class="sec-head" id="h-tone">説明の話し方が、二つに</h2>
+    <div class="prose">
+      <p>撮った写真に自動でつく説明は、これまで「です・ます」のていねいな言い方だけでした。1.3.0 からは、<b>やさしい</b>を選べます。先生が低学年の子に話すような、話し言葉です。</p>
+    </div>
+    <div class="pair">
+      <div><b>ていねい</b>白いマグカップが、窓からの光を受けています。奥には観葉植物があります。</div>
+      <div><b>やさしい</b>白いマグカップがあるよ。窓から光が入ってるよ。奥には、みどりの葉っぱがあるね。</div>
+    </div>
+    <div class="prose">
+      <p>切り替えは、撮影画面の<span class="key">説明</span>のピルから。長さ（短め・標準・長め）の下に、話し方（ていねい・やさしい）が並びます。文体シートの「説明」の行からも選べます。何もしなければ、これまでどおり「ていねい」のままです。</p>
+      <p>やさしい説明には、別の声も当てられます。説明の声が AI 音声のとき、設定の「説明の声」の下に<span class="key">やさしい説明の声</span>が出ます。口調に合う声を選んでおくと、撮った直後の読み上げも、章の朗読も、その声になります。</p>
+    </div>
+    <p class="note-line">話し方が効くのは、写真に書き込まれる説明だけです。日記や物語の言葉づかいは変わりません。説明は日本語で書かれるので、話し方も日本語の説明に効きます。</p>
+  </section>
+
+</main>
+</div>
+
+<section class="creed" aria-label="むすび">
+  <p class="creed-line">自分が積んだものが、<br>自分の知らない形で<br>——<em>返ってくる</em>。</p>
+  <p class="more-center"><a href="lookback.html">ふりかえる・贈る — カレンダー・地図・地域からたどる →</a></p>
+  <a class="back" href="index.html">← シアのページへもどる</a>　<a class="back" href="howto.html">使い方の全体へ →</a>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="../index.html">ミミセカ</a>
+    <a href="index.html">シア</a>
+    <a href="../lupe/index.html">ルペ</a>
+    <a href="../news.html">便り</a>
+    <a href="../about.html">私たち</a>
+    <a href="../accessibility.html">アクセシビリティ</a>
+    <a href="../contact.html">お問い合わせ</a>
+    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+  </div>
+  <p class="copyright">© 2026 MimiSeka Project</p>
+</footer>
+</body>
+</html>
