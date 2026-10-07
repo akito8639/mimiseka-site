@@ -13,6 +13,7 @@ contact.html        お問い合わせ（送信先は ENDPOINT / TURNSTILE_SITE_
 site.css            共通スタイル（SciaTheme 正典: 紙・墨・朱）
 tayori.js           便りのデータ（新しいものを上に足す）
 photo/              写真
+terms.md            用語集（シアの機能名と英語名・便りや頁を書くときはここに合わせる）
 ```
 
 ## 更新のしかた
