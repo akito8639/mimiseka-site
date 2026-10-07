@@ -23,12 +23,12 @@ window.TAYORI = [
     date: "2026-10-07",
     kind: "お知らせ",
     app: "シア",
-    title: "1.3.0 で、手紙が届くようになります",
+    title: "次のアップデートで、手紙が届くようになります",
     body: "一日に一通は、あの日のあなたから。月に一通は、シアから。あわせて、写真の説明の話し方を「ていねい」と「やさしい」から選べるようになります。App Store での公開は近日です。",
     link: "scia/letters.html",
     en: {
       kind: "Notice", app: "Scia",
-      title: "In 1.3.0, letters start arriving",
+      title: "In the next update, letters start arriving",
       body: "One a day, from the you of another day. One a month, from Scia. And the description written into each photo gets a choice of tone: polite or friendly. Coming soon on the App Store."
     }
   },
