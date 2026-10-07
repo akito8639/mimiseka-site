@@ -6,12 +6,14 @@
 //   3. 行頭に落ちた句読点・行末に残った開きかっこ（禁則）
 //   4. リンク切れ（相対リンクの実体がない）
 //   5. CSS/JS の版ずれ（頁ごとに ?v= が違うと、古い CSS と新しい HTML が混ざる）
+//   6. クラス名の衝突（頁の <style> が site.css のどこでも効くクラスと同名の部品を定義している。tools/check-classes.mjs）
 //
 // 文章の折り返しの「不格好さ」は数えるだけで落とさない（好みの領域なので門にしない）。
 import { chromium, webkit } from 'playwright';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import { checkClassCollisions } from './check-classes.mjs';
 
 const ROOT = process.cwd();
 const WIDTHS = [1600, 1100, 760, 375, 320];
@@ -37,6 +39,9 @@ const base = `http://127.0.0.1:${server.address().port}`;
 
 const errors = [];
 const warns = [];
+
+// --- 6. クラス名の衝突（HTML と site.css を読むだけ）
+errors.push(...checkClassCollisions(ROOT, pages));
 
 // --- 5. 版ずれ（HTML を読むだけ）
 const vers = new Map();

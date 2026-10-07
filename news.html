@@ -26,7 +26,7 @@
 <meta name="description" content="イベント、公開のお知らせ、アプリの更新。ミミセカからの小さな知らせを、新しい順に。">
 <style>
   main { padding: 36px 0 56px; }
-  .kind.app { border-style: dashed; }
+  .kind.app-name { border-style: dashed; }
   .year { font-family: var(--serif); font-size: 0.85rem; letter-spacing: 0.3em; color: var(--ink-3); margin: 34px 0 6px; }
   .year:first-child { margin-top: 0; }
   article { padding: 20px 0; border-bottom: 1px solid var(--hair); }
@@ -79,7 +79,7 @@
     if (y !== year) { year = y; html += `<div class="year">${y}</div>`; }
     const kindCls = (raw.kind === 'イベント') ? 'kind event' : 'kind';
     html += `<article id="${esc(it.anchor || it.date)}">
-      <div class="meta"><time datetime="${esc(it.date)}">${fmt(it.date)}</time><span class="${kindCls}">${esc(it.kind)}</span>${it.app ? `<span class="kind app">${esc(it.app)}</span>` : ''}</div>
+      <div class="meta"><time datetime="${esc(it.date)}">${fmt(it.date)}</time><span class="${kindCls}">${esc(it.kind)}</span>${it.app ? `<span class="kind app-name">${esc(it.app)}</span>` : ''}</div>
       <h2><a href="#${esc(it.date)}">${esc(it.title)}</a></h2>
       <p class="body">${esc(it.body)}</p>
       ${it.photo ? `<figure><img src="${esc(it.photo)}" alt="${esc(it.photoAlt || '')}" loading="lazy" width="1600" height="900">${it.caption ? `<figcaption>${esc(it.caption)}</figcaption>` : ''}</figure>` : ''}

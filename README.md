@@ -21,6 +21,7 @@ terms.md            用語集（シアの機能名と英語名・便りや頁を
 
 - お知らせを足す: `tayori.js` に 1 項目足して push（トップと便りの両方に出る）
 - 配色・書体: `site.css` だけ
+- 頁に専用のクラスを足す: 先に `node tools/check-classes.mjs` を通す（`site.css` と同じ名前を避ける。共通のクラスをわざと上書きする行には `/* 共通を上書き */`）
 - お問い合わせを本番につなぐ: `contact.html` の `ENDPOINT` と `TURNSTILE_SITE_KEY`（受け口は SenseLit リポジトリ `lambda/published_story` の `POST /contact`）
 
 ## 公開
@@ -50,12 +51,13 @@ git switch main && git merge --ff-only draft && git push   # 公開
 
 ## 公開前の機械検査
 
-`tools/check.mjs` が、push のたびに GitHub Actions で走る（落ちると deploy まで行かない）。見るのは 5 つ:
+`tools/check.mjs` が、push のたびに GitHub Actions で走る（落ちると deploy まで行かない）。見るのは 6 つ:
 
 1. **はみ出し** — 1600 / 1100 / 760 / 375 / 320px の 5 幅 ×  Chromium と WebKit の 2 エンジンで、枠から出ている要素がないか（Safari だけで壊れる折り返しがあるため）
 2. **画像** — 読めていない画像、潰れて 24px 未満になった画像（2026-09-29 に湯呑みの写真が 0 幅になった件の再発防止）
 3. **禁則** — 行頭に落ちた句読点、行末に残った開きかっこ
 4. **リンク切れ** — 相対リンクの実体があるか
 5. **版ずれ** — 全頁の `site.css` / `site.js` / `tayori.js` の `?v=` が同じか
+6. **クラス名の衝突** — 頁の `<style>` が、`site.css` のどこでも効くクラスと同じ名前で部品を定義していないか（2026-10-07 に封筒を `.env` と名づけて、同名のラベル用クラスと衝突した件の再発防止。わざと上書きする行は `/* 共通を上書き */` と書く。単体で走らせるなら `node tools/check-classes.mjs`）
 
 「句読点以外での折り返し」は数えて表示するだけで、落とさない（好みの領域）。
