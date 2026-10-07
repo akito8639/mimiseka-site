@@ -25,25 +25,106 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="One a day, from the you of another day. One a month, from Scia. And the photo description gets a choice of tone.">
 <style>
-  .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
+  /* 本文の列幅。font-size が違う部品でも左端がそろうよう、em でなく rem で一本化（34em × 0.9rem） */
+  main { --col: 30.6rem; }
+  .prose { max-width: var(--col); margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
   .prose p + p { margin-top: 14px; }
   .prose b { color: var(--ink); font-weight: 700; }
   .prose .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
-  .note-line { max-width: 34em; margin: 22px auto 0; font-size: 0.8rem; color: var(--ink-3); }
-  .notice { max-width: 34em; margin: 26px auto 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--shu); font-size: 0.84rem; color: var(--ink-2); }
-  .notice b { color: var(--ink); font-weight: 700; }
   /* むすびの一行のあとに余韻を。リンクはひと呼吸おいてから */
   .more-center { text-align: center; margin-top: 72px; font-size: 0.86rem; }
-  /* 節のはじめの問い。トップの問いと同じ型で、節の中に置く分だけ小さく */
-  .ask { text-align: center; max-width: 34em; margin: 0 auto 30px; }
+  .ask { text-align: center; max-width: var(--col); margin: 0 auto 26px; }
   .ask .q-line { font-size: clamp(1.05rem, 2.6vw, 1.3rem); line-height: 2.1; }
   .ask .q-note { margin-top: 12px; }
-  .letter { max-width: 30em; margin: 26px auto; padding: 18px 20px; border: 1px solid var(--hair); border-radius: 12px; background: var(--ground-raised); font-family: var(--serif); font-size: 0.9rem; line-height: 2; color: var(--ink); }
-  .letter .stamp { display: block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 8px; }
-  .letter .sign { display: block; text-align: right; font-size: 0.84rem; color: var(--ink-2); margin-top: 8px; }
-  .pair { max-width: 34em; margin: 22px auto 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); gap: 12px; }
-  .pair div { padding: 14px 16px; border: 1px solid var(--hair); border-radius: 12px; background: var(--ground-raised); font-size: 0.88rem; color: var(--ink-2); }
-  .pair b { display: block; font-family: var(--serif); font-size: 0.84rem; letter-spacing: 0.1em; color: var(--shu); margin-bottom: 6px; }
+
+  /* 線画の共通: 髪線と墨、朱は一か所。文字は入れない */
+  .art { margin: 18px auto; }
+  .art svg { display: block; width: 100%; height: auto; margin-inline: auto; }
+  .art .ph { fill: var(--ground-raised); stroke: var(--ink-3); stroke-width: 1.5; }
+  .art .sc { fill: var(--ground-inset); stroke: var(--hair); stroke-width: 1; }
+  .art .fl { fill: var(--ink-3); opacity: 0.5; stroke: none; }
+  .art .hr { fill: none; stroke: var(--hair); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .art .ln { fill: none; stroke: var(--ink-3); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .art .ac { fill: none; stroke: var(--shu); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .art .acf { fill: var(--shu); stroke: none; }
+
+  /* 頁の上の三つの入口 */
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 42em; margin: 0 auto; }
+  .three a { display: block; text-decoration: none; color: inherit; background: var(--ground-raised); border: 1px solid var(--hair); border-radius: 18px; padding: 18px 16px 16px; text-align: center; }
+  .three a:hover { border-color: var(--ink-3); }
+  .three svg { width: 44px; height: 44px; margin: 0 auto 8px; display: block; }
+  .three h3 { font-family: var(--serif); font-weight: 700; font-size: 0.98rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 4px; }
+  .three p { font-size: 0.78rem; color: var(--ink-2); line-height: 1.8; }
+
+  /* 届くリズムの帯 */
+  .rhythm { max-width: 42em; margin: 30px auto 0; }
+  .rhythm .cap { display: flex; justify-content: space-between; font-size: 0.76rem; letter-spacing: 0.08em; color: var(--ink-3); margin-top: 4px; }
+
+  /* 封筒。押すと開く */
+  .envelope { max-width: 30em; margin: 20px auto 0; }
+  .envelope summary { list-style: none; cursor: pointer; text-align: center; }
+  .envelope summary::-webkit-details-marker { display: none; }
+  .envelope summary .hint { display: inline-block; margin-top: 4px; font-family: var(--serif); font-size: 0.84rem; letter-spacing: 0.12em; color: var(--shu); border-bottom: 1px solid var(--shu); }
+  .envelope[open] summary .closed { display: none; }
+  .envelope[open] summary .hint { display: none; }
+  .envelope .paper { margin-top: 14px; padding: 20px 22px; border: 1px solid var(--hair); border-radius: 12px; background: var(--ground-raised); font-family: var(--serif); font-size: 0.92rem; line-height: 2.05; color: var(--ink); }
+  .envelope .paper .stamp { display: block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 8px; }
+  .envelope .paper .sign { display: block; text-align: right; font-size: 0.84rem; color: var(--ink-2); margin-top: 8px; }
+  .envelope .paper .ops { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .envelope .paper .ops span { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.1em; color: var(--ink-2); border: 1px solid var(--hair); border-radius: 999px; padding: 3px 12px; }
+
+  /* 差出人の消印 */
+  .marks { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: var(--col); margin: 20px auto 0; }
+  .marks div { width: 7.2em; aspect-ratio: 1; border: 1.5px solid var(--ink-3); border-radius: 50%; display: grid; place-items: center; text-align: center; font-family: var(--serif); font-size: 0.78rem; letter-spacing: 0.06em; line-height: 1.7; color: var(--ink-2); transform: rotate(-6deg); }
+  .marks div:nth-child(2) { transform: rotate(4deg); }
+  .marks div:nth-child(3) { transform: rotate(-3deg); }
+  .marks div:nth-child(4) { transform: rotate(7deg); }
+  .marks small { display: block; font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-3); }
+
+  /* シアの一言 */
+  .talk.one-line { margin-top: 18px; align-items: center; }  /* 共通を上書き: 一つだけ置くので中央に */
+  .talk.one-line .bubble { align-self: center; }  /* 共通を上書き */
+
+  /* 三段（手紙→並び→本）の下の小見出し */
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 30em; margin: -6px auto 0; text-align: center; font-size: 0.76rem; letter-spacing: 0.08em; color: var(--ink-3); }
+
+  /* 同じ写真、二つの話し方 */
+  .compare { max-width: 42em; margin: 20px auto 0; display: grid; grid-template-columns: 5fr 6fr; gap: 16px; align-items: center; }
+  .compare .photo { border-radius: 18px; overflow: hidden; border: 1px solid var(--hair); background: var(--ground-inset); }
+  .compare .photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+  .compare .says { display: flex; flex-direction: column; gap: 12px; }
+  .compare .say { padding: 12px 18px; border-radius: 18px; background: var(--ground-raised); border: 1px solid var(--hair); font-size: 0.88rem; line-height: 1.9; color: var(--ink-2); }
+  .compare .say b { display: block; font-family: var(--serif); font-size: 0.78rem; letter-spacing: 0.14em; color: var(--shu); margin-bottom: 2px; }
+
+  /* 生まれた声。引用として */
+  /* 本文と同じ 34em の列。かぎかっこは列の外へ吊り出し、文字の左端を本文にそろえる */
+  .voice { position: relative; max-width: var(--col); margin: 26px auto 0; padding: 6px 0 0; font-family: var(--serif); font-size: 0.94rem; line-height: 2.1; color: var(--ink); }
+  .voice::before { content: "「"; position: absolute; left: -1.1em; top: -6px; font-size: 2rem; color: var(--shu); line-height: 1; }
+  @media (max-width: 640px) { .voice { padding-left: 1.2em; } .voice::before { left: 0; } }
+  .voice .close { color: var(--shu); font-size: 1.5rem; line-height: 1; margin-left: 2px; vertical-align: -0.1em; }
+  .voice .who { display: block; margin-top: 8px; font-family: var(--sans); font-size: 0.76rem; letter-spacing: 0.1em; color: var(--ink-3); }
+
+  /* こまかいこと（畳む） */
+  .fine { max-width: var(--col); margin: 22px auto 0; border-top: 1px solid var(--hair); }
+  .fine summary { cursor: pointer; padding: 12px 0; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--ink-3); list-style: none; }
+  .fine summary::-webkit-details-marker { display: none; }
+  .fine summary::before { content: "＋ "; color: var(--shu); }
+  .fine[open] summary::before { content: "－ "; }
+  .fine ul { padding: 0 0 12px 1.2em; font-size: 0.82rem; color: var(--ink-2); line-height: 1.9; }
+  .fine li + li { margin-top: 4px; }
+
+  /* 英語: 消印の円は語が長いので広めに、引用符は “ ” に */
+  .marks div { width: 8.4em; font-size: 0.72rem; letter-spacing: 0; line-height: 1.5; }
+  .marks small { font-size: 0.56rem; letter-spacing: 0.12em; }
+  .voice::before { content: "\201C"; left: -0.7em; top: -2px; }
+  .voice .close { font-size: 1.5rem; }
+  @media (max-width: 640px) {
+    .three { grid-template-columns: 1fr; }
+    .three a { display: grid; grid-template-columns: 44px 1fr; gap: 0 14px; text-align: left; align-items: center; }
+    .three svg { margin: 0; grid-row: 1 / 3; }
+    .compare { grid-template-columns: 1fr; }
+    .marks div { width: 7.6em; }
+  }
 </style>
 </head>
 <body>
@@ -60,63 +141,189 @@
 <div class="frame">
 <main id="main">
 
+  <section class="tight" aria-label="Three new things">
+    <nav class="three" aria-label="On this page">
+      <a href="#h-today">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="6" y="12" width="36" height="26" rx="4" fill="none" stroke="var(--ink-3)" stroke-width="1.5"/><path d="M6 14l18 13 18-13" fill="none" stroke="var(--ink-3)" stroke-width="1.5" stroke-linejoin="round"/><circle cx="24" cy="27" r="3.4" fill="var(--shu)"/></svg>
+        <h3>A letter for today</h3><p>From the you of another day, one a day</p>
+      </a>
+      <a href="#h-month">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="var(--ink-3)" stroke-width="1.5"><rect x="7" y="9" width="34" height="30" rx="4"/><path d="M7 17h34"/></g><g fill="var(--ink-3)" opacity=".5"><rect x="12" y="22" width="5" height="4" rx="1"/><rect x="26" y="22" width="5" height="4" rx="1"/><rect x="19" y="29" width="5" height="4" rx="1"/><rect x="33" y="29" width="5" height="4" rx="1"/></g><path d="M14.5 24l14 0-7 7 14 0" fill="none" stroke="var(--shu)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>A letter for the month</h3><p>From Scia, one a month</p>
+      </a>
+      <a href="#h-tone">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 12h22a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H16l-6 5v-5H8a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4z" fill="none" stroke="var(--ink-3)" stroke-width="1.5" stroke-linejoin="round"/><path d="M40 20h-2a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h2l6 5v-5a4 4 0 0 0 4-4v-8a4 4 0 0 0-4-4" fill="none" stroke="var(--shu)" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <h3>The description's tone</h3><p>Polite, or friendly</p>
+      </a>
+    </nav>
+    <div class="rhythm art" aria-label="The rhythm of delivery">
+      <svg viewBox="0 0 720 70" role="img" aria-hidden="true" focusable="false">
+        <path class="hr" d="M12 56h696"/>
+        <g class="ln">
+          <g transform="translate(14,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(35,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(56,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(77,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(98,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(119,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(140,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(161,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(182,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(203,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(224,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(245,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(266,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(287,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(308,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(329,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(350,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(371,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(392,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(413,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(434,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(455,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(476,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(497,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(518,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(539,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(560,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(581,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(602,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(623,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+        </g>
+        <g transform="translate(660,8)"><rect class="ph" width="48" height="34" rx="3"/><path class="ln" d="M0 3l24 17 24-17"/><circle class="acf" cx="24" cy="21" r="5"/></g>
+      </svg>
+      <div class="cap"><span>One every evening at ten</span><span>One more at the start of the month</span></div>
+    </div>
+  </section>
+
   <section aria-labelledby="h-today">
     <h2 class="sec-head" id="h-today">A letter for today</h2>
     <div class="ask"><p class="q-line">What were you writing, this day last year?<br>——Do you <em>remember</em>?</p><p class="q-note">From the you of another day, one a day.</p></div>
-    <div class="prose">
-      <p>Every evening at ten, one envelope arrives on the desk under <span class="key">Journaling</span> on the home screen. The sender is <b>the you of another day</b>.</p>
-      <p>What you wrote on this day a year ago. What you were thinking at the same place, or under the same sky. A conversation that stopped halfway, that day. The words you left come back on a sheet of paper, with nothing summarised and nothing rephrased, in the way you actually speak. So as you read, <b>you hear your own voice.</b></p>
+
+    <details class="envelope">
+      <summary>
+        <div class="closed art" style="margin:0 auto;max-width:300px">
+          <svg viewBox="0 0 300 200" role="img" aria-label="A sealed envelope, with one photograph tucked in" focusable="false">
+            <g transform="translate(40,38) rotate(-9)"><rect class="sc" width="78" height="58" rx="3"/><path class="hr" d="M6 50l20-24 13 13 9-9 24 20"/><circle class="hr" cx="60" cy="14" r="3"/></g>
+            <rect class="ph" x="50" y="60" width="200" height="120" rx="6"/>
+            <path class="ln" d="M50 64l100 62 100-62"/>
+            <path class="hr" d="M50 180l78-60M250 180l-78-60"/>
+            <circle class="acf" cx="150" cy="126" r="11"/>
+            <g transform="translate(214,80)"><circle class="hr" r="17"/><path class="hr" d="M-9-3h18M-11 2h22M-8 7h16"/></g>
+          </svg>
+        </div>
+        <span class="hint">Open</span>
+      </summary>
+      <div class="paper">
+        <span class="stamp">Delivered 7 October</span>
+        To you,<br>
+        Home for the first time in a while. Tea with my mother on the veranda. We weren't talking about anything in particular, and still, we both laughed about when to bring the laundry in. It was only that kind of evening, but I think it was enough.
+        <span class="sign">From you, a year ago</span>
+        <div class="ops"><span>Read aloud</span><span>Open the calendar</span><span>Open again</span></div>
+      </div>
+    </details>
+
+    <div class="marks" aria-label="Senders">
+      <div><small>postmark</small>a year ago<br>today</div>
+      <div><small>postmark</small>the same<br>place</div>
+      <div><small>postmark</small>the same<br>sky</div>
+      <div><small>postmark</small>a talk left<br>halfway</div>
     </div>
-    <div class="letter" aria-label="An example letter">
-      <span class="stamp">Delivered 7 October</span>
-      To you,<br>
-      Home for the first time in a while. Tea with my mother on the veranda. We weren't talking about anything in particular, and still, we both laughed about when to bring the laundry in. It was only that kind of evening, but I think it was enough.
-      <span class="sign">From you, a year ago</span>
+
+    <div class="prose" style="margin-top:22px">
+      <p>The words you left that day come back with nothing summarised and nothing rephrased, in the way you actually speak. So as you read, <b>you hear your own voice.</b></p>
+      <p>Each letter lasts only its day. Rather than piling them up and counting them, <b>we would like today's letter read today.</b> On the days you wrote a diary, you were, without knowing it, writing a letter to a future you.</p>
     </div>
-    <div class="prose">
-      <p>Break the seal, and read. Or listen. If the talking had stopped, you can pick it up from there.</p>
-      <p>Each letter lasts only its day. Leave it unopened and, by the next evening, the next one has taken its place. Rather than piling them up and counting them, <b>we would like today's letter read today.</b></p>
-      <p>On the days you wrote a diary, you were, without knowing it, writing a letter to a future you.</p>
-    </div>
-    <div class="notice">
-      Letters begin once you have three chapters or so. Until then, Scia's first letter sits on the desk. <b>No plan is required.</b>
-    </div>
+    <details class="fine">
+      <summary>The details</summary>
+      <ul>
+        <li>One letter every evening at ten, on the desk under “Journaling” on the home screen. At ten the next evening, the next one takes its place.</li>
+        <li>A letter from a day where the talking stopped carries “Pick up the conversation”, and takes you straight back into it.</li>
+        <li>Letters begin once you have three chapters or so. Until then, Scia's first letter sits on the desk.</li>
+        <li>No plan is required.</li>
+      </ul>
+    </details>
   </section>
 
   <section aria-labelledby="h-month">
     <h2 class="sec-head" id="h-month">A letter for the month</h2>
     <div class="ask"><p class="q-line">What kind of month was last month?<br>——Could you say, <em>in a word</em>?</p><p class="q-note">From Scia, one a month.</p></div>
-    <div class="prose">
-      <p>When the month turns, <span class="key">Last month in review</span> arrives on the home screen. At the top of it sits a letter from Scia.</p>
-      <p>Everything you said about your photos over the month, everything you wrote down: Scia remembers it, as the friend who was sitting beside you, listening. And now that the month has turned, Scia thinks back and speaks to you. <b>“That day on the veranda, you were laughing.”</b> A day you had forgotten comes back in a person's voice.</p>
-      <p>On your own, you cannot see a month as one continuous thing. The days scatter as soon as they pass. Only when someone gathers them up and hands them back in a single line can you think, <b>“so that is the month it was.”</b></p>
-      <p>The letter can be heard in <b>Scia's voice</b>: the voice Scia uses when speaking to you, separate from the story and guidance voices.</p>
-      <p>On the same page are the photos you kept coming back to last month, and one photo from the same month a year ago. <span class="key">Bind these into a book</span> turns that line of photos into a book, as it is.</p>
+
+    <div class="art" style="max-width:360px">
+      <svg viewBox="0 0 360 250" role="img" aria-label="A month of days. Only the days with words are filled in, and a single line joins them and flows into one letter" focusable="false">
+        <g class="sc">
+          <rect x="30" y="16" width="44" height="28" rx="3"/><rect x="81" y="16" width="44" height="28" rx="3"/><rect x="132" y="16" width="44" height="28" rx="3"/><rect x="183" y="16" width="44" height="28" rx="3"/><rect x="234" y="16" width="44" height="28" rx="3"/><rect x="285" y="16" width="44" height="28" rx="3"/>
+          <rect x="30" y="50" width="44" height="28" rx="3"/><rect x="81" y="50" width="44" height="28" rx="3"/><rect x="132" y="50" width="44" height="28" rx="3"/><rect x="183" y="50" width="44" height="28" rx="3"/><rect x="234" y="50" width="44" height="28" rx="3"/><rect x="285" y="50" width="44" height="28" rx="3"/>
+          <rect x="30" y="84" width="44" height="28" rx="3"/><rect x="81" y="84" width="44" height="28" rx="3"/><rect x="132" y="84" width="44" height="28" rx="3"/><rect x="183" y="84" width="44" height="28" rx="3"/><rect x="234" y="84" width="44" height="28" rx="3"/><rect x="285" y="84" width="44" height="28" rx="3"/>
+          <rect x="30" y="118" width="44" height="28" rx="3"/><rect x="81" y="118" width="44" height="28" rx="3"/><rect x="132" y="118" width="44" height="28" rx="3"/><rect x="183" y="118" width="44" height="28" rx="3"/><rect x="234" y="118" width="44" height="28" rx="3"/><rect x="285" y="118" width="44" height="28" rx="3"/>
+          <rect x="30" y="152" width="44" height="28" rx="3"/><rect x="81" y="152" width="44" height="28" rx="3"/><rect x="132" y="152" width="44" height="28" rx="3"/><rect x="183" y="152" width="44" height="28" rx="3"/><rect x="234" y="152" width="44" height="28" rx="3"/><rect x="285" y="152" width="44" height="28" rx="3"/>
+        </g>
+        <g class="fl">
+          <rect x="132" y="16" width="44" height="28" rx="3"/><rect x="285" y="50" width="44" height="28" rx="3"/><rect x="81" y="84" width="44" height="28" rx="3"/><rect x="234" y="118" width="44" height="28" rx="3"/><rect x="30" y="152" width="44" height="28" rx="3"/><rect x="183" y="152" width="44" height="28" rx="3"/>
+        </g>
+        <path class="ac" d="M154 30 C 220 30, 260 40, 307 64 C 330 76, 300 98, 103 98 C 60 98, 60 120, 256 132 C 300 136, 290 166, 52 166 C 20 166, 80 180, 205 166 C 230 162, 230 200, 180 210"/>
+        <g transform="translate(130,196)"><rect class="ph" width="100" height="48" rx="5"/><path class="ln" d="M0 4l50 30 50-30"/><circle class="acf" cx="50" cy="30" r="6"/></g>
+      </svg>
     </div>
-    <div class="notice">
-      With a paid plan it arrives every month. On the free plan it arrives for the first three months. The notification comes once, at the start of the month.
+
+    <div class="talk one-line" aria-label="A word from Scia"><div class="bubble ai">That day on the veranda, you were laughing.</div></div>
+
+    <div class="prose" style="margin-top:22px">
+      <p>Everything you said about your photos over the month, everything you wrote down: Scia remembers it, as the friend who was sitting beside you, listening. Now that the month has turned, Scia thinks back and speaks to you. A day you had forgotten comes back in a person's voice.</p>
+      <p>The days scatter as soon as they pass. Only when someone gathers them up and hands them back in a single line can you think, <b>“so that is the month it was.”</b></p>
     </div>
-    <div class="notice">
-      Bind the photos into a book, and <b>the letter for the month becomes that book's foreword.</b> It stays on the cover, so every time you open the book later, it begins with that month's letter.
+
+    <div class="art" style="max-width:360px;margin-top:26px">
+      <svg viewBox="0 0 360 100" role="img" aria-label="A letter becomes a row of photographs, and then a book" focusable="false">
+        <g transform="translate(14,30)"><rect class="ph" width="60" height="40" rx="4"/><path class="ln" d="M0 3l30 20 30-20"/><circle class="acf" cx="30" cy="23" r="4"/></g>
+        <path class="ln" d="M90 50h26m0 0-5-5m5 5-5 5"/>
+        <g transform="translate(130,26)"><rect class="sc" width="30" height="24" rx="2"/><rect class="sc" x="35" width="30" height="24" rx="2"/><rect class="sc" x="70" width="30" height="24" rx="2"/><path class="hr" d="M4 20l8-10 6 6 4-4 6 8M39 20l8-10 6 6 4-4 6 8M74 20l8-10 6 6 4-4 6 8"/><rect class="sc" y="30" width="30" height="24" rx="2"/><rect class="sc" x="35" y="30" width="30" height="24" rx="2"/><path class="hr" d="M4 50l8-10 6 6 4-4 6 8M39 50l8-10 6 6 4-4 6 8"/></g>
+        <path class="ln" d="M246 50h26m0 0-5-5m5 5-5 5"/>
+        <g transform="translate(288,18)"><path class="ph" d="M6 0h52a4 4 0 0 1 4 4v56a4 4 0 0 1-4 4H6a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6z"/><path class="ln" d="M10 2v60"/><rect class="ac" x="22" y="14" width="28" height="20" rx="2"/><path class="hr" d="M26 40h20M26 46h14"/></g>
+      </svg>
     </div>
+    <div class="stages"><span>the letter</span><span>photos you kept returning to</span><span>a book (the letter on its cover)</span></div>
+
+    <details class="fine">
+      <summary>The details</summary>
+      <ul>
+        <li>For the first seven days of a new month, “Last month in review” appears on the home screen. The letter sits at the top of it, and “Listen to the letter” reads it in Scia's voice.</li>
+        <li>Scia's voice is chosen separately from the story and guidance voices, under “Pick the reading voice” in Settings.</li>
+        <li>On the same page: the photos you kept coming back to last month, and one from the same month a year ago. “Bind these into a book” makes a book, and the letter stays on its cover as the foreword.</li>
+        <li>With a paid plan it arrives every month. On the free plan, for the first three months. The notification comes once, at the start of the month.</li>
+      </ul>
+    </details>
   </section>
 
   <section aria-labelledby="h-tone">
     <h2 class="sec-head" id="h-tone">Two tones for the description</h2>
     <div class="ask"><p class="q-line">You want to tell them, and the words will not come.<br>——Has that ever <em>happened to you</em>?</p><p class="q-note">Polite, or friendly. You choose the tone of the description written into each photo.</p></div>
-    <div class="prose">
-      <p>Friendly was born from one voice: someone from abroad, living in Japan. They wanted to tell a Japanese friend, or their own child, what they were looking at and what they felt about it. But the words would not come. If they could take a photo and have a description written, they could simply show it, or read it aloud. It would reach the other person, and <b>it would be Japanese practice for themselves.</b> Hearing that, we prepared a friendly, spoken Japanese: the way a teacher talks to young children.</p>
-      <p>The description written into each photo has only ever used polite, formal Japanese. From the next update you can choose <b>Friendly</b>.</p>
+
+    <div class="compare">
+      <div class="photo"><img src="../../photo/engawa.jpg" alt="A veranda at dusk. Beyond the open shoji, laundry on the line and the green of a garden. Two teacups on the tatami cast long shadows."></div>
+      <div class="says">
+        <div class="say"><b>Polite</b>縁側に、湯呑みがふたつ並んでいます。障子の向こうに、洗濯物と庭の緑が見えます。</div>
+        <div class="say"><b>Friendly</b>縁側に、湯呑みがふたつあるよ。むこうには、洗濯物と、庭のみどりが見えるね。</div>
+      </div>
     </div>
-    <div class="pair">
-      <div><b>Polite</b>白いマグカップが、窓からの光を受けています。奥には観葉植物があります。</div>
-      <div><b>Friendly</b>白いマグカップがあるよ。窓から光が入ってるよ。奥には、みどりの葉っぱがあるね。</div>
+
+    <blockquote class="voice">
+      I want to tell a Japanese friend, or my own child, what I am looking at and what I feel about it. But the words will not come. If I could take a photo and have a description written, I could simply show it, or read it aloud. And it would be Japanese practice for me.<span class="close" aria-hidden="true">”</span>
+      <span class="who">Someone from abroad, living in Japan. Friendly was born here</span>
+    </blockquote>
+
+    <div class="prose" style="margin-top:22px">
+      <p>The description written into each photo has only ever used polite, formal Japanese. From the next update you can choose <b>Friendly</b>: the spoken Japanese of a teacher talking to young children. If you change nothing, it stays as it is.</p>
     </div>
-    <div class="prose">
-      <p>Switch it from the <span class="key">Description</span> pill on the camera screen. Below the length (brief, standard, detailed) sit the two tones (polite, friendly). The Description row of the style sheet offers the same choice. If you change nothing, it stays polite, as before.</p>
-      <p>A friendly description can have a voice of its own. When the description voice is an AI voice, a row called <span class="key">Friendly description voice</span> appears under “Description voice” in Settings. Pick a voice that suits the tone, and the reading right after the shot, and the chapter's reading later, both use it.</p>
-    </div>
-    <p class="note-line">The tone applies only to the description written into the photo. The wording of diaries and stories does not change. Descriptions are written in Japanese, so the tone applies to that Japanese text.</p>
+    <details class="fine">
+      <summary>The details</summary>
+      <ul>
+        <li>Switch it from the “Description” pill on the camera screen. Below the length (brief, standard, detailed) sit the two tones (polite, friendly). The Description row of the style sheet offers the same choice.</li>
+        <li>A friendly description can have a voice of its own. When the description voice is an AI voice, “Friendly description voice” appears under “Description voice” in Settings.</li>
+        <li>The tone applies only to the description written into the photo. Diaries and stories do not change. Descriptions are written in Japanese.</li>
+      </ul>
+    </details>
   </section>
 
 </main>

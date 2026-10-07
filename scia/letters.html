@@ -25,28 +25,101 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="一日に一通は、あの日のあなたから。月に一通は、シアから。そして、写真の説明は話し方を選べるようになります。">
 <style>
-  .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
+  /* 本文の列幅。font-size が違う部品でも左端がそろうよう、em でなく rem で一本化（34em × 0.9rem） */
+  main { --col: 30.6rem; }
+  .prose { max-width: var(--col); margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
   .prose p + p { margin-top: 14px; }
   .prose b { color: var(--ink); font-weight: 700; }
   .prose .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
-  .note-line { max-width: 34em; margin: 22px auto 0; font-size: 0.8rem; color: var(--ink-3); }
-  /* 言い添えておきたいこと。派手にせず、朱の細い縦線だけ */
-  .notice { max-width: 34em; margin: 26px auto 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--shu); font-size: 0.84rem; color: var(--ink-2); }
-  .notice b { color: var(--ink); font-weight: 700; }
   /* むすびの一行のあとに余韻を。リンクはひと呼吸おいてから */
   .more-center { text-align: center; margin-top: 72px; font-size: 0.86rem; }
-  /* 節のはじめの問い。トップの問いと同じ型で、節の中に置く分だけ小さく */
-  .ask { text-align: center; max-width: 34em; margin: 0 auto 30px; }
+  .ask { text-align: center; max-width: var(--col); margin: 0 auto 26px; }
   .ask .q-line { font-size: clamp(1.05rem, 2.6vw, 1.3rem); line-height: 2.1; }
   .ask .q-note { margin-top: 12px; }
-  /* 便箋。手紙の例を、本文から一段落として見せる */
-  .letter { max-width: 30em; margin: 26px auto; padding: 18px 20px; border: 1px solid var(--hair); border-radius: 12px; background: var(--ground-raised); font-family: var(--serif); font-size: 0.9rem; line-height: 2; color: var(--ink); }
-  .letter .stamp { display: block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 8px; }
-  .letter .sign { display: block; text-align: right; font-size: 0.84rem; color: var(--ink-2); margin-top: 8px; }
-  /* 話し方の二つを、並べて読み比べる */
-  .pair { max-width: 34em; margin: 22px auto 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); gap: 12px; }
-  .pair div { padding: 14px 16px; border: 1px solid var(--hair); border-radius: 12px; background: var(--ground-raised); font-size: 0.88rem; color: var(--ink-2); }
-  .pair b { display: block; font-family: var(--serif); font-size: 0.84rem; letter-spacing: 0.1em; color: var(--shu); margin-bottom: 6px; }
+
+  /* 線画の共通: 髪線と墨、朱は一か所。文字は入れない */
+  .art { margin: 18px auto; }
+  .art svg { display: block; width: 100%; height: auto; margin-inline: auto; }
+  .art .ph { fill: var(--ground-raised); stroke: var(--ink-3); stroke-width: 1.5; }
+  .art .sc { fill: var(--ground-inset); stroke: var(--hair); stroke-width: 1; }
+  .art .fl { fill: var(--ink-3); opacity: 0.5; stroke: none; }
+  .art .hr { fill: none; stroke: var(--hair); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .art .ln { fill: none; stroke: var(--ink-3); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .art .ac { fill: none; stroke: var(--shu); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .art .acf { fill: var(--shu); stroke: none; }
+
+  /* 頁の上の三つの入口 */
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 42em; margin: 0 auto; }
+  .three a { display: block; text-decoration: none; color: inherit; background: var(--ground-raised); border: 1px solid var(--hair); border-radius: 18px; padding: 18px 16px 16px; text-align: center; }
+  .three a:hover { border-color: var(--ink-3); }
+  .three svg { width: 44px; height: 44px; margin: 0 auto 8px; display: block; }
+  .three h3 { font-family: var(--serif); font-weight: 700; font-size: 0.98rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 4px; }
+  .three p { font-size: 0.78rem; color: var(--ink-2); line-height: 1.8; }
+
+  /* 届くリズムの帯 */
+  .rhythm { max-width: 42em; margin: 30px auto 0; }
+  .rhythm .cap { display: flex; justify-content: space-between; font-size: 0.76rem; letter-spacing: 0.08em; color: var(--ink-3); margin-top: 4px; }
+
+  /* 封筒。押すと開く */
+  .envelope { max-width: 30em; margin: 20px auto 0; }
+  .envelope summary { list-style: none; cursor: pointer; text-align: center; }
+  .envelope summary::-webkit-details-marker { display: none; }
+  .envelope summary .hint { display: inline-block; margin-top: 4px; font-family: var(--serif); font-size: 0.84rem; letter-spacing: 0.12em; color: var(--shu); border-bottom: 1px solid var(--shu); }
+  .envelope[open] summary .closed { display: none; }
+  .envelope[open] summary .hint { display: none; }
+  .envelope .paper { margin-top: 14px; padding: 20px 22px; border: 1px solid var(--hair); border-radius: 12px; background: var(--ground-raised); font-family: var(--serif); font-size: 0.92rem; line-height: 2.05; color: var(--ink); }
+  .envelope .paper .stamp { display: block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 8px; }
+  .envelope .paper .sign { display: block; text-align: right; font-size: 0.84rem; color: var(--ink-2); margin-top: 8px; }
+  .envelope .paper .ops { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .envelope .paper .ops span { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.1em; color: var(--ink-2); border: 1px solid var(--hair); border-radius: 999px; padding: 3px 12px; }
+
+  /* 差出人の消印 */
+  .marks { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: var(--col); margin: 20px auto 0; }
+  .marks div { width: 7.2em; aspect-ratio: 1; border: 1.5px solid var(--ink-3); border-radius: 50%; display: grid; place-items: center; text-align: center; font-family: var(--serif); font-size: 0.78rem; letter-spacing: 0.06em; line-height: 1.7; color: var(--ink-2); transform: rotate(-6deg); }
+  .marks div:nth-child(2) { transform: rotate(4deg); }
+  .marks div:nth-child(3) { transform: rotate(-3deg); }
+  .marks div:nth-child(4) { transform: rotate(7deg); }
+  .marks small { display: block; font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-3); }
+
+  /* シアの一言 */
+  .talk.one-line { margin-top: 18px; align-items: center; }  /* 共通を上書き: 一つだけ置くので中央に */
+  .talk.one-line .bubble { align-self: center; }  /* 共通を上書き */
+
+  /* 三段（手紙→並び→本）の下の小見出し */
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 30em; margin: -6px auto 0; text-align: center; font-size: 0.76rem; letter-spacing: 0.08em; color: var(--ink-3); }
+
+  /* 同じ写真、二つの話し方 */
+  .compare { max-width: 42em; margin: 20px auto 0; display: grid; grid-template-columns: 5fr 6fr; gap: 16px; align-items: center; }
+  .compare .photo { border-radius: 18px; overflow: hidden; border: 1px solid var(--hair); background: var(--ground-inset); }
+  .compare .photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+  .compare .says { display: flex; flex-direction: column; gap: 12px; }
+  .compare .say { padding: 12px 18px; border-radius: 18px; background: var(--ground-raised); border: 1px solid var(--hair); font-size: 0.88rem; line-height: 1.9; color: var(--ink-2); }
+  .compare .say b { display: block; font-family: var(--serif); font-size: 0.78rem; letter-spacing: 0.14em; color: var(--shu); margin-bottom: 2px; }
+
+  /* 生まれた声。引用として */
+  /* 本文と同じ 34em の列。かぎかっこは列の外へ吊り出し、文字の左端を本文にそろえる */
+  .voice { position: relative; max-width: var(--col); margin: 26px auto 0; padding: 6px 0 0; font-family: var(--serif); font-size: 0.94rem; line-height: 2.1; color: var(--ink); }
+  .voice::before { content: "「"; position: absolute; left: -1.1em; top: -6px; font-size: 2rem; color: var(--shu); line-height: 1; }
+  @media (max-width: 640px) { .voice { padding-left: 1.2em; } .voice::before { left: 0; } }
+  .voice .close { color: var(--shu); font-size: 1.5rem; line-height: 1; margin-left: 2px; vertical-align: -0.1em; }
+  .voice .who { display: block; margin-top: 8px; font-family: var(--sans); font-size: 0.76rem; letter-spacing: 0.1em; color: var(--ink-3); }
+
+  /* こまかいこと（畳む） */
+  .fine { max-width: var(--col); margin: 22px auto 0; border-top: 1px solid var(--hair); }
+  .fine summary { cursor: pointer; padding: 12px 0; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--ink-3); list-style: none; }
+  .fine summary::-webkit-details-marker { display: none; }
+  .fine summary::before { content: "＋ "; color: var(--shu); }
+  .fine[open] summary::before { content: "－ "; }
+  .fine ul { padding: 0 0 12px 1.2em; font-size: 0.82rem; color: var(--ink-2); line-height: 1.9; }
+  .fine li + li { margin-top: 4px; }
+
+  @media (max-width: 640px) {
+    .three { grid-template-columns: 1fr; }
+    .three a { display: grid; grid-template-columns: 44px 1fr; gap: 0 14px; text-align: left; align-items: center; }
+    .three svg { margin: 0; grid-row: 1 / 3; }
+    .compare { grid-template-columns: 1fr; }
+    .marks div { width: 6.4em; }
+  }
 </style>
 </head>
 <body>
@@ -63,63 +136,189 @@
 <div class="frame">
 <main id="main">
 
+  <section class="tight" aria-label="三つの新しいこと">
+    <nav class="three" aria-label="この頁の中">
+      <a href="#h-today">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="6" y="12" width="36" height="26" rx="4" fill="none" stroke="var(--ink-3)" stroke-width="1.5"/><path d="M6 14l18 13 18-13" fill="none" stroke="var(--ink-3)" stroke-width="1.5" stroke-linejoin="round"/><circle cx="24" cy="27" r="3.4" fill="var(--shu)"/></svg>
+        <h3>今日の手紙</h3><p>あの日のあなたから、一日に一通</p>
+      </a>
+      <a href="#h-month">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="var(--ink-3)" stroke-width="1.5"><rect x="7" y="9" width="34" height="30" rx="4"/><path d="M7 17h34"/></g><g fill="var(--ink-3)" opacity=".5"><rect x="12" y="22" width="5" height="4" rx="1"/><rect x="26" y="22" width="5" height="4" rx="1"/><rect x="19" y="29" width="5" height="4" rx="1"/><rect x="33" y="29" width="5" height="4" rx="1"/></g><path d="M14.5 24l14 0-7 7 14 0" fill="none" stroke="var(--shu)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>ひと月の手紙</h3><p>シアから、月に一通</p>
+      </a>
+      <a href="#h-tone">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 12h22a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H16l-6 5v-5H8a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4z" fill="none" stroke="var(--ink-3)" stroke-width="1.5" stroke-linejoin="round"/><path d="M40 20h-2a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h2l6 5v-5a4 4 0 0 0 4-4v-8a4 4 0 0 0-4-4" fill="none" stroke="var(--shu)" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <h3>説明の話し方</h3><p>ていねいか、やさしいか</p>
+      </a>
+    </nav>
+    <div class="rhythm art" aria-label="届くリズム">
+      <svg viewBox="0 0 720 70" role="img" aria-hidden="true" focusable="false">
+        <path class="hr" d="M12 56h696"/>
+        <g class="ln">
+          <g transform="translate(14,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(35,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(56,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(77,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(98,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(119,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(140,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(161,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(182,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(203,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(224,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(245,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(266,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(287,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(308,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(329,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(350,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(371,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(392,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(413,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(434,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(455,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(476,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(497,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(518,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(539,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(560,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(581,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(602,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+          <g transform="translate(623,30)"><rect width="14" height="10" rx="1.5"/><path d="M0 1l7 5 7-5"/></g>
+        </g>
+        <g transform="translate(660,8)"><rect class="ph" width="48" height="34" rx="3"/><path class="ln" d="M0 3l24 17 24-17"/><circle class="acf" cx="24" cy="21" r="5"/></g>
+      </svg>
+      <div class="cap"><span>毎晩 10 時に、一通</span><span>月のはじめに、もう一通</span></div>
+    </div>
+  </section>
+
   <section aria-labelledby="h-today">
     <h2 class="sec-head" id="h-today">今日の手紙</h2>
     <div class="ask"><p class="q-line">去年の今日、何を書いていたか。<br>——<em>覚えていますか</em>。</p><p class="q-note">あの日のあなたから、一日に一通。</p></div>
-    <div class="prose">
-      <p>毎晩 10 時、ホームの<span class="key">ジャーナリング</span>の机に、封書が一通届きます。差出人は、<b>あの日のあなた</b>です。</p>
-      <p>一年前の今日、あなたが書いていたこと。同じ場所、同じ空の日に、思っていたこと。途中で止まったままの、あの日の話。その日に残した言葉が、便箋に載って戻ってきます。要約も言い換えもなく、あなたの言葉づかいのままで。だから読んでいると、<b>自分の声が聞こえます。</b></p>
+
+    <details class="envelope">
+      <summary>
+        <div class="closed art" style="margin:0 auto;max-width:300px">
+          <svg viewBox="0 0 300 200" role="img" aria-label="封蝋のついた封筒。同封の写真が一枚、差してある" focusable="false">
+            <g transform="translate(40,38) rotate(-9)"><rect class="sc" width="78" height="58" rx="3"/><path class="hr" d="M6 50l20-24 13 13 9-9 24 20"/><circle class="hr" cx="60" cy="14" r="3"/></g>
+            <rect class="ph" x="50" y="60" width="200" height="120" rx="6"/>
+            <path class="ln" d="M50 64l100 62 100-62"/>
+            <path class="hr" d="M50 180l78-60M250 180l-78-60"/>
+            <circle class="acf" cx="150" cy="126" r="11"/>
+            <g transform="translate(214,80)"><circle class="hr" r="17"/><path class="hr" d="M-9-3h18M-11 2h22M-8 7h16"/></g>
+          </svg>
+        </div>
+        <span class="hint">封を切る</span>
+      </summary>
+      <div class="paper">
+        <span class="stamp">10 月 7 日 着</span>
+        あなたへ<br>
+        久しぶりに実家。縁側で母とお茶。たいした話はしていないのに、洗濯物を取り込むタイミングで、ふたりで笑った。それだけの夕方だったけど、それで十分だった気がする。
+        <span class="sign">一年前のあなたより</span>
+        <div class="ops"><span>声で読む</span><span>暦をひらく</span><span>もう一度ひらく</span></div>
+      </div>
+    </details>
+
+    <div class="marks" aria-label="差出人">
+      <div><small>消印</small>一年前の<br>今日</div>
+      <div><small>消印</small>同じ<br>場所</div>
+      <div><small>消印</small>同じ<br>空の日</div>
+      <div><small>消印</small>途中の<br>話</div>
     </div>
-    <div class="letter" aria-label="手紙の例">
-      <span class="stamp">10 月 7 日 着</span>
-      あなたへ<br>
-      久しぶりに実家。縁側で母とお茶。たいした話はしていないのに、洗濯物を取り込むタイミングで、ふたりで笑った。それだけの夕方だったけど、それで十分だった気がする。
-      <span class="sign">一年前のあなたより</span>
+
+    <div class="prose" style="margin-top:22px">
+      <p>その日に残した言葉が、要約も言い換えもなく、あなたの言葉づかいのまま戻ってきます。だから読んでいると、<b>自分の声が聞こえます。</b></p>
+      <p>一通は、その日限り。束にして数を見せるより、<b>今日の一通を、今日読んでほしい</b>から。日記を書いた日は、知らないうちに、未来の自分へ手紙を書いていたことになります。</p>
     </div>
-    <div class="prose">
-      <p>封を切って、読む。声で聴く。途中だった話なら、そこから続きを話せます。</p>
-      <p>一通は、その日限りです。開けないまま夜が明ければ、次の一通に替わります。束にして数を見せるより、<b>今日の一通を、今日読んでほしい</b>から。</p>
-      <p>日記を書いた日は、知らないうちに、未来の自分へ手紙を書いていたことになります。</p>
-    </div>
-    <div class="notice">
-      章が三つほどたまったころから、届きはじめます。それまでは、シアからの最初の一通が机に置いてあります。<b>プランによる制限はありません。</b>
-    </div>
+    <details class="fine">
+      <summary>こまかいこと</summary>
+      <ul>
+        <li>ホームの「ジャーナリング」から開く、手紙が届く机に、毎晩 10 時に一通。翌日の 10 時に次の一通へ替わります。</li>
+        <li>話が途中だった日の手紙には「続きを話す」があり、そのまま対話に戻れます。</li>
+        <li>章が三つほどたまったころから届きはじめます。それまでは、シアからの最初の一通が机に置いてあります。</li>
+        <li>プランによる制限はありません。</li>
+      </ul>
+    </details>
   </section>
 
   <section aria-labelledby="h-month">
     <h2 class="sec-head" id="h-month">ひと月の手紙</h2>
     <div class="ask"><p class="q-line">先月は、どんなひと月でしたか。<br>——ひとことで、<em>言えますか</em>。</p><p class="q-note">シアから、月に一通。</p></div>
-    <div class="prose">
-      <p>月が変わると、ホームに<span class="key">先月の出来ごと</span>が届きます。その冒頭に、シアからの手紙が置かれています。</p>
-      <p>ひと月のあいだ、あなたが写真について話したこと、書き残したこと。シアはそれを、隣で聞いていた友達として覚えています。そして月が変わった今、思い返して話しかけてきます。<b>「あの日、縁側で笑っていましたね」</b>。忘れていた一日が、人の声で戻ってきます。</p>
-      <p>自分では、ひと月をひとつの流れとして見ることができません。日々は、過ぎるそばから散らばっていくからです。誰かが拾い集めて、ひと続きにして返してくれたとき、はじめて<b>「こんな月だった」</b>と思えます。</p>
-      <p>手紙は、<b>シアの声</b>で聴けます。物語や案内の声とは別の、シアがあなたに話しかけるときの声です。</p>
-      <p>同じ面には、先月あなたが何度も戻った写真の並びと、去年の同じ月の一枚。その並びは、<span class="key">この並びを本にする</span>で、そのまま一冊になります。</p>
+
+    <div class="art" style="max-width:360px">
+      <svg viewBox="0 0 360 250" role="img" aria-label="ひと月の暦。言葉を残した日だけが埋まり、一本の線がそれらをつないで、一通の手紙に流れ込む" focusable="false">
+        <g class="sc">
+          <rect x="30" y="16" width="44" height="28" rx="3"/><rect x="81" y="16" width="44" height="28" rx="3"/><rect x="132" y="16" width="44" height="28" rx="3"/><rect x="183" y="16" width="44" height="28" rx="3"/><rect x="234" y="16" width="44" height="28" rx="3"/><rect x="285" y="16" width="44" height="28" rx="3"/>
+          <rect x="30" y="50" width="44" height="28" rx="3"/><rect x="81" y="50" width="44" height="28" rx="3"/><rect x="132" y="50" width="44" height="28" rx="3"/><rect x="183" y="50" width="44" height="28" rx="3"/><rect x="234" y="50" width="44" height="28" rx="3"/><rect x="285" y="50" width="44" height="28" rx="3"/>
+          <rect x="30" y="84" width="44" height="28" rx="3"/><rect x="81" y="84" width="44" height="28" rx="3"/><rect x="132" y="84" width="44" height="28" rx="3"/><rect x="183" y="84" width="44" height="28" rx="3"/><rect x="234" y="84" width="44" height="28" rx="3"/><rect x="285" y="84" width="44" height="28" rx="3"/>
+          <rect x="30" y="118" width="44" height="28" rx="3"/><rect x="81" y="118" width="44" height="28" rx="3"/><rect x="132" y="118" width="44" height="28" rx="3"/><rect x="183" y="118" width="44" height="28" rx="3"/><rect x="234" y="118" width="44" height="28" rx="3"/><rect x="285" y="118" width="44" height="28" rx="3"/>
+          <rect x="30" y="152" width="44" height="28" rx="3"/><rect x="81" y="152" width="44" height="28" rx="3"/><rect x="132" y="152" width="44" height="28" rx="3"/><rect x="183" y="152" width="44" height="28" rx="3"/><rect x="234" y="152" width="44" height="28" rx="3"/><rect x="285" y="152" width="44" height="28" rx="3"/>
+        </g>
+        <g class="fl">
+          <rect x="132" y="16" width="44" height="28" rx="3"/><rect x="285" y="50" width="44" height="28" rx="3"/><rect x="81" y="84" width="44" height="28" rx="3"/><rect x="234" y="118" width="44" height="28" rx="3"/><rect x="30" y="152" width="44" height="28" rx="3"/><rect x="183" y="152" width="44" height="28" rx="3"/>
+        </g>
+        <path class="ac" d="M154 30 C 220 30, 260 40, 307 64 C 330 76, 300 98, 103 98 C 60 98, 60 120, 256 132 C 300 136, 290 166, 52 166 C 20 166, 80 180, 205 166 C 230 162, 230 200, 180 210"/>
+        <g transform="translate(130,196)"><rect class="ph" width="100" height="48" rx="5"/><path class="ln" d="M0 4l50 30 50-30"/><circle class="acf" cx="50" cy="30" r="6"/></g>
+      </svg>
     </div>
-    <div class="notice">
-      有料のプランなら毎月届きます。無料でも、はじめの 3 か月は届きます。通知は、月のはじめに 1 通だけです。
+
+    <div class="talk one-line" aria-label="シアの一言"><div class="bubble ai">あの日、縁側で笑っていましたね。</div></div>
+
+    <div class="prose" style="margin-top:22px">
+      <p>ひと月のあいだに、あなたが写真について話したこと、書き残したこと。シアはそれを、隣で聞いていた友達として覚えていて、月が変わった今、思い返して話しかけてきます。忘れていた一日が、人の声で戻ってきます。</p>
+      <p>日々は、過ぎるそばから散らばっていきます。誰かが拾い集めて、ひと続きにして返してくれたとき、はじめて<b>「こんな月だった」</b>と思えます。</p>
     </div>
-    <div class="notice">
-      並びを本にすると、<b>ひと月の手紙は、その本のはしがきになります。</b>表紙に残るので、あとから本を開くたび、その月の手紙から始まります。
+
+    <div class="art" style="max-width:360px;margin-top:26px">
+      <svg viewBox="0 0 360 100" role="img" aria-label="手紙が、写真の並びになり、本になる" focusable="false">
+        <g transform="translate(14,30)"><rect class="ph" width="60" height="40" rx="4"/><path class="ln" d="M0 3l30 20 30-20"/><circle class="acf" cx="30" cy="23" r="4"/></g>
+        <path class="ln" d="M90 50h26m0 0-5-5m5 5-5 5"/>
+        <g transform="translate(130,26)"><rect class="sc" width="30" height="24" rx="2"/><rect class="sc" x="35" width="30" height="24" rx="2"/><rect class="sc" x="70" width="30" height="24" rx="2"/><path class="hr" d="M4 20l8-10 6 6 4-4 6 8M39 20l8-10 6 6 4-4 6 8M74 20l8-10 6 6 4-4 6 8"/><rect class="sc" y="30" width="30" height="24" rx="2"/><rect class="sc" x="35" y="30" width="30" height="24" rx="2"/><path class="hr" d="M4 50l8-10 6 6 4-4 6 8M39 50l8-10 6 6 4-4 6 8"/></g>
+        <path class="ln" d="M246 50h26m0 0-5-5m5 5-5 5"/>
+        <g transform="translate(288,18)"><path class="ph" d="M6 0h52a4 4 0 0 1 4 4v56a4 4 0 0 1-4 4H6a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6z"/><path class="ln" d="M10 2v60"/><rect class="ac" x="22" y="14" width="28" height="20" rx="2"/><path class="hr" d="M26 40h20M26 46h14"/></g>
+      </svg>
     </div>
+    <div class="stages"><span>手紙</span><span>何度も戻った写真</span><span>本（表紙に手紙）</span></div>
+
+    <details class="fine">
+      <summary>こまかいこと</summary>
+      <ul>
+        <li>月が変わって最初の 7 日間、ホームに「先月の出来ごと」が出ます。手紙はその冒頭に置かれ、「手紙を聴く」でシアの声で聴けます。</li>
+        <li>シアの声は、物語や案内の声とは別に、設定の「朗読の声をえらぶ」から選べます。</li>
+        <li>同じ面に、先月何度も戻った写真の並びと、去年の同じ月の一枚。「この並びを本にする」で一冊になり、手紙はその本のはしがきとして表紙に残ります。</li>
+        <li>有料のプランなら毎月。無料でも、はじめの 3 か月は届きます。通知は月のはじめに 1 通だけです。</li>
+      </ul>
+    </details>
   </section>
 
   <section aria-labelledby="h-tone">
     <h2 class="sec-head" id="h-tone">説明の話し方が、二つに</h2>
     <div class="ask"><p class="q-line">伝えたいのに、言葉が出てこない。<br>——そんなとき、<em>ありませんか</em>。</p><p class="q-note">ていねいか、やさしいか。写真につく説明の口調を選べます。</p></div>
-    <div class="prose">
-      <p>「やさしい」は、ある声から生まれました。日本で暮らす、外国から来た方の声です。日本人の友達に、自分の子どもに、いま見ているものと、そこで思ったことを伝えたい。でも、言葉が出てこない。——そんなとき、写真を撮って説明を作れば、そのまま見せられるし、読んで聞かせられる。相手に伝わるだけでなく、<b>自分の日本語の勉強にもなる。</b>そう聞いて、先生が低学年の子に話すような、やさしい話し言葉を用意しました。</p>
-      <p>撮った写真につく説明は、これまで「です・ます」のていねいな言い方だけでした。次のアップデートからは、<b>やさしい</b>を選べます。</p>
+
+    <div class="compare">
+      <div class="photo"><img src="../photo/engawa.jpg" alt="夕暮れの縁側。開け放した障子の向こうに物干しの洗濯物と庭の緑。畳の上に湯呑みがふたつ、長い影を落としている。"></div>
+      <div class="says">
+        <div class="say"><b>ていねい</b>縁側に、湯呑みがふたつ並んでいます。障子の向こうに、洗濯物と庭の緑が見えます。</div>
+        <div class="say"><b>やさしい</b>縁側に、湯呑みがふたつあるよ。むこうには、洗濯物と、庭のみどりが見えるね。</div>
+      </div>
     </div>
-    <div class="pair">
-      <div><b>ていねい</b>白いマグカップが、窓からの光を受けています。奥には観葉植物があります。</div>
-      <div><b>やさしい</b>白いマグカップがあるよ。窓から光が入ってるよ。奥には、みどりの葉っぱがあるね。</div>
+
+    <blockquote class="voice">
+      日本人の友達に、自分の子どもに、いま見ているものと、そこで思ったことを伝えたい。でも、言葉が出てこない。写真を撮って説明を作れば、そのまま見せられるし、読んで聞かせられる。それに、自分の日本語の勉強にもなる。<span class="close" aria-hidden="true">」</span>
+      <span class="who">日本で暮らす、外国から来た方の声。「やさしい」はここから生まれました</span>
+    </blockquote>
+
+    <div class="prose" style="margin-top:22px">
+      <p>撮った写真につく説明は、これまで「です・ます」のていねいな言い方だけでした。次のアップデートからは、先生が低学年の子に話すような<b>やさしい</b>話し言葉を選べます。何もしなければ、これまでどおりです。</p>
     </div>
-    <div class="prose">
-      <p>切り替えは、撮影画面の<span class="key">説明</span>のピルから。長さ（短め・標準・長め）の下に、話し方（ていねい・やさしい）が並びます。文体シートの「説明」の行からも選べます。何もしなければ、これまでどおり「ていねい」のままです。</p>
-      <p>やさしい説明には、別の声も当てられます。説明の声が AI 音声のとき、設定の「説明の声」の下に<span class="key">やさしい説明の声</span>が出ます。口調に合う声を選んでおくと、撮った直後の読み上げも、章の朗読も、その声になります。</p>
-    </div>
-    <p class="note-line">話し方が効くのは、写真に書き込まれる説明だけです。日記や物語の言葉づかいは変わりません。説明は日本語で書かれるので、話し方も日本語の説明に効きます。</p>
+    <details class="fine">
+      <summary>こまかいこと</summary>
+      <ul>
+        <li>切り替えは、撮影画面の「説明」のピルから。長さ（短め・標準・長め）の下に、話し方（ていねい・やさしい）が並びます。文体シートの「説明」の行からも選べます。</li>
+        <li>やさしい説明には、別の声も当てられます。説明の声が AI 音声のとき、設定の「説明の声」の下に「やさしい説明の声」が出ます。</li>
+        <li>話し方が効くのは、写真に書き込まれる説明だけです。日記や物語の言葉づかいは変わりません。説明は日本語で書かれます。</li>
+      </ul>
+    </details>
   </section>
 
 </main>
