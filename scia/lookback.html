@@ -25,12 +25,33 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="あの日、本当に残したかったこと。話しておけば、戻ってきます。日付からも、場所からも。そして、アプリのない人にも。">
 <style>
+  .steps-list { list-style: none; max-width: 34em; margin: 0 auto; counter-reset: step; border-top: 1px solid var(--hair); }
+  /* 番号は左の余白に置き、題だけがその幅だけ下がる。説明文と挿絵は端から端まで使う */
+  .steps-list li { position: relative; padding: 16px 0; border-bottom: 1px solid var(--hair); counter-increment: step; }
+  .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 18px; width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--hair); display: grid; place-items: center; font-family: var(--serif); font-size: 0.8rem; color: var(--shu); line-height: 1; }
+  .steps-list li b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
+  .steps-list li p { font-size: 0.88rem; color: var(--ink-2); }
+  .steps-list li p + p { margin-top: 6px; }
   .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
   .prose p + p { margin-top: 12px; }
   .prose b { color: var(--ink); font-weight: 700; }
-  .prose .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .prose .key, .steps-list .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
   .note-line { max-width: 34em; margin: 16px auto 0; font-size: 0.8rem; color: var(--ink-3); }
+  .steps-list + .prose { margin-top: 22px; }
   .more-center { text-align: center; margin-top: 26px; font-size: 0.86rem; }
+  /* ステップの挿絵。線は髪線と本文色、朱は 1 つだけ。文字は入れない（翻訳不要）*/
+  .step-art { margin: 10px 0 16px; }
+  .step-art svg { display: block; width: 100%; max-width: 360px; height: auto; margin-inline: auto; }
+  .step-art svg .ph { fill: var(--ground-raised); stroke: var(--ink-3); stroke-width: 1.5; }
+  .step-art svg .sc { fill: var(--ground-inset); stroke: var(--hair); stroke-width: 1; }
+  .step-art svg .bar { fill: var(--ink-3); opacity: 0.35; }
+  .step-art svg .barh { fill: var(--hair); }
+  .step-art svg .isl { fill: var(--ink-3); opacity: 0.55; }
+  .step-art svg .ln { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .hr { fill: none; stroke: var(--hair); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .ac { fill: none; stroke: var(--shu); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .acf { fill: var(--shu); }
+  .step-art svg .pf { fill: var(--ground-raised); stroke: var(--hair); stroke-width: 1.5; }
 </style>
 </head>
 <body>
@@ -48,27 +69,57 @@
   <section aria-labelledby="h-back">
     <h2 class="sec-head" id="h-back">ふりかえる</h2>
     <p class="sec-note">忘れかけた日ほど、たどり着けるようにしてあります。</p>
+    <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="bar" x="12" y="18" width="36" height="4" rx="2.0"/><rect class="sc" x="8" y="28" width="88" height="32" rx="6"/><path class="hr" d="M12 55l26-14 16 6 11-4 30 12"/><circle class="hr" cx="82" cy="39" r="3.5"/><rect class="bar" x="12" y="70" width="30" height="4" rx="2.0"/><rect class="sc" x="8" y="80" width="88" height="40" rx="6"/><path class="hr" d="M12 115l26-18 16 8 11-5 30 15"/><circle class="hr" cx="82" cy="91" r="3.5"/><rect class="barh" x="14" y="86" width="20" height="5" rx="2.5"/><rect class="ac" x="8" y="80" width="88" height="40" rx="6" fill="none"/><rect class="sc" x="8" y="126" width="88" height="40" rx="6"/><path class="hr" d="M12 161l26-18 16 8 11-5 30 15"/><circle class="hr" cx="82" cy="137" r="3.5"/><rect class="barh" x="14" y="132" width="20" height="5" rx="2.5"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(200,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="22" width="88" height="62" rx="6"/><path class="hr" d="M12 79l26-28 16 12 11-8 30 24"/><circle class="hr" cx="82" cy="33" r="3.5"/><rect class="bar" x="12" y="92" width="52" height="5" rx="2.5"/><rect class="bar" x="12" y="103" width="34" height="3" rx="1.5"/><path class="ac" d="M70 107.5s3.5-3.4 3.5-5.6a3.5 3.5 0 1 0-7 0c0 2.2 3.5 5.6 3.5 5.6z"/><rect class="bar" x="77" y="103" width="15" height="3" rx="1.5"/><rect class="bar" x="12" y="116" width="80" height="4" rx="2.0"/><rect class="bar" x="12" y="126" width="72" height="4" rx="2.0"/><rect class="bar" x="12" y="136" width="56" height="4" rx="2.0"/><rect class="sc" x="12" y="150" width="80" height="16" rx="8"/><circle class="hr" cx="23" cy="158" r="6"/><path class="bar" d="M21 155l5 3-5 3z"/><rect class="bar" x="36" y="156" width="44" height="4" rx="2.0"/></g></svg></div>
     <div class="prose">
-      <p>ホームには、<span class="key">今日</span>と<span class="key">ふりかえる</span>が並びます。ふりかえるは、去年の同じ季節や、しばらく開いていない一枚を、そっと差し出す場所です。</p>
-      <p>探すときは、日付のならび・<span class="key">カレンダー</span>・<span class="key">地図</span>・<span class="key">地域</span>から。「あの秋」からでも、「あの町」からでもたどり着けます。写真の下には、撮った日と時刻、それに場所の名前が出ます。</p>
+      <p>ホームを下へたどると、今日と昨日の一枚のあとに、<span class="key">ふりかえる</span>の欄が続きます。何年か前の同じ日や、同じころに撮った一枚が、ここに二枚まで差し出されます。写真の上には「3年前」「1年前のこの時期」と、いつの一枚かが添えてあります。</p>
+      <p>押すと、その一枚の写真画面がひらきます。題の下に、撮った日と時刻、それに場所の名前。場所の名前を押すと、地図でその場所が見られます。</p>
     </div>
-    <p class="note-line">本棚の見かた（ホーム・カード・リスト・カレンダー・地図・地域）は、どのプランでも使えます。</p>
+  </section>
+
+  <section aria-labelledby="h-find">
+    <h2 class="sec-head" id="h-find">「あの秋」からも、「あの町」からも</h2>
+    <p class="sec-note">自分で探すときは、本棚の見かたを切り替えます。</p>
+    <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="ac" x="10" y="16" width="26" height="13" rx="6.5" fill="none"/><rect class="barh" x="16" y="21" width="14" height="3" rx="1.5"/><rect class="sc" x="8" y="80" width="88" height="38" rx="6"/><path class="hr" d="M12 113l26-17 16 8 11-5 30 14"/><circle class="hr" cx="82" cy="91" r="3.5"/><rect class="sc" x="8" y="124" width="88" height="38" rx="6"/><path class="hr" d="M12 157l26-17 16 8 11-5 30 14"/><circle class="hr" cx="82" cy="135" r="3.5"/><rect class="pf" x="10" y="34" width="58" height="80" rx="9"/><rect class="bar" x="18" y="44.0" width="30" height="3" rx="1.5"/><rect class="bar" x="18" y="55.5" width="34" height="3" rx="1.5"/><rect class="bar" x="18" y="67.0" width="38" height="3" rx="1.5"/><rect class="bar" x="18" y="78.5" width="30" height="3" rx="1.5"/><rect class="bar" x="18" y="90.0" width="34" height="3" rx="1.5"/><rect class="bar" x="18" y="101.5" width="38" height="3" rx="1.5"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(200,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="bar" x="12" y="20" width="36" height="5" rx="2.5"/><circle class="bar" cx="16" cy="42" r="1.2"/><circle class="bar" cx="28" cy="42" r="1.2"/><rect class="sc" x="35" y="36" width="10" height="12" rx="2.5"/><circle class="bar" cx="52" cy="42" r="1.2"/><circle class="bar" cx="64" cy="42" r="1.2"/><rect class="sc" x="71" y="36" width="10" height="12" rx="2.5"/><rect class="sc" x="83" y="36" width="10" height="12" rx="2.5"/><circle class="bar" cx="16" cy="57" r="1.2"/><circle class="bar" cx="28" cy="57" r="1.2"/><rect class="sc" x="35" y="51" width="10" height="12" rx="2.5"/><circle class="bar" cx="52" cy="57" r="1.2"/><circle class="bar" cx="64" cy="57" r="1.2"/><circle class="bar" cx="76" cy="57" r="1.2"/><rect class="sc" x="83" y="51" width="10" height="12" rx="2.5"/><circle class="bar" cx="16" cy="72" r="1.2"/><circle class="bar" cx="28" cy="72" r="1.2"/><rect class="sc" x="35" y="66" width="10" height="12" rx="2.5"/><rect class="sc" x="47" y="66" width="10" height="12" rx="2.5"/><circle class="bar" cx="64" cy="72" r="1.2"/><circle class="bar" cx="76" cy="72" r="1.2"/><rect class="sc" x="83" y="66" width="10" height="12" rx="2.5"/><circle class="bar" cx="16" cy="87" r="1.2"/><circle class="bar" cx="28" cy="87" r="1.2"/><circle class="bar" cx="40" cy="87" r="1.2"/><rect class="sc" x="47" y="81" width="10" height="12" rx="2.5"/><circle class="bar" cx="64" cy="87" r="1.2"/><circle class="bar" cx="76" cy="87" r="1.2"/><rect class="sc" x="83" y="81" width="10" height="12" rx="2.5"/><circle class="bar" cx="16" cy="102" r="1.2"/><circle class="bar" cx="28" cy="102" r="1.2"/><rect class="sc" x="35" y="96" width="10" height="12" rx="2.5"/><circle class="bar" cx="52" cy="102" r="1.2"/><circle class="bar" cx="64" cy="102" r="1.2"/><circle class="bar" cx="76" cy="102" r="1.2"/><circle class="bar" cx="88" cy="102" r="1.2"/><rect class="sc" x="8" y="116" width="88" height="50" rx="6"/><path class="hr" d="M12 161l26-22 16 10 11-6 30 19"/><circle class="hr" cx="82" cy="127" r="3.5"/></g></svg></div>
+    <div class="prose">
+      <p>撮った写真は、<span class="key">本棚</span>にたまっていきます。本棚の左上のボタンを押すと、見かたを選べます。<span class="key">ホーム</span>・<span class="key">カード</span>・<span class="key">リスト</span>・<span class="key">カレンダー</span>・<span class="key">地図</span>・<span class="key">地域</span>の六つです。</p>
+      <p>季節で覚えているなら<span class="key">カレンダー</span>。写真のある日だけが埋まっているので、「あの秋」の一枚がすぐ見つかります。場所で覚えているなら<span class="key">地図</span>か<span class="key">地域</span>。「あの町」で撮った写真が、まとまって出てきます。</p>
+    </div>
+    <p class="note-line">六つの見かたは、どのプランでも使えます。</p>
   </section>
 
   <section aria-labelledby="h-give">
     <h2 class="sec-head" id="h-give">贈る</h2>
     <p class="sec-note">受け取る人に、アプリは要りません。</p>
+    <ol class="steps-list">
+      <li>
+        <b>共有から、聴く写真に</b>
+        <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="hr" x="54" y="15" width="22" height="12" rx="6" fill="none"/><rect class="bar" x="59" y="19.5" width="12" height="3" rx="1.5"/><path class="ac" d="M80 21v7h12v-7M86 24.5v-10m-3.2 3.2 3.2-3.2 3.2 3.2"/><rect class="sc" x="8" y="34" width="88" height="66" rx="6"/><path class="hr" d="M12 95l26-30 16 13 11-9 30 25"/><circle class="hr" cx="82" cy="45" r="3.5"/><rect class="bar" x="12" y="108" width="52" height="5" rx="2.5"/><rect class="bar" x="12" y="120" width="80" height="4" rx="2.0"/><rect class="bar" x="12" y="130" width="70" height="4" rx="2.0"/><rect class="bar" x="12" y="140" width="50" height="4" rx="2.0"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(200,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="hr" x="54" y="15" width="22" height="12" rx="6" fill="none"/><path class="hr" d="M80 21v7h12v-7M86 24.5v-10m-3.2 3.2 3.2-3.2 3.2 3.2"/><rect class="sc" x="8" y="34" width="88" height="66" rx="6"/><path class="hr" d="M12 95l26-30 16 13 11-9 30 25"/><circle class="hr" cx="82" cy="45" r="3.5"/><rect class="pf" x="22" y="32" width="76" height="118" rx="10"/><circle class="hr" cx="34" cy="44" r="4"/><rect class="bar" x="44" y="42.5" width="34" height="3" rx="1.5"/><circle class="hr" cx="34" cy="58" r="4"/><rect class="bar" x="44" y="56.5" width="40" height="3" rx="1.5"/><circle class="hr" cx="34" cy="78" r="4"/><rect class="bar" x="44" y="76.5" width="40" height="3" rx="1.5"/><circle class="hr" cx="34" cy="98" r="4"/><rect class="bar" x="44" y="96.5" width="40" height="3" rx="1.5"/><circle class="hr" cx="34" cy="112" r="4"/><rect class="bar" x="44" y="110.5" width="34" height="3" rx="1.5"/><circle class="hr" cx="34" cy="126" r="4"/><rect class="bar" x="44" y="124.5" width="40" height="3" rx="1.5"/><path class="hr" d="M28 68h64M28 88h64"/><rect class="ac" x="26" y="36" width="68" height="29" rx="7" fill="none"/></g></svg></div>
+        <p>写真画面の右上の共有ボタンを押して、<span class="key">QR付き写真を保存</span>か<span class="key">LINEから送る</span>を選びます。公開する文章（物語・説明・日記）を選べば、その一枚が<span class="key">聴く写真</span>になります。</p>
+      </li>
+      <li>
+        <b>手渡すなら QR、遠くの人にはリンク</b>
+        <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(52,24)"><rect class="pf" x="0" y="0" width="120" height="152" rx="4"/><rect class="sc" x="8" y="8" width="104" height="104" rx="2"/><path class="hr" d="M12 107l31-47 19 21 12-14 35 40"/><circle class="hr" cx="98" cy="19" r="3.5"/><rect class="acf" x="90.0" y="90.0" width="7.7" height="7.7" rx="1.0"/><rect class="acf" x="100.3" y="90.0" width="7.7" height="7.7" rx="1.0"/><rect class="acf" x="90.0" y="100.3" width="7.7" height="7.7" rx="1.0"/><rect class="acf" x="100.3" y="100.3" width="2.6" height="2.6"/><rect class="acf" x="105.4" y="100.3" width="2.6" height="2.6"/><rect class="acf" x="102.9" y="102.9" width="2.6" height="2.6"/><rect class="acf" x="100.3" y="105.4" width="2.6" height="2.6"/><rect class="acf" x="105.4" y="105.4" width="2.6" height="2.6"/><rect class="bar" x="10" y="124" width="64" height="3" rx="1.5"/><rect class="bar" x="10" y="134" width="44" height="3" rx="1.5"/></g><path class="hr" d="M186 40v120" stroke-dasharray="3 5"/><g transform="translate(208,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="10" y="24" width="56" height="18" rx="8"/><rect class="bar" x="17" y="32" width="40" height="3" rx="1.5"/><rect class="sc" x="30" y="52" width="66" height="70" rx="10"/><rect class="sc" x="34" y="56" width="58" height="40" rx="6"/><path class="hr" d="M38 91l17-18 10 8 7-5 20 15"/><circle class="hr" cx="78" cy="67" r="3.5"/><rect class="bar" x="36" y="102" width="48" height="3" rx="1.5"/><rect class="bar" x="36" y="110" width="34" height="3" rx="1.5"/><rect class="sc" x="10" y="132" width="48" height="16" rx="8"/><rect class="bar" x="17" y="138" width="30" height="3" rx="1.5"/></g></svg></div>
+        <p><span class="key">QR付き写真を保存</span>は、写真の隅に QR コードを焼き込んで、アルバムに保存します。プリントして手渡したり、壁に飾ったり。アルバムの一枚が、聴ける思い出になります。</p>
+        <p><span class="key">LINEから送る</span>は、写真ではなくリンクを送ります。離れて暮らす家族にも、そのまま届きます。</p>
+      </li>
+      <li>
+        <b>相手は、カメラをかざすだけ</b>
+        <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="20" width="88" height="128" rx="6"/><rect class="bar" x="36.0" y="58.0" width="13.7" height="13.7" rx="1.8"/><rect class="bar" x="54.3" y="58.0" width="13.7" height="13.7" rx="1.8"/><rect class="bar" x="36.0" y="76.3" width="13.7" height="13.7" rx="1.8"/><rect class="bar" x="54.3" y="76.3" width="4.6" height="4.6"/><rect class="bar" x="63.4" y="76.3" width="4.6" height="4.6"/><rect class="bar" x="58.9" y="80.9" width="4.6" height="4.6"/><rect class="bar" x="54.3" y="85.4" width="4.6" height="4.6"/><rect class="bar" x="63.4" y="85.4" width="4.6" height="4.6"/><path class="ln" d="M28 54v-6h8M76 54v-6h-8M28 96v6h8M76 96v6h-8"/><circle class="ln" cx="52" cy="160" r="9"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(200,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="14" y="16" width="76" height="11" rx="5.5"/><rect class="bar" x="30" y="20" width="44" height="3" rx="1.5"/><rect class="sc" x="8" y="34" width="88" height="62" rx="6"/><path class="hr" d="M12 91l26-28 16 12 11-8 30 24"/><circle class="hr" cx="82" cy="45" r="3.5"/><rect class="bar" x="12" y="104" width="80" height="4" rx="2.0"/><rect class="bar" x="12" y="114" width="72" height="4" rx="2.0"/><rect class="bar" x="12" y="124" width="56" height="4" rx="2.0"/><rect class="sc" x="12" y="142" width="80" height="16" rx="8"/><circle class="ac" cx="23" cy="150" r="6"/><path class="acf" d="M21 147l5 3-5 3z"/><rect class="bar" x="36" y="148" width="44" height="4" rx="2.0"/></g></svg></div>
+        <p>受け取った人は、スマートフォンの標準カメラで QR を読むか、リンクを押すだけ。ブラウザで写真がひらき、朗読が始まります。インストールも登録も要りません。</p>
+      </li>
+    </ol>
     <div class="prose">
-      <p><span class="key">聴く写真</span>にすると、QR コードとリンクができます。相手はスマートフォンの標準カメラで読むだけ。ブラウザで朗読が始まります。インストールも登録も要りません。</p>
-      <p>LINE で送る、X に投稿する、ほかのアプリへ渡す。どれもそのまま。公開する期間は写真ごとに選べて、あとからいつでも止められます。</p>
-      <p>紙に印刷した一枚にも添えられます。壁に飾った写真や、アルバムの一枚が、聴ける思い出になります。</p>
+      <p><b>公開の期間と、止めかた。</b>QR は、7 日・30 日・90 日・1 年から選べます。止めたくなったら、同じ共有ボタンの<span class="key">QR公開を停止</span>から。止めたあとは、相手がひらいても「このページは公開を終了しました」と出ます。</p>
+      <p>LINE で送ったリンクは、途中では止まりません。期限（はじめは 7 日。設定で 3〜30 日に変えられます）まで聴けます。</p>
     </div>
   </section>
 
   <section class="tight" aria-labelledby="h-reach">
     <h2 class="sec-head" id="h-reach">見えない人にも、同じ一枚</h2>
+    <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="8" y="20" width="88" height="88" rx="6"/><path class="hr" d="M12 103l26-40 16 18 11-11 30 33"/><circle class="hr" cx="82" cy="31" r="3.5"/><rect class="ac" x="8" y="116" width="88" height="40" rx="6" fill="none"/><rect class="bar" x="14" y="124" width="76" height="3" rx="1.5"/><rect class="bar" x="14" y="133" width="70" height="3" rx="1.5"/><rect class="bar" x="14" y="142" width="48" height="3" rx="1.5"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(196,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><circle class="hr" cx="18" cy="26" r="6"/><rect class="bar" x="28" y="22" width="36" height="3" rx="1.5"/><rect class="bar" x="28" y="29" width="24" height="3" rx="1.5"/><rect class="bar" x="12" y="42" width="78" height="3" rx="1.5"/><rect class="bar" x="12" y="50" width="58" height="3" rx="1.5"/><rect class="sc" x="8" y="62" width="88" height="74" rx="6"/><path class="hr" d="M12 131l26-33 16 15 11-10 30 28"/><circle class="hr" cx="82" cy="73" r="3.5"/><rect class="pf" x="14" y="118" width="22" height="12" rx="4"/><rect class="bar" x="19" y="122.5" width="12" height="3" rx="1.5"/></g><path class="ac" d="M314 88a14 14 0 0 1 0 24M322 80a26 26 0 0 1 0 40M330 72a38 38 0 0 1 0 56"/></svg></div>
     <div class="prose">
-      <p>説明は、写真そのものに書き込まれます。だから SNS に投稿しても、写真アプリの中でも、読み上げの声でその一枚が伝わります。</p>
+      <p>写真の説明は、写真のファイルそのものに書き込まれます。iPhone の写真アプリでは<b>キャプション</b>になり、VoiceOver を使う人には、その言葉が読み上げられます。</p>
+      <p>共有ボタンの<span class="key">XにALT付きで投稿</span>なら、同じ説明が、画像の<b>代わりの言葉（ALT）</b>として付きます。タイムラインで写真が流れてきたとき、読み上げの声で、その一枚が伝わります。</p>
     </div>
     <p class="more-center"><a href="../accessibility.html">耳と指先で、最後まで — アクセシビリティへの配慮 →</a></p>
   </section>
