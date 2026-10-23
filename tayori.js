@@ -20,6 +20,19 @@ window.TAYORI_L = (it) =>
 
 window.TAYORI = [
   {
+    date: "2026-10-24",
+    kind: "更新",
+    app: "シア",
+    title: "シア 1.3 で、手紙が届くようになりました",
+    body: "一日に一通は、あの日のあなたから。月に一通は、シアから。写真の説明の話し方も「ていねい」と「やさしい」から選べます。App Store でアップデートしてお使いください。",
+    link: "scia/letters.html",
+    en: {
+      kind: "Update", app: "Scia",
+      title: "Scia 1.3: letters now arrive",
+      body: "One a day, from the you of another day. One a month, from Scia. And the description written into each photo now has a choice of tone: polite or friendly. Update from the App Store to start."
+    }
+  },
+  {
     date: "2026-10-07",
     kind: "お知らせ",
     app: "シア",
