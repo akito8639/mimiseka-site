@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>声と読み上げを、自分に合わせる — ミミセカ シア</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../site.css?v=20261024c">
+<script src="../site.js?v=20261024c" defer></script>
+<link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F1E7">
+<link rel="alternate" hreflang="ja" href="https://mimiseka.jp/scia/voice.html">
+<link rel="alternate" hreflang="en" href="https://mimiseka.jp/en/scia/voice.html">
+<link rel="alternate" hreflang="x-default" href="https://mimiseka.jp/scia/voice.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ミミセカ">
+<meta property="og:title" content="声と読み上げを、自分に合わせる — ミミセカ シア">
+<meta property="og:description" content="はじめの質問で整う声と表示、設定の「あなたに合わせる」「聴くとき」、朗読の声の選び方。聴きやすい声と速さに、あとから合わせられます。">
+<meta property="og:url" content="https://mimiseka.jp/scia/voice.html">
+<meta property="og:image" content="https://mimiseka.jp/brand/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="はじめの質問で整う声と表示、設定の「あなたに合わせる」「聴くとき」、朗読の声の選び方。聴きやすい声と速さに、あとから合わせられます。">
+<style>
+  .steps-list { list-style: none; max-width: 34em; margin: 0 auto; counter-reset: step; border-top: 1px solid var(--hair); }
+  .steps-list li { position: relative; padding: 16px 0; border-bottom: 1px solid var(--hair); counter-increment: step; }
+  .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 18px; width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--hair); display: grid; place-items: center; font-family: var(--serif); font-size: 0.8rem; color: var(--shu); line-height: 1; }
+  .steps-list li > b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
+  .steps-list li p { font-size: 0.88rem; color: var(--ink-2); }
+  .steps-list li p + p { margin-top: 6px; }
+  .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
+  .prose p + p { margin-top: 12px; }
+  .prose b { color: var(--ink); font-weight: 700; }
+  .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .note-line { max-width: 34em; margin: 16px auto 0; font-size: 0.8rem; color: var(--ink-3); }
+  /* 言い添えておきたいこと。派手にせず、朱の細い縦線だけ */
+  .notice { max-width: 34em; margin: 16px auto 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--shu); font-size: 0.84rem; color: var(--ink-2); }
+  .notice b { color: var(--ink); font-weight: 700; }
+  .more-center { text-align: center; margin-top: 26px; font-size: 0.86rem; }
+  /* 設定の行。名前（太字）と、選べるもの・効くところ */
+  .set-list { max-width: 34em; margin: 0 auto; border-top: 1px solid var(--hair); }
+  .set-list div { padding: 12px 0; border-bottom: 1px solid var(--hair); }
+  .set-list dt { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .set-list dd { margin: 2px 0 0; font-size: 0.86rem; color: var(--ink-2); }
+  .prose + .set-list, .prose + .steps-list { margin-top: 18px; }
+  .sec-sub { max-width: 34em; margin: 28px auto 10px; font-family: var(--serif); font-weight: 700; font-size: 0.98rem; letter-spacing: 0.08em; color: var(--ink); }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へとばす</a>
+<nav class="topbar" aria-label="ページの位置"><a class="home" href="../index.html"><picture><source srcset="../brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="../brand/logo-line.png" alt="ミミセカ" height="26"></picture></a><a href="index.html">シア</a><span class="lang"><a href="../en/scia/voice.html" hreflang="en" lang="en">English</a></span></nav>
+
+<header class="cover">
+  <div class="kicker">使い方</div>
+  <h1 class="mid">声も、速さも、<span class="shu">あなたに</span>。</h1>
+  <p class="one">はじめの質問で、だいたいのところは整います。<br>そこから先は、設定で少しずつ。聴きやすい声と速さ、語り方の選び方をまとめました。</p>
+</header>
+
+<div class="frame">
+<main id="main">
+
+  <section aria-labelledby="h-first">
+    <h2 class="sec-head" id="h-first">はじめの質問で、整うこと</h2>
+    <div class="prose">
+      <p>はじめて開いたとき、いくつか質問があります。「見え方について教えてください」「年齢を教えてください」など、多くて四つ。答えに合わせて、声・表示・読み上げが整います。</p>
+    </div>
+    <dl class="set-list">
+      <div><dt>見え方</dt><dd>写真の語り方（色や光の表現）が決まります。見えにくいと答えたときは、どう見えにくいかも聞きます。まぶしい・色が少ない方が見やすい、などの答えで、撮影画面の色の見えかたも変わります。</dd></div>
+      <div><dt>年齢</dt><dd>読み上げのはやさと、言葉づかいが決まります。</dd></div>
+      <div><dt>自動で読み上げるか</dt><dd>見えない・見えにくいと答えたときだけ聞きます。「はい」なら、物語や説明ができたら、すぐに声で流れます。</dd></div>
+    </dl>
+    <div class="notice">
+      答えたくない質問は、<span class="key">あとで決める</span>でとばせます。質問をやり直す口はありませんが、<b>決まったことは、どれも設定であとから変えられます。</b>VoiceOver を使っているかどうかは聞きません。アプリのほうで気づいて合わせます。
+    </div>
+  </section>
+
+  <section aria-labelledby="h-you">
+    <h2 class="sec-head" id="h-you">設定の「あなたに合わせる」</h2>
+    <div class="prose">
+      <p>設定は、思い出の一覧や撮影画面にある歯車のボタンから開きます。いちばん上の節が<span class="key">あなたに合わせる</span>です。多くの行は<b>「自動」</b>のままにしておくと、はじめの質問の答えに沿って選ばれます。</p>
+    </div>
+    <dl class="set-list">
+      <div><dt>言葉づかい</dt><dd>やさしい言葉／ふつう／ゆっくり丁寧。</dd></div>
+      <div><dt>色や光の表現</dt><dd>そのまま／控えめ／記憶を呼び起こす／触感で例える。違いは<a href="../accessibility.html#h-readers">アクセシビリティの頁</a>に。</dd></div>
+      <div><dt>色だけに頼らない</dt><dd>色の違いだけで何かを伝えないようにします。iPhone の「カラー以外で区別」がオンなら、自動でオンになります。</dd></div>
+      <div><dt>読み上げのはやさ</dt><dd>ゆっくり／ふつう／速め。声の速さは、ここで変えます。</dd></div>
+      <div><dt>紙の色</dt><dd>システムに合わせる／ライト／ダーク。ライトでは、物語が温かい紙の色で出ます。撮影画面はいつも暗いままです。</dd></div>
+    </dl>
+    <p class="note-line">迷ったら、節のいちばん下の<span class="key">すべて自動に戻す</span>で、言葉づかい・色や光の表現・色だけに頼らないが、はじめの答えに沿った値に戻ります。文字の大きさは、iPhone の設定の文字の大きさに合わせて変わります。</p>
+  </section>
+
+  <section aria-labelledby="h-listen">
+    <h2 class="sec-head" id="h-listen">設定の「聴くとき」</h2>
+    <dl class="set-list">
+      <div><dt>できあがったら読み上げる</dt><dd>物語や説明ができたら、そのまま朗読を始めます。切っておけば、聴きたいときに自分で再生します。</dd></div>
+      <div><dt>章の題を読み上げる</dt><dd>続けて聴くとき、章ごとに、本文と同じ声で題を読みます。</dd></div>
+      <div><dt>声の鼓動</dt><dd>朗読に合わせて iPhone がそっと震えます。オフ／間だけ／声に沿って。震え方の<span class="key">触覚のメリハリ</span>（ゆっくり／くっきり）も選べます。</dd></div>
+      <div><dt>消音モードでは案内を鳴らさない</dt><dd>消音モードのとき、操作の案内の声を止めます。物語や日記の朗読は鳴ります。VoiceOver を使っているときは、この行は出ず、いつも声が出ます。</dd></div>
+      <div><dt>案内を読み上げる</dt><dd>物語を作っているあいだの進み具合を、声で知らせます。案内の声は<span class="key">案内の声をえらぶ</span>で、日本語と英語に一つずつ選べます。</dd></div>
+    </dl>
+  </section>
+
+  <section aria-labelledby="h-voice">
+    <h2 class="sec-head" id="h-voice">朗読の声をえらぶ</h2>
+    <div class="prose">
+      <p>「聴くとき」の<span class="key">朗読の声をえらぶ</span>から、読むものごとに声を分けられます。声の名前に触れると、その声で試しに読み上げます。</p>
+    </div>
+    <dl class="set-list">
+      <div><dt>物語の声</dt><dd>物語を読む声。ここで、使う声の種類（下の三つ）もまとめて決めます。物語の気分に合わせて、<span class="key">明るい話の声</span>と<span class="key">静かな話の声</span>を分けることもできます。</dd></div>
+      <div><dt>説明の声</dt><dd>写真の説明を読む声。説明の話し方の<span class="key">ていねいの声</span>と<span class="key">やさしいの声</span>を分けることもできます。</dd></div>
+      <div><dt>シアの声</dt><dd>シアがあなたに話しかけるときの声。ひと月の手紙はこの声で届きます。</dd></div>
+      <div><dt>日記の声</dt><dd>日記を読む声。</dd></div>
+      <div><dt>英語の声</dt><dd>英語に訳した文章を読む声。一度でも翻訳した人にだけ出ます。</dd></div>
+    </dl>
+    <h3 class="sec-sub">声の種類</h3>
+    <dl class="set-list">
+      <div><dt>iPhone の声（システム音声）</dt><dd>どのプランでも使えます。iPhone の設定の<span class="key">アクセシビリティ</span>→<span class="key">読み上げコンテンツ</span>→<span class="key">声</span>で「拡張」の声を入れておくと、ぐっと聴きやすくなります。</dd></div>
+      <div><dt>多言語音声</dt><dd>十三の声から選べる AI の声。サポータープラン以上で。無料でも、物語化チケットで作った物語はこの声で読みます。</dd></div>
+      <div><dt>自然な日本語音声</dt><dd>話者と話し方まで選べる日本語の声。マスタープランか、スタンダードプラン以上に足せる「自然な日本語音声」のオプションで。</dd></div>
+    </dl>
+    <div class="notice">
+      ここで選んだ声は、<b>これから作る章</b>に使われます。もう読んだ章の声を変えるときは、その章の右上の ⋯ から<span class="key">朗読の声を変更</span>。本にまとめた章なら、本の ⋯ から<span class="key">朗読の声をまとめて変更</span>で一度に変えられます。
+    </div>
+    <p class="note-line">プランで使えない声も、試しに聴くことはできます。</p>
+  </section>
+
+  <section aria-labelledby="h-away">
+    <h2 class="sec-head" id="h-away">画面を消しても</h2>
+    <div class="prose">
+      <p>ほかのアプリに移っても、画面を消しても、朗読は続きます。ロック画面やコントロールセンター、AirPods から、再生・一時停止と、前後の章への移動ができます。</p>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<section class="creed" aria-label="むすび">
+  <p class="creed-line">同じ物語でも、<br>声が合うと、近くなる。<br>——<em>あなたの耳</em>に合わせて。</p>
+  <p class="more-center"><a href="../accessibility.html">耳と指先で、最後まで — アクセシビリティへの配慮 →</a></p>
+  <a class="back" href="index.html">← シアのページへもどる</a>　<a class="back" href="howto.html">使い方の全体へ →</a>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="../index.html">ミミセカ</a>
+    <a href="index.html">シア</a>
+    <a href="../lupe/index.html">ルペ</a>
+    <a href="../news.html">便り</a>
+    <a href="../about.html">私たち</a>
+    <a href="../accessibility.html">アクセシビリティ</a>
+    <a href="../contact.html">お問い合わせ</a>
+    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+  </div>
+  <p class="copyright">© 2026 MimiSeka Project</p>
+</footer>
+</body>
+</html>

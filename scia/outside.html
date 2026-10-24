@@ -6,8 +6,8 @@
 <title>アプリの外から — ミミセカ シア</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../site.css?v=20261024b">
-<script src="../site.js?v=20261024b" defer></script>
+<link rel="stylesheet" href="../site.css?v=20261024c">
+<script src="../site.js?v=20261024c" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
 <link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -28,7 +28,7 @@
   .steps-list { list-style: none; max-width: 34em; margin: 0 auto; counter-reset: step; border-top: 1px solid var(--hair); }
   .steps-list li { position: relative; padding: 16px 0; border-bottom: 1px solid var(--hair); counter-increment: step; }
   .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 18px; width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--hair); display: grid; place-items: center; font-family: var(--serif); font-size: 0.8rem; color: var(--shu); line-height: 1; }
-  .steps-list li b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
+  .steps-list li > b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
   .steps-list li p { font-size: 0.88rem; color: var(--ink-2); }
   .steps-list li p + p { margin-top: 6px; }
   .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
@@ -61,7 +61,7 @@
 <header class="cover">
   <div class="kicker">使い方</div>
   <h1 class="mid">開く前から、<span class="shu">そばに</span>。</h1>
-  <p class="one">ホーム画面に「今日の1枚」。コントロールセンターやロック画面に「写真を撮る」。<br>iPhone のほうにシアを置いておくと、アプリを探さなくても、ひと押しで届きます。</p>
+  <p class="one">ホーム画面に「今日の1枚」。コントロールセンターやロック画面に「写真を撮る」。写真アプリの共有からも。<br>iPhone のほうにシアを置いておくと、アプリを探さなくても、ひと押しで届きます。</p>
 </header>
 
 <div class="frame">
@@ -133,6 +133,28 @@
       </li>
     </ol>
     <p class="note-line">ほかに、ホーム画面のシアのアイコンを長押ししたときのメニューにも<span class="key">写真を撮る</span>があります。</p>
+  </section>
+
+  <section aria-labelledby="h-share">
+    <h2 class="sec-head" id="h-share">写真アプリの「共有」から</h2>
+    <div class="prose">
+      <p>写真アプリで見ている一枚にも、シアを開かずに説明をつけられます。共有の一覧にシアの<span class="key">ミミセカ&nbsp;シアで開く</span>が出るので、それを選ぶと、その場で説明が作られて、声で流れます。</p>
+    </div>
+    <ol class="steps-list">
+      <li>
+        <b>共有から選ぶ</b>
+        <p>写真アプリで一枚を開き、共有ボタンを押して、並んだアプリの中から<span class="key">ミミセカ&nbsp;シアで開く</span>を選びます。見つからないときは、並びの右端の<span class="key">その他</span>から足せます。</p>
+      </li>
+      <li>
+        <b>聴く</b>
+        <p>数秒で説明ができ、読み上げられます。VoiceOver のときは、二本指のダブルタップ（マジックタップ）で、もう一度聴けます。</p>
+      </li>
+      <li>
+        <b>使い道を選ぶ</b>
+        <p><span class="key">コピー</span>で説明だけを持ち帰ってメールやメッセージに貼れます。<span class="key">XにALT付きで投稿</span>なら、説明を代わりの言葉として添えて投稿します。カメラロールに説明つきで残したいときは<span class="key">ミミセカで保存</span>。シアが開いて、「ミミセカ」アルバムに説明つきの一枚が増えます。</p>
+      </li>
+    </ol>
+    <p class="note-line">一度に送れるのは一枚です。ここで作る説明も、アプリの中で作る説明と同じ回数に数えます。うまくいかないときは、一度シアを開いてから、もう一度試してください。</p>
   </section>
 
 </main>

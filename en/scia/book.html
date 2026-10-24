@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Making a book — MimiSeka Scia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../site.css?v=20261024c">
+<script src="../../site.js?v=20261024c" defer></script>
+<link rel="icon" type="image/png" sizes="64x64" href="../../brand/favicon.png">
+<link rel="apple-touch-icon" href="../../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F1E7">
+<link rel="alternate" hreflang="ja" href="https://mimiseka.jp/scia/book.html">
+<link rel="alternate" hreflang="en" href="https://mimiseka.jp/en/scia/book.html">
+<link rel="alternate" hreflang="x-default" href="https://mimiseka.jp/scia/book.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MimiSeka">
+<meta property="og:title" content="Making a book — MimiSeka Scia">
+<meta property="og:description" content="Give the chapters you choose a title and a foreword, and bind them into a book you can listen to from the start. Last month can become a book as it is, and photos can be shared with family.">
+<meta property="og:url" content="https://mimiseka.jp/en/scia/book.html">
+<meta property="og:image" content="https://mimiseka.jp/brand/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Give the chapters you choose a title and a foreword, and bind them into a book you can listen to from the start. Last month can become a book as it is, and photos can be shared with family.">
+<style>
+  .steps-list { list-style: none; max-width: 34em; margin: 0 auto; counter-reset: step; border-top: 1px solid var(--hair); }
+  .steps-list li { position: relative; padding: 16px 0; border-bottom: 1px solid var(--hair); counter-increment: step; }
+  .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 18px; width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--hair); display: grid; place-items: center; font-family: var(--serif); font-size: 0.8rem; color: var(--shu); line-height: 1; }
+  .steps-list li > b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
+  .steps-list li p { font-size: 0.88rem; color: var(--ink-2); }
+  .steps-list li p + p { margin-top: 6px; }
+  .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
+  .prose p + p { margin-top: 12px; }
+  .prose b { color: var(--ink); font-weight: 700; }
+  .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .note-line { max-width: 34em; margin: 16px auto 0; font-size: 0.8rem; color: var(--ink-3); }
+  /* 言い添えておきたいこと。派手にせず、朱の細い縦線だけ */
+  .notice { max-width: 34em; margin: 16px auto 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--shu); font-size: 0.84rem; color: var(--ink-2); }
+  .notice b { color: var(--ink); font-weight: 700; }
+  .more-center { text-align: center; margin-top: 26px; font-size: 0.86rem; }
+  /* 設定の行。名前（太字）と、選べるもの・効くところ */
+  .set-list { max-width: 34em; margin: 0 auto; border-top: 1px solid var(--hair); }
+  .set-list div { padding: 12px 0; border-bottom: 1px solid var(--hair); }
+  .set-list dt { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .set-list dd { margin: 2px 0 0; font-size: 0.86rem; color: var(--ink-2); }
+  .prose + .set-list, .prose + .steps-list { margin-top: 18px; }
+  .sec-sub { max-width: 34em; margin: 28px auto 10px; font-family: var(--serif); font-weight: 700; font-size: 0.98rem; letter-spacing: 0.08em; color: var(--ink); }
+  .steps-list li p b { color: var(--ink); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topbar" aria-label="Breadcrumb"><a class="home" href="../index.html"><picture><source srcset="../../brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="../../brand/logo-line.png" alt="MimiSeka" height="26"></picture></a><a href="index.html">Scia</a><span class="lang"><a href="../../scia/book.html" hreflang="ja" lang="ja">日本語</a></span></nav>
+
+<header class="cover">
+  <div class="kicker">How to use it</div>
+  <h1 class="mid">Scattered chapters, <span class="shu">bound into one</span>.</h1>
+  <p class="one">Three days away, one summer, a child’s year.<br>Give the chapters you choose a title and a foreword, bind them, and you have a book you can listen to from the start. Books can be made on every plan.</p>
+</header>
+
+<div class="frame">
+<main id="main">
+
+  <section aria-labelledby="h-make">
+    <h2 class="sec-head" id="h-make">Choose chapters, make a book</h2>
+    <ol class="steps-list">
+      <li>
+        <b>Select</b>
+        <p>Tap ⋯ (More) at the top of the bookshelf and choose <span class="key">Select</span>, and you can pick chapters. <span class="key">Select</span> is also in the menu when you touch and hold a chapter.</p>
+        <p>A book holds <b>up to 25 chapters</b>.</p>
+      </li>
+      <li>
+        <b>Create book</b>
+        <p>When you have chosen, tap <span class="key">Create book</span> at the bottom.</p>
+      </li>
+      <li>
+        <b>A title, and a foreword</b>
+        <p>Enter a <span class="key">Book title</span> (a book cannot be made without one). The <span class="key">Foreword</span> is optional: a few words of your own, shown on the cover.</p>
+      </li>
+      <li>
+        <b>Order the contents</b>
+        <p>Chapters start in the order they were taken, oldest first. Drag the handle at the right to reorder them. With VoiceOver, use each chapter’s actions <span class="key">Move up</span> and <span class="key">Move down</span>. When the order is right, tap <span class="key">Create</span>.</p>
+      </li>
+    </ol>
+    <p class="note-line">The chapters stay in Memories after they go into a book. The same chapter can go into as many books as you like.</p>
+  </section>
+
+  <section aria-labelledby="h-month">
+    <h2 class="sec-head" id="h-month">Last month, bound as it is</h2>
+    <div class="prose">
+      <p>At the bottom of <a href="letters.html#h-month">Last month in review</a>, which appears on Home at the start of each month, is <span class="key">Bind these into a book</span>. The photos you kept coming back to last month, and one from the same month last year, become its chapters.</p>
+      <p>The title is the month’s name, and <b>the foreword is the letter for the month that Scia sent you</b>, already filled in. You can change both.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-read">
+    <h2 class="sec-head" id="h-read">Opening a book, listening</h2>
+    <div class="prose">
+      <p>Your books appear when you choose <span class="key">Books</span> from the bookshelf’s <span class="key">Filter</span> (in the Home, card and list views). The cover is a collage of the chapters’ photos.</p>
+      <p>Open a book and you find the title, the number of chapters, the foreword, then the contents. <span class="key">Listen from the start</span> reads it aloud from chapter one onwards. Tap a chapter in the contents to open just that one.</p>
+    </div>
+    <h3 class="sec-sub">Changing it later</h3>
+    <dl class="set-list">
+      <div><dt>Remove or reorder chapters</dt><dd>From <span class="key">Edit</span> on the contents. Drag to reorder; swipe sideways to remove. A removed chapter stays in Memories.</dd></div>
+      <div><dt>Change the title</dt><dd><span class="key">Rename</span> in the book’s ⋯ menu at the top right.</dd></div>
+      <div><dt>Change all the voices</dt><dd><span class="key">Change reading voices</span> in the ⋯ menu changes the reading voice of every chapter at once.</dd></div>
+      <div><dt>Copy it into another book</dt><dd><span class="key">Duplicate book</span> in the ⋯ menu. Keep the original and make a version with a different title or chapters.</dd></div>
+      <div><dt>Delete the book</dt><dd><span class="key">Delete</span> in the ⋯ menu. Only the book goes; the chapters stay in Memories and the photos in the Photos app.</dd></div>
+    </dl>
+  </section>
+
+  <section aria-labelledby="h-give">
+    <h2 class="sec-head" id="h-give">Handing a book to someone</h2>
+    <div class="prose">
+      <p>A book, like a single photo, can be handed over as <b>a photograph you listen to</b>. From the book’s share button, choose <span class="key">Save photo with QR</span> or <span class="key">Send from LINE</span>. The person who receives it needs no app; it plays from the start in their browser. More in <a href="lookback.html">Looking back, and giving</a>.</p>
+    </div>
+    <div class="notice">
+      Because publishing a book makes an AI voice for each chapter, it needs the <b>Supporter plan or above</b>. The free trial (one photo) cannot be used for a book. Books of up to 25 chapters can be published, and while one is published, its title and chapters cannot be changed and it cannot be deleted.
+    </div>
+  </section>
+
+  <section aria-labelledby="h-family">
+    <h2 class="sec-head" id="h-family">Sharing photos with family</h2>
+    <div class="prose">
+      <p>To have the photos you take reach your family too, use a <b>Shared Album</b> in the iPhone’s Photos app. The photos Scia saves to the “MimiSeka” album are added to the shared album you choose as well.</p>
+    </div>
+    <ol class="steps-list">
+      <li>
+        <b>Make a shared album</b>
+        <p>In the Photos app’s <span class="key">Albums</span>, make a new shared album and invite your family (“MimiSeka family”, say).</p>
+      </li>
+      <li>
+        <b>Choose it in Scia</b>
+        <p>In Scia’s Settings, under <span class="key">Sharing</span>, turn on <span class="key">Auto-add to Shared Album</span>, then choose that shared album in the <span class="key">Album</span> row that appears.</p>
+      </li>
+    </ol>
+    <p class="note-line">Inviting people and who belongs are handled in the Photos app. To stop, turn the same setting off.</p>
+  </section>
+
+</main>
+</div>
+
+<section class="creed" aria-label="Closing">
+  <p class="creed-line">One at a time, they are memories.<br>Bound and heard through,<br>——they become <em>a season</em>.</p>
+  <p class="more-center"><a href="lookback.html">Looking back, and giving →</a></p>
+  <a class="back" href="index.html">← Back to the Scia page</a>　<a class="back" href="howto.html">To the full guide →</a>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="../index.html">MimiSeka</a>
+    <a href="index.html">Scia</a>
+    <a href="../lupe/index.html">Lupe</a>
+    <a href="../news.html">News</a>
+    <a href="../about.html">About us</a>
+    <a href="../accessibility.html">Accessibility</a>
+    <a href="../contact.html">Contact</a>
+    <a href="https://privacy.mimiseka.jp">Privacy policy</a>
+  </div>
+  <p class="copyright">© 2026 MimiSeka Project</p>
+</footer>
+</body>
+</html>

@@ -6,8 +6,8 @@
 <title>From outside the app — MimiSeka Scia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../../site.css?v=20261024b">
-<script src="../../site.js?v=20261024b" defer></script>
+<link rel="stylesheet" href="../../site.css?v=20261024c">
+<script src="../../site.js?v=20261024c" defer></script>
 <link rel="icon" type="image/png" sizes="64x64" href="../../brand/favicon.png">
 <link rel="apple-touch-icon" href="../../brand/apple-touch-icon.png">
 <meta name="theme-color" content="#F6F1E7">
@@ -28,7 +28,7 @@
   .steps-list { list-style: none; max-width: 34em; margin: 0 auto; counter-reset: step; border-top: 1px solid var(--hair); }
   .steps-list li { position: relative; padding: 16px 0; border-bottom: 1px solid var(--hair); counter-increment: step; }
   .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 18px; width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--hair); display: grid; place-items: center; font-family: var(--serif); font-size: 0.8rem; color: var(--shu); line-height: 1; }
-  .steps-list li b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
+  .steps-list li > b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
   .steps-list li p { font-size: 0.88rem; color: var(--ink-2); }
   .steps-list li p + p { margin-top: 6px; }
   .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
@@ -61,7 +61,7 @@
 <header class="cover">
   <div class="kicker">How to use it</div>
   <h1 class="mid">Close by, <span class="shu">before you open it</span>.</h1>
-  <p class="one">Today’s Photo on the Home Screen. Take a Photo in Control Centre and on the Lock Screen.<br>Keep Scia on the iPhone itself, and it is one press away, with no hunting for the app.</p>
+  <p class="one">Today’s Photo on the Home Screen. Take a Photo in Control Centre and on the Lock Screen. And Scia in the Photos app’s share sheet.<br>Keep Scia on the iPhone itself, and it is one press away, with no hunting for the app.</p>
 </header>
 
 <div class="frame">
@@ -133,6 +133,28 @@
       </li>
     </ol>
     <p class="note-line">There is also <span class="key">Take a Photo</span> in the menu that appears when you touch and hold Scia’s icon on the Home Screen.</p>
+  </section>
+
+  <section aria-labelledby="h-share">
+    <h2 class="sec-head" id="h-share">From Share, in the Photos app</h2>
+    <div class="prose">
+      <p>A photo you are looking at in the Photos app can be given a description without opening Scia. Choose <span class="key">Open in MimiSeka&nbsp;Scia</span> from the share sheet, and a description is written there and then, and read aloud.</p>
+    </div>
+    <ol class="steps-list">
+      <li>
+        <b>Choose it from Share</b>
+        <p>Open a photo in the Photos app, tap the share button, and choose <span class="key">Open in MimiSeka&nbsp;Scia</span> from the row of apps. If it is not there, add it from <span class="key">More</span> at the end of the row.</p>
+      </li>
+      <li>
+        <b>Listen</b>
+        <p>The description is ready in a few seconds and read aloud. With VoiceOver, a two-finger double tap (the Magic Tap) plays it again.</p>
+      </li>
+      <li>
+        <b>Choose what to do with it</b>
+        <p><span class="key">Copy</span> takes just the description, to paste into an email or a message. <span class="key">Post to X with ALT</span> posts the photo with the description as its alternative text. To keep it in the camera roll with its description, choose <span class="key">Save in MimiSeka</span>: Scia opens, and the photo, with its description, is added to the “MimiSeka” album.</p>
+      </li>
+    </ol>
+    <p class="note-line">You can send one photo at a time. A description made here counts the same as one made in the app. If something goes wrong, open Scia once, then try again.</p>
   </section>
 
 </main>

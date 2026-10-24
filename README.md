@@ -6,6 +6,9 @@
 index.html          ブランドの頁（問い・一枚聴いてみる・アプリの入口・便り・出発点・締め）
 scia/index.html     ミミセカ シア
 scia/camera.html    カメラとしても、ちゃんと
+scia/voice.html     声と読み上げを、自分に合わせる（はじめの質問・あなたに合わせる・聴くとき・朗読の声）
+scia/book.html      本にする（本を作る・先月の並びを本に・本を渡す・家族と共有アルバム）
+scia/translate.html 英語にする（翻訳・マスタープラン）
 scia/outside.html   アプリの外から（ホーム画面のウィジェット「今日の1枚」・コントロールの「写真を撮る」）
 scia/letters.html   手紙が届く（1.3 で加わったこと: 今日の手紙・ひと月の手紙・説明の話し方）
 lupe/index.html     ミミセカ ルペ（近日公開）

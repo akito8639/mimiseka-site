@@ -23,6 +23,19 @@ window.TAYORI = [
     date: "2026-10-24",
     kind: "お知らせ",
     app: "シア",
+    title: "使い方に、声・本・英語の三つの頁を加えました",
+    body: "聴きやすい声と速さの選び方、選んだ章を一冊の本にする方法、物語を英語に訳して聴く方法を、それぞれ 1 ページにまとめました。「アプリの外から」には、写真アプリの共有から説明をつける方法も足しています。",
+    link: "scia/howto.html",
+    en: {
+      kind: "Notice", app: "Scia",
+      title: "Three new guides: the voice, books, and English",
+      body: "One page each on choosing a voice and pace that suit you, binding chapters into a book, and translating a story into English to listen to. “From outside the app” now also covers adding a description from the Photos share sheet."
+    }
+  },
+  {
+    date: "2026-10-24",
+    kind: "お知らせ",
+    app: "シア",
     title: "使い方に「アプリの外から」を加えました",
     body: "ホーム画面のウィジェット「今日の1枚」と、コントロールセンターやロック画面、アクションボタン、背面タップから開く「写真を撮る」。iPhone のほうにシアを置く方法を、1 ページにまとめました。",
     link: "scia/outside.html",
