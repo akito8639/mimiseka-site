@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>アプリの外から — ミミセカ シア</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../site.css?v=20261024b">
+<script src="../site.js?v=20261024b" defer></script>
+<link rel="icon" type="image/png" sizes="64x64" href="../brand/favicon.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F1E7">
+<link rel="alternate" hreflang="ja" href="https://mimiseka.jp/scia/outside.html">
+<link rel="alternate" hreflang="en" href="https://mimiseka.jp/en/scia/outside.html">
+<link rel="alternate" hreflang="x-default" href="https://mimiseka.jp/scia/outside.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ミミセカ">
+<meta property="og:title" content="アプリの外から — ミミセカ シア">
+<meta property="og:description" content="ホーム画面に「今日の1枚」。コントロールセンターやロック画面に「写真を撮る」。アプリを開く前から、シアに手が届きます。">
+<meta property="og:url" content="https://mimiseka.jp/scia/outside.html">
+<meta property="og:image" content="https://mimiseka.jp/brand/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="ホーム画面に「今日の1枚」。コントロールセンターやロック画面に「写真を撮る」。アプリを開く前から、シアに手が届きます。">
+<style>
+  .steps-list { list-style: none; max-width: 34em; margin: 0 auto; counter-reset: step; border-top: 1px solid var(--hair); }
+  .steps-list li { position: relative; padding: 16px 0; border-bottom: 1px solid var(--hair); counter-increment: step; }
+  .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 18px; width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--hair); display: grid; place-items: center; font-family: var(--serif); font-size: 0.8rem; color: var(--shu); line-height: 1; }
+  .steps-list li b { display: block; padding-left: 3.2em; font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 2px; }
+  .steps-list li p { font-size: 0.88rem; color: var(--ink-2); }
+  .steps-list li p + p { margin-top: 6px; }
+  .prose { max-width: 34em; margin: 0 auto; font-size: 0.9rem; color: var(--ink-2); }
+  .prose p + p { margin-top: 12px; }
+  .prose b { color: var(--ink); font-weight: 700; }
+  .key { font-family: var(--serif); font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .prose + .steps-list { margin-top: 18px; }
+  .note-line { max-width: 34em; margin: 16px auto 0; font-size: 0.8rem; color: var(--ink-3); }
+  /* 言い添えておきたいこと。派手にせず、朱の細い縦線だけ */
+  .notice { max-width: 34em; margin: 16px auto 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--shu); font-size: 0.84rem; color: var(--ink-2); }
+  .notice b { color: var(--ink); font-weight: 700; }
+  .more-center { text-align: center; margin-top: 26px; font-size: 0.86rem; }
+  /* 挿絵。線は髪線と本文色、朱は「シアの置き場所」ひとつだけ。文字は入れない（翻訳不要）*/
+  .step-art { margin: 10px 0 16px; }
+  .step-art svg { display: block; width: 100%; max-width: 360px; height: auto; margin-inline: auto; }
+  .step-art svg .ph { fill: var(--ground-raised); stroke: var(--ink-3); stroke-width: 1.5; }
+  .step-art svg .sc { fill: var(--ground-inset); stroke: var(--hair); stroke-width: 1; }
+  .step-art svg .bar { fill: var(--ink-3); opacity: 0.35; }
+  .step-art svg .isl { fill: var(--ink-3); opacity: 0.55; }
+  .step-art svg .hr { fill: none; stroke: var(--hair); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .ac { fill: none; stroke: var(--shu); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-art svg .acf { fill: var(--shu); }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へとばす</a>
+<nav class="topbar" aria-label="ページの位置"><a class="home" href="../index.html"><picture><source srcset="../brand/logo-line-dark.png" media="(prefers-color-scheme: dark)"><img src="../brand/logo-line.png" alt="ミミセカ" height="26"></picture></a><a href="index.html">シア</a><span class="lang"><a href="../en/scia/outside.html" hreflang="en" lang="en">English</a></span></nav>
+
+<header class="cover">
+  <div class="kicker">使い方</div>
+  <h1 class="mid">開く前から、<span class="shu">そばに</span>。</h1>
+  <p class="one">ホーム画面に「今日の1枚」。コントロールセンターやロック画面に「写真を撮る」。<br>iPhone のほうにシアを置いておくと、アプリを探さなくても、ひと押しで届きます。</p>
+</header>
+
+<div class="frame">
+<main id="main">
+
+  <section aria-labelledby="h-widget">
+    <h2 class="sec-head" id="h-widget">ホーム画面に「今日の1枚」</h2>
+    <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(128,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="10" y="22" width="84" height="40" rx="8"/><rect class="acf" x="10" y="22" width="40" height="40" rx="8" opacity="0.18"/><rect class="ac" x="10" y="22" width="84" height="40" rx="8"/><path class="hr" d="M14 58l12-14 8 7 6-5 10 10"/><rect class="bar" x="56" y="30" width="30" height="3" rx="1.5"/><rect class="bar" x="56" y="38" width="22" height="4" rx="2"/><rect class="bar" x="56" y="52" width="32" height="3" rx="1.5"/><rect class="sc" x="12" y="74" width="16" height="16" rx="4"/><rect class="sc" x="34" y="74" width="16" height="16" rx="4"/><rect class="sc" x="56" y="74" width="16" height="16" rx="4"/><rect class="sc" x="78" y="74" width="16" height="16" rx="4"/><rect class="sc" x="12" y="98" width="16" height="16" rx="4"/><rect class="sc" x="34" y="98" width="16" height="16" rx="4"/><rect class="sc" x="56" y="98" width="16" height="16" rx="4"/><rect class="sc" x="78" y="98" width="16" height="16" rx="4"/><rect class="sc" x="10" y="150" width="84" height="20" rx="10"/></g></svg></div>
+    <div class="prose">
+      <p>ホーム画面に、シアの本棚から<b>毎日 1 枚</b>が並びます。「3年前の同じ日」のような、その一枚を選んだわけと、撮った場所、日付、そして短い問いがひとつ。タップすると、その写真の章が開いて、そのまま話しかけられます。</p>
+      <p>何枚たまっているか、何日話していないか、といったことは出しません。<b>差し出すだけで、急かしません。</b>一枚は日付が変わると替わり、アプリを開かない日が続いても、一週間ほどは毎朝ちがう顔になります。</p>
+    </div>
+    <ol class="steps-list">
+      <li>
+        <b>ホーム画面を長押し</b>
+        <p>アイコンのない所を指で押したままにして、左上の<span class="key">編集</span>から<span class="key">ウィジェットを追加</span>を選びます。</p>
+      </li>
+      <li>
+        <b>「ミミセカ」を探す</b>
+        <p>上の検索欄に「ミミセカ」と入れ、<span class="key">ミミセカ シア</span>を選びます。</p>
+      </li>
+      <li>
+        <b>大きさを選んで置く</b>
+        <p><span class="key">今日の1枚</span>は二つの大きさがあります。小さいほうは写真が主役、横長のほうは写真の隣に文が並びます。選んで<span class="key">ウィジェットを追加</span>を押せば、ホーム画面に置かれます。</p>
+      </li>
+    </ol>
+    <div class="notice">
+      まだ一枚も残していないうちは、「写真を撮って、話しかける」とだけ出て、タップするとシアが開きます。写真が本棚に入ると、翌日からその一枚が並びはじめます。
+    </div>
+    <p class="note-line">VoiceOver では、ウィジェットに触れると「ふりかえる。」に続けて、選んだわけ・場所・日付を読み、「話しかけますか」と結びます。スタンバイの画面やロック中は、写真と文が伏せられます。</p>
+  </section>
+
+  <section aria-labelledby="h-control">
+    <h2 class="sec-head" id="h-control">コントロールセンターに「写真を撮る」</h2>
+    <div class="step-art"><svg viewBox="0 0 360 200" role="img" aria-hidden="true" focusable="false"><g transform="translate(56,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="sc" x="12" y="24" width="38" height="38" rx="10"/><rect class="sc" x="54" y="24" width="38" height="38" rx="10"/><circle class="hr" cx="22" cy="74" r="8"/><circle class="hr" cx="42" cy="74" r="8"/><circle class="hr" cx="62" cy="74" r="8"/><circle class="hr" cx="82" cy="74" r="8"/><rect class="sc" x="12" y="88" width="17" height="38" rx="8.5"/><rect class="sc" x="33" y="88" width="17" height="38" rx="8.5"/><circle class="hr" cx="62" cy="98" r="8"/><circle class="acf" cx="82" cy="98" r="9" opacity="0.18"/><circle class="ac" cx="82" cy="98" r="9"/><rect class="ac" x="77.5" y="95" width="9" height="6.5" rx="1.5"/><circle class="ac" cx="82" cy="98.3" r="1.6"/><circle class="hr" cx="62" cy="118" r="8"/><circle class="hr" cx="82" cy="118" r="8"/></g><path class="ac" d="M171 100h18m0 0-5-5m5 5-5 5"/><g transform="translate(200,12)"><rect class="ph" x="0" y="0" width="104" height="176" rx="14"/><rect class="isl" x="39" y="6" width="26" height="5" rx="2.5"/><rect class="bar" x="34" y="26" width="36" height="4" rx="2"/><rect class="bar" x="24" y="36" width="56" height="12" rx="4"/><rect class="sc" x="20" y="64" width="64" height="30" rx="8"/><circle class="hr" cx="22" cy="156" r="9"/><circle class="acf" cx="82" cy="156" r="10" opacity="0.18"/><circle class="ac" cx="82" cy="156" r="10"/><rect class="ac" x="77" y="152.5" width="10" height="7" rx="1.5"/><circle class="ac" cx="82" cy="156.2" r="1.8"/></g></svg></div>
+    <div class="prose">
+      <p>撮りたいと思ったとき、ホーム画面に戻ってアイコンを探さなくても、<b>ひと押しでシアのカメラが開きます。</b>コントロールセンターにも、ロック画面の下のボタンにも置けます（iOS&nbsp;18 以降）。</p>
+      <p>ロック中に押したときは、Face&nbsp;ID などでロックが外れたあと、シアがカメラの画面で開きます。</p>
+    </div>
+    <ol class="steps-list">
+      <li>
+        <b>コントロールセンターをひらく</b>
+        <p>画面の右上から下へスワイプします。VoiceOver のときは、画面のいちばん上の行に触れてから、三本指で下へスワイプします。</p>
+      </li>
+      <li>
+        <b>コントロールを足す</b>
+        <p>左上の<span class="key">＋</span>を押し、下に出る<span class="key">コントロールを追加</span>を選びます。検索欄に「ミミセカ」と入れ、<span class="key">写真を撮る</span>を選べば、空いている場所に置かれます。</p>
+      </li>
+    </ol>
+    <div class="notice">
+      <b>ロック画面に置くなら。</b>ロック画面を長押しして<span class="key">カスタマイズ</span>、<span class="key">ロック画面</span>と進みます。下の左右にあるボタンの<span class="key">−</span>で今のものを外し、空いた所の<span class="key">＋</span>から<span class="key">写真を撮る</span>を選びます。
+    </div>
+  </section>
+
+  <section aria-labelledby="h-button">
+    <h2 class="sec-head" id="h-button">ボタンや、背面のタップから</h2>
+    <div class="prose">
+      <p><b>アクションボタン</b>のある iPhone（iPhone&nbsp;15&nbsp;Pro 以降）なら、本体の横のボタンにも置けます。設定の<span class="key">アクションボタン</span>で、横にスワイプして<span class="key">コントロール</span>を選び、<span class="key">写真を撮る</span>を選びます。長押しで、シアのカメラが開きます。</p>
+      <p>iPhone の<b>ショートカット</b>アプリにも、シアの<span class="key">ミミセカ シア で写真を撮る</span>が入っています。これを一つだけ入れたショートカットを作っておくと、Siri に名前を呼んで開いたり、<b>背面タップ</b>に割り当てたりできます。</p>
+    </div>
+    <ol class="steps-list">
+      <li>
+        <b>ショートカットを作る</b>
+        <p>ショートカットアプリで新しいショートカットを作り、<span class="key">アクションを追加</span>から「ミミセカ」で探して、<span class="key">ミミセカ シア で写真を撮る</span>を足します。名前は、呼びやすいものに変えておきます。</p>
+      </li>
+      <li>
+        <b>背面タップに割り当てる</b>
+        <p>設定の<span class="key">アクセシビリティ</span>、<span class="key">タッチ</span>、<span class="key">背面タップ</span>と進み、<span class="key">ダブルタップ</span>か<span class="key">トリプルタップ</span>に、いま作ったショートカットを選びます。iPhone の背中を指で二度（三度）たたくと、シアのカメラが開きます。</p>
+      </li>
+    </ol>
+    <p class="note-line">ほかに、ホーム画面のシアのアイコンを長押ししたときのメニューにも<span class="key">写真を撮る</span>があります。</p>
+  </section>
+
+</main>
+</div>
+
+<section class="creed" aria-label="むすび">
+  <p class="creed-line">アプリを探すあいだに、<br>光は変わってしまう。<br>——だから、<em>すぐ手の届く所</em>に。</p>
+  <p class="more-center"><a href="camera.html">カメラとしても、ちゃんと →</a></p>
+  <a class="back" href="index.html">← シアのページへもどる</a>　<a class="back" href="howto.html">使い方の全体へ →</a>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="../index.html">ミミセカ</a>
+    <a href="index.html">シア</a>
+    <a href="../lupe/index.html">ルペ</a>
+    <a href="../news.html">便り</a>
+    <a href="../about.html">私たち</a>
+    <a href="../accessibility.html">アクセシビリティ</a>
+    <a href="../contact.html">お問い合わせ</a>
+    <a href="https://privacy.mimiseka.jp">プライバシーポリシー</a>
+  </div>
+  <p class="copyright">© 2026 MimiSeka Project</p>
+</footer>
+</body>
+</html>

@@ -21,6 +21,19 @@ window.TAYORI_L = (it) =>
 window.TAYORI = [
   {
     date: "2026-10-24",
+    kind: "お知らせ",
+    app: "シア",
+    title: "使い方に「アプリの外から」を加えました",
+    body: "ホーム画面のウィジェット「今日の1枚」と、コントロールセンターやロック画面、アクションボタン、背面タップから開く「写真を撮る」。iPhone のほうにシアを置く方法を、1 ページにまとめました。",
+    link: "scia/outside.html",
+    en: {
+      kind: "Notice", app: "Scia",
+      title: "A new guide: from outside the app",
+      body: "The Today’s Photo widget for the Home Screen, and Take a Photo from Control Centre, the Lock Screen, the Action button or Back Tap. One page on keeping Scia on the iPhone itself."
+    }
+  },
+  {
+    date: "2026-10-24",
     kind: "更新",
     app: "シア",
     title: "シア 1.3 で、手紙が届くようになりました",

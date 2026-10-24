@@ -6,6 +6,7 @@
 index.html          ブランドの頁（問い・一枚聴いてみる・アプリの入口・便り・出発点・締め）
 scia/index.html     ミミセカ シア
 scia/camera.html    カメラとしても、ちゃんと
+scia/outside.html   アプリの外から（ホーム画面のウィジェット「今日の1枚」・コントロールの「写真を撮る」）
 scia/letters.html   手紙が届く（1.3 で加わったこと: 今日の手紙・ひと月の手紙・説明の話し方）
 lupe/index.html     ミミセカ ルペ（近日公開）
 news.html           便り（一覧）— 中身は tayori.js が正本

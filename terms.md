@@ -200,6 +200,19 @@
 | 声を添える | 撮るときにひとこと録音して残す。アプリの ⋯ メニューの表示は「録音」 | adding a voice (the app's label is Voice) |
 | 写真から選ぶ | カメラロールの写真をあとから取り込む。ホームのボタン名 | choose from photos |
 
+## アプリの外（2026-10-24）
+
+アプリを開かずに使えるもの。名前はアプリの表示どおり。頁は `scia/outside.html`（題は「アプリの外から」）。
+
+| 名前 | 何のこと | English |
+|---|---|---|
+| 今日の1枚 | ホーム画面のウィジェット。本棚から毎日 1 枚、選んだわけ・場所・日付・問い。タップでその章が開く。数字は「1」（アプリの表示どおり。ホームの「今日の一枚」とは書き分ける） | Today’s Photo |
+| 写真を撮る | コントロールセンター・ロック画面・アクションボタンに置くボタン。押すとシアがカメラの画面で開く。アイコン長押しのメニューにも同じ名前で出る | Take a Photo |
+| ミミセカ シア で写真を撮る | ショートカットアプリに出るアクションの名前。背面タップや Siri から使うときはこれ | Take a Photo with MimiSeka Scia |
+
+- iPhone の側の名前（コントロールセンター・ロック画面・アクションボタン・背面タップ・スタンバイ）は Apple の日本語表示どおり。英語版は英国の表記（Control Centre, Customise）。
+- 本体のカメラボタン（Camera Control）には置けない。サイトでも書かない。
+
 ## はじめの設定
 
 | 名前 | 何のこと | English |
@@ -220,4 +233,5 @@
 - 画面の表示と英語: `Shared/Localizable.xcstrings`
 - 今日の手紙: `SenseLitScia/JournalingMirror.swift`
 - ひと月の手紙: `SenseLitScia/MonthlyRecap.swift` と `SenseLitScia/MonthlyNarration.swift`
+- アプリの外: `SenseLitSciaWidget/`（`SciaDailyPhotoWidget.swift`・`SciaControlWidget.swift`・`SciaCaptureIntent.swift`）と `SenseLitScia/ja.lproj/InfoPlist.strings`
 - シアの声: `Shared/SciaVoice.swift` と `.claude/plans/2026-10-07-scia-voice.md`
